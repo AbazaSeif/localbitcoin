@@ -1,0 +1,20 @@
+@font-face{
+    font-family: Roboto;
+    src: url(/template/localbitcoins/fonts/Roboto-Bold.ttf);
+}
+@font-face{
+    font-family: RobotoBlack;
+    src: url(/template/localbitcoins/fonts/Roboto-Black.ttf);
+}
+@font-face{
+    font-family: RobotoRegular;
+    src: url(/template/localbitcoins/fonts/Roboto-Regular.ttf);
+}
+@font-face{
+    font-family: RobotoMedium;
+    src: url(/template/localbitcoins/fonts/Roboto-Medium.ttf);
+}
+@font-face{
+    font-family: FoundryBold;
+    src: url(/template/localbitcoins/fonts/foundrysterlingot3bold.ttf);
+}

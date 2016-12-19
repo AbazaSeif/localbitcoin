@@ -1,0 +1,1453 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+a{
+    text-decoration: none;
+}
+li{
+    list-style: none;
+}
+/*
+----------
+Header style,menu
+----------
+*/
+header{
+    height: 117px;
+    background: #fff;
+    -webkit-box-shadow: 0 1px 21px 0 rgba(50, 50, 50, 0.2);
+    -moz-box-shadow:    0 1px 21px 0 rgba(50, 50, 50, 0.2);
+    box-shadow:         0 1px 21px 0 rgba(50, 50, 50, 0.2);
+}
+.in-bg{
+    height: 117px;
+    background: #fafbfc;
+}
+.in-bg-main{
+    background: #e7e7e7;
+}
+body{
+    background: #e7e7e7;
+}
+#img-ava{
+    width: 40px;
+    height: 80px;
+    float: left;
+    padding-top: 37px;
+}
+#name-user{
+    font: bold 13px Arial;
+    color: #758694;
+    position: relative;
+    cursor: pointer;
+}
+#name-user:after{
+    content: url("/template/localbitcoins/img/icon/arr-bot.png");
+    margin-left: 7px;
+    margin-top: 1px;
+    position: absolute;
+}
+#name-ava{
+    width: 143px;
+    height: 70px;
+    float: left;
+    padding-top: 47px;
+    padding-left: 15px;
+}
+#window-autor{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: rgba(0,0,0,0.7);
+    z-index: 100;
+    display: none;
+}
+#block-auht{
+    width: 280px;
+    height: 410px;
+    background: #fff;
+    margin: 10% auto;
+    border-radius: 5px;
+    padding-top: 50px;
+    padding-left: 60px;
+}
+#block-auht h3{
+    font: bold 16px Arial;
+    color: #758694;
+    margin-left: 35px;
+    margin-bottom: 45px;
+}
+#next-auht{
+    width: 220px;
+    height: 55px;
+    border-radius: 5px;
+    font: bold 16px Arial;
+    color: #fff;
+    background: #00aeff;
+    border: 1px solid #00aeff;
+    cursor: pointer;
+    margin-top: 45px;
+}
+#next-auht-link{
+    width: 220px;
+    height: 35px;
+    display: block;
+    border-radius: 5px;
+    font: bold 16px Arial;
+    color: #fff;
+    background: #00aeff;
+    border: 1px solid #00aeff;
+    cursor: pointer;
+    margin-top: 45px;
+    text-align: center;
+    padding-top: 20px;
+}
+.link-aurt{
+    text-align: center;
+    width: 220px;
+    height: auto;
+    padding-top: 30px;
+}
+.link-aurt a{
+    font: bold 11px Arial;
+    color: #a1afbb;
+}
+.link-aurt a:hover{
+    border-bottom: 1px dashed #a1afbb;
+}
+#block-auht img{
+    position: absolute;
+    margin-top: -4px;
+}
+.main-inp{
+     width: 200px;
+     height: 40px;
+     border-radius: 4px;
+     background: #fafbfc;
+     border: 1px solid #fafbfc;
+     font: bold 11px Arial;
+     color: #758694;
+    padding-left: 20px;
+    margin-bottom: 10px;
+ }
+#cap-form{
+    width: 90px;
+    height: 40px;
+    border-radius: 4px;
+    background: #fafbfc;
+    border: 1px solid #fafbfc;
+    font: bold 11px Arial;
+    color: #758694;
+    text-align: center;
+    float: left;
+    margin-left: 10px;
+}
+#capcha{
+    width: 117px;
+    height: 33px;
+    border-radius: 4px;
+    background: #3a444d;
+    border: 1px solid #3a444d;
+    display: block;
+    font: bold 22px Arial;
+    color: #fff;
+    padding-top: 7px;
+    text-align: center;
+    float: left;
+}
+#header-content{
+    width: 1200px;
+    height: 100%;
+    margin: 0 auto;
+}
+#logo-head{
+    width: 190px;
+    height: 87px;
+    padding-top: 30px;
+    float: left;
+}
+#logo-head-inter{
+    width: 200px;
+    height: 77px;
+    padding-top: 40px;
+    float: left;
+}
+#pocup-main{
+    width: 230px;
+    height: 85px;
+    float: left;
+    padding-top: 32px;
+}
+.buy-btn{
+    width: 100px;
+    height: 35px;
+    background: #f3f5f6;
+    font: bold 13px Arial;
+    color: #758694;
+    border-radius: 3px 0 0 3px;
+   text-align: center;
+    padding-top: 20px;
+    float: left;
+    position: relative;
+    cursor: pointer;
+}
+.buy-btn:after{
+    content: url("/template/localbitcoins/img/icon/arr-left.png");
+    position: absolute;
+    right: 0;
+}
+.sell-btn:before{
+    content: url("/template/localbitcoins/img/icon/arr-right.png");
+    position: absolute;
+    left: 0;
+}
+.buy-btn:hover:after ,.sell-btn:hover, .active_top{
+    background: #ff4200;
+    color: #fff;
+}
+.sell-btn{
+    width: 100px;
+    height: 35px;
+    background: #f3f5f6;
+    font: bold 13px Arial;
+    color: #758694;
+    border-radius: 0 3px 3px 0;
+    text-align: center;
+    padding-top: 20px;
+    float: left;
+    cursor: pointer;
+    position: relative;
+}
+#navig-top{
+    width: 410px;
+    height: 70px;
+    float: left;
+    padding-top: 47px;
+}
+#navig-top-inter{
+    width: 800px;
+    height: 70px;
+    float: left;
+    padding-top: 47px;
+}
+#navig-top-inter ul{
+    float: right;
+    margin-right: 30px;
+}
+#navig-top-inter li{
+    float: left;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+#navig-top-inter a{
+    font: 13px FoundryBold;
+    color: #758694;
+    text-transform: uppercase;
+}
+#navig-top-inter a:hover{
+    color: #ff4200;
+}
+#navig-top li{
+    float: left;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+#navig-top a{
+    font: 13px FoundryBold;
+    color: #758694;
+    text-transform: uppercase;
+}
+#navig-top a:hover{
+    color: #ff4200;
+}
+#lk-top{
+    width: 360px;
+    height: 100%;
+    float: left;
+}
+#lk-top-inter{
+    width: 200px;
+    height: 100%;
+    float: left;
+}
+#btn-lk{
+    width: 164px;
+    height: 65px;
+    background: #f3f5f6;
+    color: #758694;
+    font: bold 13px Arial;
+    padding-top: 52px;
+    padding-left: 35px;
+    float: left;
+}
+#btn-reg{
+    width: 110px;
+    height: 65px;
+    background: #00aeff;
+    color: #fff;
+    font: bold 13px Arial;
+    padding-top: 52px;
+    padding-left: 50px;
+    float: left;
+}
+
+#btn-reg img{
+    position: absolute;
+    margin-left: -20px;
+    margin-top: -2px;
+}
+#btn-lk:hover{
+    background: #ebebeb;
+}
+#btn-reg:hover{
+    background: #4ebbee;
+}
+/*
+----------
+Slider main
+----------
+*/
+#vidio-block{
+    width: 1200px;
+    margin: 0 auto;
+    height: 420px;
+    background: #000;
+}
+#slide-main-content{
+    width: 1200px;
+    position: relative;
+    margin: 0 auto;
+}
+#blue{
+    font-size: 25px;
+    color: #00aeff;
+}
+#slide-main{
+    width: 1200px;
+    height: 240px;
+    margin: 0 auto;
+    padding-top: 20px;
+    text-align: center;
+    position: relative;
+}
+#texture-slide{
+    width: 100%;
+    height: 100%;
+    background: url("/template/localbitcoins/img/headet-texture.png") no-repeat top center;
+    position: absolute;
+    margin: 0 auto;
+}
+#slide-main h3{
+    font: bold 20px Arial;
+    color: #758694;
+    margin-bottom: 50px;
+}
+#slide-main a{
+    font: bold 15px Arial;
+    color: #fff;
+    width: 280px;
+    padding: 20px;
+    display: block;
+    background: #ff4200;
+    margin: 0 auto;
+    border-radius: 3px;
+}
+/*
+--------------
+search tools
+--------------
+*/
+#main-toolssr{
+    width: 1200px;
+    margin: 0 auto;
+    margin-bottom: 60px;
+}
+#top-tools{
+    width: 775px;
+    height: 55px;
+    padding-left: 425px;
+}
+.bue-value{
+    text-align: center;
+    float: left;
+    width: 170px;
+    height: 35px;
+    border: 1px solid #eef1f3;
+    cursor: pointer;
+    padding-top: 19px;
+    font: bold 14px Arial;
+    color: #758694;
+    border-radius: 5px 0 0 0;
+}
+.bue-value:hover,.sell-value:hover, .active{
+    background: #fcfdfd;
+    color: #ff4200;
+}
+.sell-value{
+    text-align: center;
+    float: left;
+    width: 170px;
+    height: 35px;
+    border: 1px solid #eef1f3;
+    cursor: pointer;
+    padding-top: 19px;
+    font: bold 14px Arial;
+    color: #758694;
+    border-radius: 0 5px 0 0;
+    border-left: 0;
+}
+#search-panel{
+    width: 1186px;
+    height: 41px;
+    padding: 7px;
+    border: 2px solid #fff;
+    border-radius: 3px;
+    margin-bottom: 60px;
+    margin-top: 60px;
+}
+.pole-text{
+    width: 265px;
+    height: 40px;
+    background: #fcfdfd;
+    border: 1px solid #eef1f3;
+    border-radius: 3px;
+    font:bold 13px Arial;
+    font-style: italic;
+    color: #c2ccd3;
+    padding-left: 15px;
+    margin-right: 9px;
+    outline:0;
+}
+.bank-valut{
+    width: 265px;
+    height: 40px;
+    background: #fcfdfd;
+    border: 1px solid #eef1f3;
+    border-radius: 3px;
+    font: bold 13px Arial;
+    color: #758694;
+    padding-left: 15px;
+    outline: 0;
+    margin-right: 9px;
+}
+.btn-search{
+    outline: 0;
+     width: 40px;
+     height: 40px;
+     border-radius: 3px;
+     border: 1px solid #eef1f3;
+     background: #fff;
+     cursor: pointer;
+ }
+.btn-search:hover{
+    background: #f3f3f3;
+}
+#table-main{
+    width: 1200px;
+    border-radius: 5px;
+    -webkit-box-shadow: 0px 1px 21px 0px rgba(50, 50, 50, 0.2);
+    -moz-box-shadow:    0px 1px 21px 0px rgba(50, 50, 50, 0.2);
+    box-shadow:         0px 1px 21px 0px rgba(50, 50, 50, 0.2);
+}
+#table-main table{
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    border: 0;
+}
+#table-main th{
+    background: #5b6b78;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    font: bold 15px Arial;
+    color: #ffffff;
+}
+#table-main td{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font:bold 15px Arial;
+    color: #758694;
+    text-align: center;
+    border-bottom: 1px solid #ecf0f3;
+}
+.color-table{
+    font: bold 16px Arial;
+    color: #00aeff;
+}
+#full-table{
+    display: none;
+}
+#btn-full-table{
+    width: 270px;
+    margin: 65px auto;
+    text-align: center;
+    font: bold 17px Arial;
+    color: #758694;
+    position: relative;
+    cursor: pointer;
+}
+#btn-full-table:before{
+    content: url("/template/localbitcoins/img/icon/btn-icon.png");
+    position: absolute;
+    left: -30px;
+    top:0;
+}
+.btn-bue-table{
+    display: block;
+    text-align: center;
+    border-radius: 3px;
+    border:1px solid #758694;
+    font:bold 15px Arial;
+    color: #758694;
+    padding-top: 13px;
+    width: 100px;
+    padding-left: 18px;
+    height: 32px;
+    position: relative;
+}
+.btn-bue-table:before{
+    content: url("/template/localbitcoins/img/icon/bue.png");
+    position: absolute;
+    left: 16px;
+    top:15px;
+}
+.btn-bue-table:hover:before{
+    content: url("/template/localbitcoins/img/icon/bue_1.png");
+    position: absolute;
+    left: 16px;
+    top:15px;
+}
+.right-btn-main{
+    width: 130px;
+}
+.btn-bue-table:hover{
+    color: #fff;
+    background: #6bb644;
+    border: 0;
+}
+.btn-bue-table img{
+    margin-right:10px;
+}
+.hover-img{
+    display: none;
+}
+/*-----------------
+Info block
+-------------------*/
+#info-company{
+    background: #fff;
+    height: 345px;
+    padding-top: 60px;
+    margin-top: 65px;
+}
+#main-info-com{
+    width: 1200px;
+    margin: 0 auto;
+}
+.block-1{
+    width: 330px;
+    height: 290px;
+    text-align: center;
+    float: left;
+    margin-right: 8%;
+}
+.no-right{
+    margin-right: 0;
+}
+.block-1 h3{
+     font: 29px RobotoBlack;
+     color: #405261;
+    position: relative;
+    margin-bottom: 50px;
+    margin-top: 25px;
+ }
+.block-1 p{
+    font:bold 13px Arial;
+    color: #758694;
+}
+.desc{
+    width: 10%;
+    height: 3px;
+    background: #ff4200;
+    position: absolute;
+    margin-top: 45px;
+    margin-left: 27%;
+}.desc_2{
+     width: 10%;
+     height: 3px;
+     background: #ff4200;
+     position: absolute;
+     margin-top: 45px;
+     margin-left: 38%;
+ }
+.desc_3{
+    width: 10%;
+    height: 3px;
+    background: #ff4200;
+    position: absolute;
+    margin-top: 45px;
+    margin-left: 28%;
+}
+footer{
+    height: 200px;
+    padding-top: 90px;
+    width: 1200px;
+    margin: 0 auto;
+}
+footer ul{
+    float: left;
+    margin-right: 90px;
+}
+.title-foot{
+    font: bold 15px Arial;
+    color: #405261;
+    margin-bottom: 20px;
+}
+footer a{
+    font: bold 12px Arial;
+    color: #8694a1;
+}
+footer a:hover{
+
+    color: #ff4200;
+}
+footer li{
+    margin-bottom: 2px;
+}
+#logo-footer{
+    float: right;
+    display: block;
+    padding: 35px;
+    background: #fafbfc;
+    border-radius: 5px;
+}
+/*
+-------------------
+Page LK
+-------------------
+*/
+#tool-lk{
+    width: 1200px;
+    margin:  0 auto;
+    padding-top: 35px;
+    height: 55px;
+}
+#redact{
+     background: url("/template/localbitcoins/img/btn/redact.png") no-repeat;
+     height: 55px;
+    width: 241px;
+ }
+#redact:hover{
+    background: url("/template/localbitcoins/img/btn/redact-hover.png") no-repeat;
+}
+#info-lk{
+    background: url("/template/localbitcoins/img/btn/infolk.png") no-repeat;
+    height: 55px;
+    width: 242px;
+}
+#info-lk:hover{
+    background: url("/template/localbitcoins/img/btn/infolk-hover.png") no-repeat;
+}
+#score-lk{
+    background: url("/template/localbitcoins/img/btn/scorelk.png") no-repeat;
+    height: 55px;
+    width: 198px;
+}
+#score-lk:hover {
+    background: url("/template/localbitcoins/img/btn/scorelk-hover.png") no-repeat;
+}
+#testedlk{
+    background: url("/template/localbitcoins/img/btn/testedlk.png") no-repeat;
+    height: 55px;
+    width: 171px;
+}
+#testedlk:hover{
+    background: url("/template/localbitcoins/img/btn/testedlk-hover.png") no-repeat;
+}
+#supportlk{
+    background: url("/template/localbitcoins/img/btn/support.png") no-repeat;
+    height: 55px;
+    width: 206px;
+}
+#supportlk:hover {
+    background: url("/template/localbitcoins/img/btn/support-hover.png") no-repeat;
+}
+#tool-lk li{
+    float: left;
+    margin-right: 35px;
+    -webkit-box-shadow: 0 0 22px 2px rgba(0,0,0,0.05);
+    -moz-box-shadow: 0 0 22px 2px rgba(0,0,0,0.05);
+    box-shadow: 0 0 22px 2px rgba(0,0,0,0.05);
+}
+#tool-lk li:last-child{
+    margin-right: 0;
+}
+.section-info{
+    width:1130px;
+    padding-right: 35px;
+    padding-left: 35px;
+    padding-top: 24px;
+    height: 36px;
+    background: #fff;
+}
+.section-info:hover{
+    background: #6c7f8d;
+}
+.section-info:hover p{
+    color: #fff;
+}
+.section-info-1:hover{
+    background: #6c7f8d;
+}
+.section-info-1:hover p{
+    color: #fff;
+}
+.section-info p{
+    font:bold 12px Arial;
+    color: #6c7f8d;
+}
+.section-info-1{
+    width:1130px;
+    padding-right: 35px;
+    padding-left: 35px;
+    padding-top: 24px;
+    height: 36px;
+    background: #fafbfc;
+    border-bottom: 1px solid #ecf0f3;
+    border-top: 1px solid #ecf0f3;
+}
+.section-info-1 p{
+    font:bold 12px Arial;
+    color: #6c7f8d;
+}
+#lk-infomain{
+    width: 1200px;
+    height: auto;
+    margin: 0 auto;
+    margin-top: 75px;
+}
+.shadow-content{
+    -webkit-box-shadow: 0 0 22px 2px rgba(0,0,0,0.16);
+    -moz-box-shadow: 0 0 22px 2px rgba(0,0,0,0.16);
+    box-shadow: 0 0 22px 2px rgba(0,0,0,0.16);
+}
+.shadow-content-1{
+    -webkit-box-shadow: 0 0 22px 2px rgba(0,0,0,0.16);
+    -moz-box-shadow: 0 0 22px 2px rgba(0,0,0,0.16);
+    box-shadow: 0 0 22px 2px rgba(0,0,0,0.16);
+    margin-top: 35px;
+}
+.value-info{
+    text-align: right;
+    display: block;
+    margin-top: -13px;
+}
+.red-color{
+    color: #ff4200;
+}
+.blue-color{
+    color: #00aeff;
+}
+.line-foot{
+    height: 5px;
+    width: 100%;
+    background: url("/template/localbitcoins/img/line-foot.png") repeat-x;
+    margin-top: 75px;
+}
+/*-----------------
+Page info
+transactions
+-------------------*/
+#panel-history
+{
+    width: 1200px;
+    height: 90px;
+    border-bottom:1px solid #fafbfc;
+    border-top: 1px solid #fafbfc;
+    margin-top: -50px;
+    margin-bottom: 5px;
+}
+#balnce{
+    height: 55px;
+    padding-top: 35px;
+    padding-right: 40px;
+    background: #fff;
+    float: left;
+    -webkit-box-shadow: 5px 0 12px 0 rgba(0,0,0,0.05);
+    -moz-box-shadow: 5px 0 12px 0 rgba(0,0,0,0.05);
+    box-shadow: 5px 0 12px 0 rgba(0,0,0,0.05);
+    position: relative;
+    z-index: 1;
+}
+#balnce-1{
+    height: 55px;
+    padding-top: 35px;
+    padding-right: 40px;
+    background: #fff;
+    float: left;
+    -webkit-box-shadow: 5px 0 12px 0 rgba(0,0,0,0.05);
+    -moz-box-shadow: 5px 0 12px 0 rgba(0,0,0,0.05);
+    box-shadow: 5px 0 12px 0 rgba(0,0,0,0.05);
+}
+#balnce-1 h3{
+    color: #6c7f8d;
+    font: bold 18px Arial;
+    margin-left: 40px;
+}
+#balnce h3{
+    color: #6c7f8d;
+    font: bold 18px Arial;
+    margin-left: 40px;
+}
+#balance-color{
+    color: #ff4200;
+}
+#refill{
+    background: url("/template/localbitcoins/img/btn/popol.png") no-repeat;
+    width: 149px;
+    height: 52px;
+    display: block;
+}
+#refill:hover{
+    background: url("/template/localbitcoins/img/btn/popol-hover.png") no-repeat;
+}
+#withdraw{
+    background: url("/template/localbitcoins/img/btn/vivesti.png") no-repeat;
+    height: 52px;
+    width: 134px;
+    display: block;
+}
+#withdraw:hover{
+    background: url("/template/localbitcoins/img/btn/vivesti-hover.png") no-repeat;
+}
+.bg-panel-top{
+    background: #fafbfc;
+}
+#btn-his{
+    float: right;
+    padding-top: 18px;
+    height: 72px;
+    background: #fff;
+    padding-left: 20px;
+    -webkit-box-shadow: -5px 0 12px 0 rgba(0,0,0,0.05);
+    -moz-box-shadow: -5px 0 12px 0 rgba(0,0,0,0.05);
+    box-shadow: -5px 0 12px 0 rgba(0,0,0,0.05);
+}
+#btn-his li{
+    float: left;
+    margin-right: 18px;
+}
+#table-his{
+    width: 1200px;
+    height: auto;
+}
+#table-his table{
+    width: 1200px;
+    color: #6c7f8d;
+    font: bold 16px Arial;
+    text-align: center;
+    border-spacing: 0;
+    border: 0;
+}
+#table-his td{
+    padding-top: 23px;
+    padding-bottom: 23px;
+}
+.name-user{
+    text-align: left;
+    padding-left: 40px;
+}
+.status-his{
+    text-align: right;
+    padding-right: 30px;
+}
+.table-sec-color td{
+    background: #fafbfc;
+    border-bottom: 1px solid #ecf0f3;
+    border-top: 1px solid #ecf0f3;
+}
+/*-----------------
+Page Oplata
+-------------------*/
+#form-oplat{
+    width: 1200px;
+    height: auto;
+    border-bottom:1px solid #fafbfc;
+    border-top: 1px solid #fafbfc;
+    padding-top: 32px;
+}
+#form-oplat input{
+    width: 1120px;
+    height: 60px;
+    text-align: center;
+    background: #fafbfc;
+    border: 1px solid #fafbfc;
+    font: bold 12px Arial;
+    color: #99a6af;
+    margin-bottom: 25px;
+    margin-left: 40px;
+}
+#payment select{
+    width: 1120px;
+    height: 60px;
+    text-align-last: center;
+    text-align: center;
+    background: #fafbfc;
+    border: 1px solid #fafbfc;
+    font: bold 12px Arial;
+    color: #6c7f8d;
+    margin-bottom: 25px;
+    margin-left: 40px;
+    -webkit-appearance: none;
+    -moz-appearance:none;
+}
+#payment:after{
+    content: url("/template/localbitcoins/img/icon/spos.png");
+    width: 7px;
+    margin-top: 19px;
+    margin-left: -490px;
+    position: absolute;
+}
+#accept{
+    width: 1120px;
+    height: 60px;
+    font: bold 14px Arial;
+    color: #fff;
+    margin-left: 40px;
+    background: #ff4200;
+    border: 1px solid #ff4200;
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-bottom: 35px;
+    cursor: pointer;
+}
+#accept img{
+    position: absolute;
+    margin-left: -29px;
+    margin-top: -5px;
+}
+#table-oplata table{
+    width: 1200px;
+    color: #6c7f8d;
+    font: bold 12px Arial;
+    text-align: center;
+    border-spacing: 0;
+    border: 0;
+}
+#table-oplata th{
+    color: #758694;
+    font: bold 13px Arial;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background: #fafbfc;
+}
+#table-oplata td{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.size-style{
+    font: 13px Arial;
+}
+#table-oplata h3{
+    font: bold 18px Arial;
+    color: #6c7f8d;
+    text-align: center;
+    margin-bottom: 55px;
+    margin-top: 55px;
+}
+/*---------------
+Page news ads
+-----------------*/
+#new-obv{
+    width: 1200px;
+    height: auto;
+    border-bottom:1px solid #fafbfc;
+    border-top: 1px solid #fafbfc;
+
+}
+#title-content-obv{
+    width: 1200px;
+    height: 50px;
+    background: #fff;
+    padding-top: 32px;
+}
+#title-content-obv img{
+    position: absolute;
+    margin-left: 40px;
+    margin-top: -2px;
+}
+#title-content-obv h3{
+    color: #6c7f8d;
+    font: bold 18px Arial;
+    margin-left: 70px;
+}
+.btn-new-obv{
+    background: url("/template/localbitcoins/img/btn/newob.png") no-repeat;
+    float: right;
+    width: 218px;
+    height: 52px;
+    cursor: pointer;
+    margin-top: -17px;
+    margin-right: 20px;
+}
+.btn-new-obv:hover{
+    background: url("/template/localbitcoins/img/btn/newob-hover.png") no-repeat;
+}
+.title-btc{
+    width: 1160px;
+    padding-top: 40px;
+    padding-left: 40px;
+    padding-bottom: 40px;
+    background: #fafbfc;
+}
+.title-btc h3 {
+    color: #6c7f8d;
+    font: bold 15px Arial;
+}
+.bloc-bue{
+    width: 1200px;
+}
+.bloc-bue table{
+    width: 100%;
+    border-spacing: 0;
+    border: 0;
+}
+.bloc-bue td{
+    padding-top: 27px;
+    padding-bottom: 27px;
+    color: #b0bec8;
+    font:bold 13px Arial;
+    border-bottom: 1px solid #fafbfc;
+}
+.grey-color{
+    background: #fff;
+}
+.bue-style{
+    color: #6c7f8d;
+    font:bold 14px Arial;
+}
+.edit-bue{
+    width: 39px;
+    height: 30px;
+    background: #788996;
+    border-radius: 3px;
+    text-align: center;
+    padding-top: 9px;
+    cursor: pointer;
+    float: left;
+    margin-right: 5px;
+}
+.edit-bue:hover{
+    background: #00aeff;
+}
+.del-bue{
+    width: 39px;
+    height: 28px;
+    background: #788996;
+    border-radius: 3px;
+    text-align: center;
+    padding-top: 11px;
+    cursor: pointer;
+    float: left;
+}
+.del-bue:hover{
+    background: #00aeff;
+}
+.last-table-btn{
+    width: 120px;
+}
+/*----------------
+dialog window
+------------------
+*/
+#window-dialog{
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0, 0.8);
+    position: fixed;
+    z-index: 100;
+    padding-top: 10%;
+    overflow-y: scroll;
+    display: none;
+}
+#content-window{
+    width: 1200px;
+    height: 864px;
+    background: #fff;
+    margin: 0 auto;
+    border-radius: 4px;
+}
+#title-window{
+    width: 100%;
+    height: 55px;
+    padding-top: 35px;
+    background: #fafbfc;
+    border-radius: 3px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+#btn-win{
+    float: right;
+}
+#title-window h3{
+    color: #6c7f8d;
+    font:bold 18px Arial;
+    margin-left: 40px;
+}
+.btn-bue{
+    font: bold 13px Arial;
+    color: #6c7f8d;
+    background: #f1f5f9;
+    padding: 12px 23px 12px 23px;
+    border-radius: 3px;
+    margin-right: 15px;
+    margin-top: -30px;
+    float: left;
+    cursor: pointer;
+}
+.btn-sell{
+    font: bold 13px Arial;
+    color: #6c7f8d;
+    background: #f1f5f9;
+    padding: 12px 23px 12px 23px;
+    border-radius: 3px;
+    float: left;
+    margin-right: 25px;
+    margin-top: -30px;
+    cursor: pointer;
+}
+.btn-sell:hover, .btn-bue:hover, .active_win{
+    color: #fff;
+    background: #00aeff;
+}
+.select-obv select{
+    width: 1080px;
+    height: 55px;
+    background: #fafbfc;
+    font: bold 12px Arial;
+    color: #6c7f8d;
+    border: 1px solid #fafbfc;
+    border-radius: 5px;
+    margin-left: 60px;
+    padding-left: 25px;
+    margin-bottom: 15px;
+    -webkit-appearance: none;
+    -moz-appearance:none;
+}
+.select-obv:after{
+    content: url("/template/localbitcoins/img/select-arr.png");
+    position: absolute;
+    margin-left: -55px;
+}
+.text-form{
+    width: 1055px;
+    height: 55px;
+    background: #fafbfc;
+    font: bold 12px Arial;
+    color: #6c7f8d;
+    border: 1px solid #fafbfc;
+    border-radius: 5px;
+    margin-left: 60px;
+    padding-left: 25px;
+    margin-bottom: 15px;
+}
+#com-obv{
+    max-width: 1055px;
+    max-height: 215px;
+    min-width: 1055px;
+    min-height: 230px;
+    background: #fafbfc;
+    font: bold 12px Arial;
+    color: #6c7f8d;
+    border: 1px solid #fafbfc;
+    border-radius: 5px;
+    margin-left: 60px;
+    padding-left: 25px;
+    margin-bottom: 15px;
+    padding-top: 15px;
+}
+#checed-con{
+    width: 1100px;
+    height: 62px;
+    margin-left: 40px;
+}
+#checkbox{
+    margin-top: 25px;
+}
+#checkbox + label{
+    cursor: pointer;
+}
+#checkbox:not(checked) {
+    opacity: 0;
+}
+#checkbox:not(checked) + label {
+    position: relative;
+    padding: 0 0 0 40px;
+    font: bold 12px Arial;
+    color: #98adbc;
+}
+#checkbox:not(checked) + label:before {
+    content: '';
+    position: absolute;
+    top: -7px;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    border-radius: 3px;
+    border: 4px solid #c9d9e6;
+}
+#checkbox:checked + label:after {
+    content: '';
+    position: absolute;
+    top: 1px;
+    left: 8px;
+    width: 12px;
+    height: 12px;
+    background: #00aeff;
+    transition: all .2s;
+}
+#btn-obl{
+    float: right;
+    width: 285px;
+    height: 65px;
+    background: #00aeff;
+    border-radius: 3px;
+    border: 1px solid #00aeff;
+    font: bold 15px Arial;
+    color: #fff;
+    cursor: pointer;
+}
+
+#reg-bg{
+    width: 1200px;
+    height: auto;
+    margin: 0 auto;
+}
+#title-reg{
+    width: 1200px;
+    height: 30px;
+    padding-top: 50px;
+}
+#title-reg img{
+     float: left;
+ }
+#title-reg h3{
+    float: left;
+    color: #465866;
+    font: bold 18px Arial;
+    margin-top: 3px;
+    margin-left: 7px;
+}
+#form-reg{
+    width: 600px;
+    height: auto;
+    padding: 50px 0;
+    float: left;
+}
+.reg-pol{
+    width: 575px;
+    height: 55px;
+    background: #f0f3f4;
+    border: 1px solid #f0f3f4;
+    border-radius: 3px;
+    margin-bottom: 15px;
+    color: #758694;
+    font:bold 12px Arial;
+    padding-left: 25px;
+}
+.reg-cap{
+    width: 205px;
+    height: 55px;
+    background: #f0f3f4;
+    border: 1px solid #f0f3f4;
+    border-radius: 3px;
+    margin-bottom: 15px;
+    color: #758694;
+    font:bold 12px Arial;
+    padding-left: 25px;
+    margin-left: 18px;
+}
+#capcha-reg{
+    width: 350px;
+    height: 45px;
+    border-radius: 3px;
+    background: #465866;
+    font: bold 32px Arial;
+    color: #fff;
+    text-align: center;
+    padding-top: 10px;
+    float: left;
+    margin-bottom: 55px;
+}
+#link-reg{
+    width: 300px;
+    height: auto;
+    padding: 25px 0;
+    float: left;
+}
+#link-reg a{
+    font: bold 12px Arial;
+    color: #a3b3c0;
+}
+#link-reg a:hover{
+    color: #ff4200;
+    border-bottom: 1px dotted #ff4200;
+}
+#btn-rg-main{
+    width: 300px;
+    height: 85px;
+    background: #00aeff;
+    border: 1px solid #00aeff;
+    color: #fff;
+    font: bold 20px Arial;
+    border-radius: 3px;
+    cursor: pointer;
+}
+.clear{
+    clear: both;
+}
+#text-info-reg{
+    width: 495px;
+    height: auto;
+    float: left;
+    padding: 50px 50px;
+}
+#text-info-reg p{
+    font: bold 12px Arial;
+    color: #758694;
+}
+#text-info-reg a{
+    color: #ff4200;
+    border-bottom: 1px dotted #ff4200;
+}
+#recvizt{
+    float: left;
+    width: 590px;
+    padding: 40px;
+    height: 370px;
+    background: #fafbfc;
+}
+#recvizt h4{
+    font: bold 15px Arial;
+    color: #00aeff;
+    margin-bottom: 40px;
+}
+#recvizt p{
+    font: bold 12px/27px Arial;
+    color: #889dac;
+}
+#contact-prod h4{
+    font: bold 15px Arial;
+    color: #00aeff;
+    margin-bottom: 40px;
+}
+#contact-prod p{
+    font: bold 12px/27px Arial;
+    color: #889dac;
+}
+#contact-prod{
+    width: 490px;
+    padding-left: 40px;
+    padding-top: 30px;
+    height: 420px;
+    float: left;
+    background: #f6f8f9;
+    position: relative;
+}
+#pod-sdel{
+    width: 220px;
+    height: 65px;
+    background: #ff4200;
+    border-radius: 4px;
+    color: #fff;
+    font: bold 15px Arial;
+    border: 0;
+    outline: 0;
+    position: absolute;
+    bottom: 17px;
+    right: 17px;
+    cursor: pointer;
+    display: none;
+}
+#sucsess-perevod{
+    width: 290px;
+    padding-left: 20px;
+    text-align: center;
+    height: 42px;
+    padding-top: 23px;
+    border: 1px dotted #798a97;
+    border-radius: 5px;
+    position: absolute;
+    bottom: 17px;
+    right: 17px;
+}
+#sucsess-perevod p{
+    font: bold 15px Arial;
+    color: #00aeff;
+}
+#chat{
+    background: #fff;
+    padding-top: 40px;
+}
+#chat img{
+    float: left;
+    margin-left: 40px;
+}
+#chat h3{
+    float: left;
+    font: bold 15px Arial;
+    color: #6c7f8d;
+    margin-left: 10px;
+}
+.mess-chst{
+    padding: 30px 40px;
+    border-bottom: 1px solid #eaedef;
+}
+.mess-chst h4{
+    font: bold 13px Arial;
+    color: #00aeff;
+    margin-bottom: 25px;
+}
+.mess-chst p{
+    font: bold 12px Arial;
+    color: #6c7f8d;
+}
+#form-go-mes{
+    padding: 10px 40px;
+}
+#mess-inp{
+    max-width: 1070px;
+    min-width:1070px;
+    min-height: 220px;
+    max-height: 220px;
+    border-radius: 5px;
+    padding: 25px;
+    background: #fafbfc;
+    outline: 0;
+    font: bold 12px Arial;
+    color: #afbfca;
+    border: 0;
+}
+#btn-go-mess{
+    width: 235px;
+    height: 60px;
+    padding-left: 25px;
+    background: #00aeff;
+    border: 0;
+    outline: 0;
+    border-radius: 4px;
+    color: #fff;
+    font: bold 15px Arial;
+    margin-top: 15px;
+    float: right;
+    margin-bottom: 15px;
+    cursor: pointer;
+    position: relative;
+}#btn-go-mess:before{
+     content: url("/template/localbitcoins/img/icon/bt.png");
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    left:20px;
+ }

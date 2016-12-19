@@ -1,0 +1,8 @@
+@font-face{
+    font-family: Andale;
+    src: url("/fonts/AndaleSansWGL.ttf");
+}
+@font-face{
+    font-family: AndaleBold;
+    src: url("/fonts/AndaleSansWGLBold.ttf");
+}

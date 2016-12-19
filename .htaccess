@@ -1,0 +1,39 @@
+AddDefaultCharset utf-8
+
+RewriteEngine on
+RewriteBase /
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteRule ^(.*)$ index.php
+
+##Rusakov
+#AddDefaultCharset UTF-8
+#RewriteEngine On
+#
+#php_value register_globals 0
+#
+#RewriteBase /
+#RewriteCond %{HTTP_HOST} (.*)
+#RewriteCond %{REQUEST_URI} /$ [NC]
+#RewriteCond %{REQUEST_FILENAME} !-d
+#RewriteRule ^(.*)(/)$ $1 [L,R=301]
+#
+#Options +FollowSymlinks
+#RewriteCond %{REQUEST_FILENAME} !-d
+#RewriteCond %{REQUEST_FILENAME} !-f
+#RewriteRule ^(.*) /?%{QUERY_STRING}
+
+
+
+# Попробуйте эту настройку .htaccess, если у Вас возникли проблемы с отображением
+# стилей css
+#AddDefaultCharset cp-1251
+#ErrorDocument 404 / 
+#RewriteEngine On
+#RewriteCond %{REQUEST_FILENAME} -s [OR]
+#RewriteCond %{REQUEST_FILENAME} -l [OR]
+#RewriteCond %{REQUEST_FILENAME} -d
+#RewriteRule ^.*$ - [L]
+#RewriteRule ^.*$ index.php [L]

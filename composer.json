@@ -1,0 +1,17 @@
+{
+    "require": {
+        "coinbase/coinbase": "^2.5"
+    },
+    "autoload": {
+        "classmap": [
+            "models/",
+            "components/",
+            "controllers/",
+            "controllers/admin/",
+            "views/layouts/"
+        ],
+        "files": [
+            "config/constants.php"
+        ]
+    }
+}
