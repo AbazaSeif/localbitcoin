@@ -35,7 +35,7 @@ foreach ($items as $value) {
                         <th>Продавец</th>
                         <th>Способ оплаты</th>
                         <th>Цена</th>
-                        <th>Огранечения</th>
+                        <th>Количество BTC</th>
                         <th></th>
                     </tr>
                     <?php
@@ -52,7 +52,7 @@ foreach ($items as $value) {
                             <td>Универсальный перевод</td>
                             <!-- <td>Банковские переводы внутри странны (EOSWC)</td> -->
                             <td><span class="price_color"><?= $ads['price'], ' ', $currency . ' / BTC' ?></span></td>
-                            <td><?= $ads['min_amount'], ' - ', $ads['max_amount'], ' ', $currency ?> </td>
+                            <td><?= $ads['max_amount']?> </td>
                             <td class="seg-bue-table"><a href="/cabinet/info?ads=<?= $ads['id_advertisement'] ?>" class="table-btn-bue"><?= $ads['user_id'] == User::getUserIdFromSession() ? 'Просмотр' : $type ?></td>
                         </tr>
                     <?php endforeach; ?>
