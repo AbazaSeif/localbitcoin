@@ -15,7 +15,8 @@
             <table>
                 <tr>
                     <th><span class="lrft-pol-td">Пользователь</span></th>
-                    <th>Сумма сделки</th>
+                    <th>Цена за BTC</th>
+                    <th>Количество BTC</th>
                     <th>Дата</th>
                     <th class="right-td">Тип сделки</th>
                     <th class="width-td-lk"></th>
@@ -23,7 +24,8 @@
                 <?php foreach ($adses as $ads): ?>
                     <tr>
                         <td><span class="lrft-pol-td"> <?= User::getUsernameById($ads['user_id']) ?></span></td>
-                        <td><?= Currency::getSymbol($ads['currency_id']), ' ', $ads['min_amount'], ' - ', $ads['max_amount'] ?></td>
+                        <td><?= $ads['price'], Currency::getSymbol($ads['currency_id']) ?></td>
+                        <td><?= $ads['max_amount'] ?></td>
                         <td><?= date('d.m.Y', strtotime($ads['created_on'])) ?></td>
                         <td class="right-td"><span class="red-lk"><?= Advertisement::getInvertStringType($ads['type']) ?></span></td>
                         <td>

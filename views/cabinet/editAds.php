@@ -1,17 +1,10 @@
-<?php require_once ROOT . '/views/layouts/guest/header.php'; ?>
+<?php require_once ROOT . '/views/layouts/cabinet/header.php'; ?>
 
 <div class="title-help">
     <h3>Редактировать объявление</h3>
     <p>Редактировать Ваше объявление № <?= isset($ads['id_advertisement']) ? $ads['id_advertisement'] : '' ?></p>
     <div class="info-balance">
-        <div class="balanc_usd">
-            <p>
-                Баланс USD:<br>
-                <span class="balance-color"><?= Service::BTCtoUSD($this->coinbase->amount) ?></span>
-
-            </p>
-        </div>
-        <div class="balanc_btc">
+        <div class="balanc_btc" style="float: right">
             <p>
                 Баланс BTC:<br>
                 <span class="balance-color"><?= $this->coinbase->amount ?></span>
@@ -47,8 +40,7 @@
                     <option <?= $ads['currency_id'] == 2 ? 'selected ' : '' ?>value = "2">RUR</option>
                 </select>
                 <input type="text" name="price" pattern = "\d+(\.\d{2,})?" value = "<?= $ads['price'] ?>" placeholder = "Укажите цену за 1 BTC, например <?= Currency::getExchangeRate('rur') . ' для рублей или ' . Currency::getExchangeRate('usd') . ' для долларов'; ?>" required class="inp-newob-2">
-                <input type="text" placeholder="Минимальная сумма сделки" name="min_amount" value = "<?= $ads['min_amount'] ?>" class="inp-newob">
-                <input type="text" placeholder="Максимальная сумма сделки" name="max_amount" value = "<?= $ads['max_amount'] ?>" class="inp-newob">
+                <input type="number" min="0" step="0.000001" placeholder="Количество BTC" name="min_amount" value = "<?= $ads['max_amount'] ?>" class="inp-newob-2">
                 Объявление активно до: 
                 <input type="date" name="expires_in" min="<?= $todayHtml ?>" max="<?= $plusYearHtml ?>" value="<?= date('Y-m-d', strtotime($ads['expires_in'])) ?>" class="inp-newob">
                 <input type="text" placeholder="Дни и часы работы (например, &laquo;с 9 утра до 12 вечера, пн-сб&raquo;)" name="time_of_work" value="<?= $ads['time_of_work'] ?>" class="inp-newob-2">

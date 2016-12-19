@@ -126,7 +126,6 @@ if (!isset($user)) {
                             <li><a href="/cabinet/active"><span class="line-menu"></span>Активные объявления</a> </li>
                             <li><a href="/cabinet/support"><span class="line-menu"></span>Служба поддержки</a> </li>
                             <li><a href="/cabinet/refill"><span class="line-menu"></span>Пополнить</a> </li>
-                            <li><a href="/cabinet/statistics"><span class="line-menu"></span>Статистика</a> </li>
                         </ul>
                         <div class="clear"></div>
                     </div>

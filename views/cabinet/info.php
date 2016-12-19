@@ -1,4 +1,4 @@
-<?php require_once ROOT.'/views/layouts/guest/header.php'; ?>
+<?php require_once ROOT.'/views/layouts/cabinet/header.php'; ?>
 
 <div class="title-help">
 
@@ -17,7 +17,7 @@
     <?php endif; ?>
 
     <h3>Объявление №<?= $ads_id, " ({$ads['price']}", Currency::getSymbol($ads['currency_id']), '/BTC ', ')' ?></h3>
-    <p><?= Advertisement::getStringType($ads['type']), " BTC на {$ads['min_amount']} - {$ads['max_amount']}", Currency::getSymbol($ads['currency_id']) ?> </p>
+    <p><?= Advertisement::getStringType($ads['type']), " BTC на {$ads['price']}", Currency::getSymbol($ads['currency_id']) ?> </p>
     <div class="info-balance-1">
         <p>Автор объявления: <?= User::getUsernameById($author_ads) ?></p>
     </div>
@@ -79,7 +79,7 @@
             <p>Цена: <span class="right-text or-color"><?= "{$ads['price']} ", Currency::getStringName($ads['currency_id']), ' / BTC ' ?></span></p>
             <p>Способ оплаты: <span class="right-text">Универсальный (Webmoney, QIWI, на карту...)</span></p>
             <p>Автор объявления: <span class="right-text cast-client"><?= User::getUsernameById($author_ads) ?></span></p>
-            <p>Огранечения по сделке: <span class="right-text"><?= $ads['min_amount'].' - '.$ads['max_amount'], Currency::getSymbol($ads['currency_id']) ?></span></p>
+            <p>Количество BTC: <span class="right-text"><?= $ads['max_amount'] ?></span></p>
             <p>Местоположение: <span class="right-text color-b"><?= $ads['location'] ?></span></p>
         </div>
 

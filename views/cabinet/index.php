@@ -200,16 +200,16 @@
             <tr>
                 <th><span class="lrft-pol-td">Пользователь</span></th>
                 <th>Система оплаты</th>
-                <th>Мин.Сумма</th>
-                <th>Макс.Сумма</th>
+                <th>Цена за BTC</th>
+                <th>Количество BTC</th>
                 <th><span class="right-prof">Тип сделки</span></th>
             </tr>
             <?php foreach($adses as $ads): ?>
                 <tr>
                     <td><span class="lrft-pol-td"> <?= $user->username ?></span></td>
                     <td><span class="color-b">Сбербанк</span></td>
-                    <td>Min <?= Currency::getSymbol($ads['currency_id']), ' ', $ads['min_amount'] ?></td>
-                    <td>Max <?= Currency::getSymbol($ads['currency_id']), ' ', $ads['max_amount'] ?></td>
+                    <td><?= $ads['price'], Currency::getSymbol($ads['currency_id']) ?></td>
+                    <td><?= $ads['max_amount'] ?></td>
                     <td><span class="red-lk right-prof">Активно, никто не согласился</span></td>   
                 </tr>
             <?php endforeach; ?>
@@ -217,7 +217,21 @@
     </div>
     <div class="clear"></div>
 </div>
-
+<div class="wrapper">
+    <div class="title-lk-block-stat">
+        <h4>Статистика пользователя</h4>
+        <div class="clear"></div>
+    </div>
+        <div class="list-cont-lk">
+        <ul class="list-stat">
+            <li><div class="stat_lk_1"><p>50<br><span class="style-text-stat">Количество сделок</span></p></div></li>
+            <li><div class="stat_lk_1"><p>$550<br><span class="style-text-stat">Сумма сделок</span></p></div></li>
+            <li><div class="stat_lk_1"><p>1400<br><span class="style-text-stat">Рейтинг</span></p></div></li>
+            <li><div class="stat_lk_1"><p>87<br><span class="style-text-stat">Отзывов</span></p></div></li>
+        </ul>
+        <div class="clear"></div>
+        </div>
+</div>
 
 
 <?php include ROOT.'/views/layouts/footer.php'; ?>

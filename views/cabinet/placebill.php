@@ -1,17 +1,8 @@
 <?php require_once ROOT . '/views/layouts/cabinet/header.php'; ?>
 
 <div class="title-help">
-    <h3>Справка</h3>
-    <p>Здесь содержиться основная информация о сайте</p>
     <div class="info-balance">
-        <div class="balanc_usd">
-            <p>
-                Баланс USD:<br>
-                <span class="balance-color"><?= Service::BTCtoUSD($this->coinbase->amount) ?></span>
-
-            </p>
-        </div>
-        <div class="balanc_btc">
+        <div class="balanc_btc" style="float: right">
             <p>
                 Баланс BTC:<br>
                 <span class="balance-color"><?= $this->coinbase->amount ?></span>
@@ -50,8 +41,9 @@
                 <input type = "text" name = "location" pattern="^[А-Яа-яЁё\s]+$" value = "<?= $location ?>" placeholder = "Введите местоположение, только русские буквы" required class="inp-newob-2">
                 <select class="sel-new-ob" name="currency_id">
                     <option disabled>Выберите валюту</option>
-                    <option value = "1">USD</option>
                     <option value = "2">RUR</option>
+                    <option value = "1">USD</option>
+                    <option value = "3">EUR</option>
                 </select>
                 <select class="sel-new-ob" name="payment_id">
                     <option disabled>Выберите способ оплаты</option>
@@ -62,8 +54,7 @@
                 </select>
                 <input type="text" placeholder="Цена за BTC" name="price" value = "<?= $price ?>" class="inp-newob-2">
                 <input type="text" placeholder="Реквизиты для оплаты" name="reqs" class="inp-newob-2">
-                <input type="text" placeholder="Минимальная сумма сделки" name="min_amount" value = "<?= $min_amount ?>" class="inp-newob">
-                <input type="text" placeholder="Максимальная сумма сделки" name="max_amount" value = "<?= $max_amount ?>" class="inp-newob">
+                <input type="number" min="0" value="0.000000" step="0.000001" placeholder="Количество BTC" name="max_amount" value = "<?= $max_amount ?>" class="inp-newob-2">
                 Объявление активно до: 
                 <input type="date" name="expires_in" min="<?= $todayHtml ?>" max="<?= $plusYearHtml ?>" value="<?= $plusMonthHtml ?>" class="inp-newob">
                 <input type="text" placeholder="Дни и часы работы (например, &laquo;с 9 утра до 12 вечера, пн-сб&raquo;)" name="time_of_work" class="inp-newob-2">

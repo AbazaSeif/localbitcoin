@@ -260,18 +260,6 @@ class CabinetController
         require_once(ROOT.'/views/cabinet/adses.php');
         return true;
     }
-    public function actionStatistics()
-    {
-        if(User::isGuest())
-        {
-            Router::headerLocation();
-        }
-        
-        $adses = Advertisement::getAdsesByUserId(User::getUserIdFromSession());
-        
-        require_once(ROOT.'/views/cabinet/statistics.php');
-        return true;
-    }
     public function actionInfo($params)
     {
         if(User::isGuest())
