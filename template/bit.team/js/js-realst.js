@@ -34,6 +34,72 @@ $(document).ready(function() {
     $('.reg-btn-bot').mouseleave(function() {
         $('.reg-btn-bot').removeClass('animated shake');
     });
+    $(".btn-new-cart").toggle(function() { 
+        $(".block-system-cart").slideDown();
+      },  
+      function() { 
+        $(".block-system-cart").slideUp(); 
+      }
+    );
+    $("#btn-sys-1").click(function(){
+        $("#sys-1").show();
+        $("#sys-2").hide();
+        $("#sys-3").hide();
+        $("#sys-4").hide();
+        $("#sys-5").hide();
+        $("#sys-6").hide();
+    });
+     $("#btn-sys-2").click(function(){
+        $("#sys-2").show();
+        $("#sys-1").hide();
+        $("#sys-3").hide();
+        $("#sys-4").hide();
+        $("#sys-5").hide();
+        $("#sys-6").hide();
+    });
+      $("#btn-sys-3").click(function(){
+        $("#sys-3").show();
+        $("#sys-2").hide();
+        $("#sys-1").hide();
+        $("#sys-4").hide();
+        $("#sys-5").hide();
+        $("#sys-6").hide();
+    });
+       $("#btn-sys-4").click(function(){
+        $("#sys-4").show();
+        $("#sys-2").hide();
+        $("#sys-3").hide();
+        $("#sys-1").hide();
+        $("#sys-5").hide();
+        $("#sys-6").hide();
+    });
+        $("#btn-sys-5").click(function(){
+        $("#sys-5").show();
+        $("#sys-2").hide();
+        $("#sys-3").hide();
+        $("#sys-4").hide();
+        $("#sys-1").hide();
+        $("#sys-6").hide();
+    });
+         $("#btn-sys-6").click(function(){
+        $("#sys-6").show();
+        $("#sys-2").hide();
+        $("#sys-3").hide();
+        $("#sys-4").hide();
+        $("#sys-5").hide();
+        $("#sys-1").hide();
+    });
+
+    // $('.btn-authorization').click(function() {
+    //     if(document.getElementById('btn-double-auth').style.backgroundImage == 'url("http://localbitcoin/template/bit.team/img/elements/btn-faqt.png")'){
+    //     //if($('#btn-double-auth').css('backgroundImage') === 'url("http://localbitcoin/template/bit.team/img/elements/btn-faqt.png")') {
+    //         $('#btn-double-auth').css('backgroundImage', 'url(http://localbitcoin/template/bit.team/img/elements/btn-faqt-no.png)');
+    //         return;    
+    //     }
+    //     else {
+    //         $('.btn-authorization').css('backgroundImage', 'url(http://localbitcoin/template/bit.team/img/elements/btn-faqt.png)');    
+    //     }
+    // });
 
 });
 

@@ -1,5 +1,7 @@
 <?php include ROOT.'/views/layouts/cabinet/header.php'; ?>
 
+<script type="text/javascript" src="../../template/bit.team/js/js-realst.js"></script>
+
 <div class="block-profil">
 
     <?php if($from == 'editSuccess'): ?>
@@ -10,6 +12,7 @@
 
     <div class="title-prof">
         <h4>Пользователь: <span class="color-b"><?= $user->username ?></span>
+        <p class="online-lk"> Online</p>
     </div>
     <div class="main-profil-info">
         <div class="block-info-content-1">
@@ -37,6 +40,7 @@
                 </div>
             </div>
             <div class="container-lk-1">
+                <a class="btn-status-ok" style="cursor:default;"></a>
                 <a class="btn-reduct-lk"></a>
                 <div class="in-lk-1">
                     <span class="text-lk-1">Статус:</span>
@@ -45,8 +49,105 @@
                 </div>
             </div>
             <div class="container-lk-1">
-                <div class="in-lk-1" style="height: 50px"><span class="text-lk-1">Двухфакторная авторизация</span><input type="checkbox"></div>
+                <a class="btn-authorization" id="btn-double-auth"></a>
+                <div class="in-lk-1"><span class="text-lk-1" style="width:230px;">Двухфакторная авторизация</span></div>
             </div>
+            <div class="container-lk-1">
+                <div class="in-lk-1">
+                    <img src="../../template/bit.team/img/system_oplat/op6.png" alt="">
+                    <span class="text-lk-add">4587-8977-8756-1235</span>
+                    <div class="clear"></div>
+                </div>
+            </div>
+                <div class="container-lk-1" id="sys-1">
+                <div class="in-lk-1">
+                    <button class="btn-add-cart"></button>
+                    <img src="../../template/bit.team/img/system_oplat/op6.png" alt="">
+                    <input type="text" placeholder="Введите реквизиты">
+                    <div class="clear"></div>
+                </div>
+                </div>
+                <div class="container-lk-1" id="sys-2">
+                <div class="in-lk-1">
+                    <button class="btn-add-cart"></button>
+                    <img src="../../template/bit.team/img/system_oplat/op5.png" alt="">
+                    <input type="text" placeholder="Введите реквизиты">
+                    <div class="clear"></div>
+                </div>
+                </div>
+                <div class="container-lk-1" id="sys-3">
+                <div class="in-lk-1">
+                    <button class="btn-add-cart"></button>
+                    <img src="../../template/bit.team/img/system_oplat/op4.png" alt="">
+                    <input type="text" placeholder="Введите реквизиты">
+                    <div class="clear"></div>
+                </div>
+                </div>
+                <div class="container-lk-1" id="sys-4">
+                <div class="in-lk-1">
+                    <button class="btn-add-cart"></button>
+                    <img src="../../template/bit.team/img/system_oplat/op3.png" alt="">
+                    <input type="text" placeholder="Введите реквизиты">
+                    <div class="clear"></div>
+                </div>
+                </div>
+                <div class="container-lk-1" id="sys-5">
+                <div class="in-lk-1">
+                    <button class="btn-add-cart"></button>
+                    <img src="../../template/bit.team/img/system_oplat/op2.png" alt="">
+                    <input type="text" placeholder="Введите реквизиты">
+                    <div class="clear"></div>
+                </div>
+                </div>
+                <div class="container-lk-1" id="sys-6">
+                <div class="in-lk-1">
+                    <button class="btn-add-cart"></button>
+                    <img src="../../template/bit.team/img/system_oplat/op1.png" alt="">
+                    <input type="text" placeholder="Введите реквизиты">
+                    <div class="clear"></div>
+                </div>
+                </div>
+
+                <div class="block-newcart">
+                    <a class="btn-new-cart">   
+                    </a>
+                    <div class="block-system-cart">
+                        <ul>
+                            <li>
+                            <div class="sysOp" id="btn-sys-1">
+                                <img src="../../template/bit.team/img/system_oplat/op6.png" alt="">
+                            </div>
+                            </li>
+                            <li>
+                            <div class="sysOp" id="btn-sys-2">
+                                <img src="../../template/bit.team/img/system_oplat/op5.png" alt="">
+                            </div>
+                            </li>
+                            <li>
+                            <div class="sysOp" id="btn-sys-3">
+                                <img src="../../template/bit.team/img/system_oplat/op4.png" alt="">
+                            </div>
+                            </li>
+                            <li>
+                            <div class="sysOp" id="btn-sys-4">
+                                <img src="../../template/bit.team/img/system_oplat/op3.png" alt="">
+                            </div>
+                            </li>
+                            <li>
+                            <div class="sysOp" id="btn-sys-5">
+                                <img src="../../template/bit.team/img/system_oplat/op2.png" alt="">
+                            </div>
+                            </li>
+                            <li>
+                            <div class="sysOp" id="btn-sys-6">
+                                <img src="../../template/bit.team/img/system_oplat/op1.png" alt="">
+                            </div>
+                            </li>
+                        </ul>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+
         </div>
 <!--        <div class="block-lk-balance">
             <div class="sposob-op-seg">
@@ -78,12 +179,12 @@
     </div>
     <div class="btn-link-lk">
         <p class="balance-lk-main">
-            Баланс BTC:<span class="org-color"> <?= $this->coinbase->amount ?></span>
+            Баланс BTC:<span class="org-color"> 2.5015</span>
         </p>
-        <a href="/cabinet/refill" class="btn-popol"></a>
-        <a href="/cabinet/withdraw" class="btn-viv"></a>
+        <a href="#" class="btn-popol"></a>
+        <a href="#" class="btn-viv"></a>
+        <img src="../../template/bit.team/img/elements/q-code.png">
     </div>
-    <img class="qr-img" style="margin-left:56px;float:left;" width="198px" height="172px" src="../../../upload/qr.png">
     <div class="clear"></div>
 </div>
 

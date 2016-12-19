@@ -117,7 +117,7 @@ if (!isset($user)) {
         <div class="wrapper">
             <div class="title-help">
                 <h3>Личный кабинет пользователя</h3>
-                <p>Страница информации профиля</p>
+                <p>Страница информации по сделкам</p>
                 <div class="info-balance-2">
                     <div class="block-nav-lk">
                         <ul>
