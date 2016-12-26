@@ -188,6 +188,11 @@
 	margin-bottom: 15px;
 	text-align: center;
 	}
+
+	.table-1 th:first-child {
+    	padding-right: 3px;
+	}
+
 	.btn-sale-main, .btn-bue-main{
 	width: 50%;
 	height: 56px;
