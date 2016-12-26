@@ -153,7 +153,12 @@
 @media screen and (max-width: 600px){
 	.table-1 td {
 	font: 11px AndaleBold;
+	padding-right: 3px;
 	}
+		.table-1 th{
+	padding-right: 3px;
+	}
+
 	.info-balance{
 		position: relative;
 		width: 100%;
@@ -187,10 +192,6 @@
 	font: 10px AndaleBold;
 	margin-bottom: 15px;
 	text-align: center;
-	}
-
-	.table-1 th:first-child {
-    	padding-right: 3px;
 	}
 
 	.btn-sale-main, .btn-bue-main{
