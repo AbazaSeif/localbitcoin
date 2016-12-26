@@ -21,7 +21,7 @@ class CabinetController
         $from = isset($params['get']['from']) ? $params['get']['from'] : false;
         
         $adses = Advertisement::getAdsesByUserId(User::getUserIdFromSession());
-       
+        $currloc = "index";
         require_once(ROOT.'/views/cabinet/index.php');
         return true;
     }
@@ -33,7 +33,6 @@ class CabinetController
             Router::headerLocation('/user/signup');
         }
         
-
         $location = $currency_id = $price = $min_amount = $max_amount = $time_of_work = $comment = $expires_in = false;
         $submit = false;
         extract($params['post'], EXTR_IF_EXISTS);
@@ -153,6 +152,7 @@ class CabinetController
             Router::headerLocation();
         }
 
+        $currloc = "support";
         $topic = $email = $message = false;
         extract($params['post'], EXTR_IF_EXISTS);
 
@@ -176,7 +176,8 @@ class CabinetController
         {
             Router::headerLocation();
         }
-
+        
+        $currloc = "active";
         $adses = Advertisement::getAdsesByUserId(User::getUserIdFromSession(), 0);
 
         require_once(ROOT.'/views/cabinet/active.php');
@@ -210,6 +211,7 @@ class CabinetController
             Router::headerLocation();
         }
 
+        $currloc = "refill";
         require_once(ROOT.'/views/cabinet/refill.php');
         return true;
     }
@@ -254,7 +256,7 @@ class CabinetController
         {
             Router::headerLocation();
         }
-        
+        $currloc = "adses";
         $adses = Advertisement::getAdsesByUserId(User::getUserIdFromSession());
         
         require_once(ROOT.'/views/cabinet/adses.php');

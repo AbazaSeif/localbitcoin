@@ -389,6 +389,10 @@ html{
     color: #fff;
 }
 
+.table-btn-bue:visited {
+    color: blue;
+}
+
 .block-info-main {
     background: #f1f2f4;
     padding: 40px 0;
@@ -1338,6 +1342,14 @@ Page help
     opacity: 1;
 }
 
+#currloc {
+    color: #fc5217;
+}
+
+#currloc .line-menu {
+    opacity: 1;
+}
+
 .content-lk-1 {
     background: #fff;
     padding: 40px 48px;
@@ -1604,6 +1616,10 @@ height: 58px;
 
 .right-td {
     text-align: right;
+}
+
+.right-td a:visited{
+    color: blue;
 }
 
 .width-td-lk {

@@ -72,7 +72,7 @@ if(!User::isGuest() && !isset($coinbase))
                         <div class="block-lk-and-reg">
 <?php if(User::isGuest()): ?>
                                 <a href="/user/signup" class="btn-reg">Регистрация</a>
-                                <a class="btn-lk">Вход</a>
+                                <a class="btn-lk" style="text-decoration: underline;font-size: 15px;">Вход</a>
                                 <a class="menu-phone"></a>
 <?php else: ?>
                                 <div class="user-lk-link">

@@ -3,7 +3,7 @@
 <div class="block-info-main">
             <div class="wrapper">
                 <div class="block-video">
-                    <video width="500" height="300" controls="controls">
+                    <video controls="controls">
                     <source src="video/duel.ogv" type='video/ogg; codecs="theora, vorbis"'>
                     <source src="video/duel.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
                     <source src="video/duel.webm" type='../../video/webm; codecs="vp8, vorbis"'>

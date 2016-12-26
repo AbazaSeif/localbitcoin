@@ -1,7 +1,5 @@
 <?php include ROOT.'/views/layouts/cabinet/header.php'; ?>
-
 <script type="text/javascript" src="../../template/bit.team/js/js-realst.js"></script>
-
 <div class="block-profil">
 
     <?php if($from == 'editSuccess'): ?>
