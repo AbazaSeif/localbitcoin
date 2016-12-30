@@ -55,8 +55,6 @@
                 <input type="text" placeholder="Цена за BTC" name="price" value = "<?= $price ?>" class="inp-newob-2">
                 <input type="text" placeholder="Реквизиты для оплаты" name="reqs" class="inp-newob-2">
                 <input type="number" min="0" value="0.000000" step="0.000001" placeholder="Количество BTC" name="max_amount" value = "<?= $max_amount ?>" class="inp-newob-2">
-                Объявление активно до: 
-                <input type="date" name="expires_in" min="<?= $todayHtml ?>" max="<?= $plusYearHtml ?>" value="<?= $plusMonthHtml ?>" class="inp-newob">
                 <input type="text" placeholder="Дни и часы работы (например, &laquo;с 9 утра до 12 вечера, пн-сб&raquo;)" name="time_of_work" class="inp-newob-2">
                 <textarea class="are-new" name="comment" placeholder = "Комментарий к объявлению"><?php isset($comment) ? print $comment : ''; ?></textarea>
                 <input class="inp-newob" type="password" name="password" placeholder="Пароль">

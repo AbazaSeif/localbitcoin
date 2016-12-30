@@ -51,7 +51,7 @@ if(!User::isGuest() && !isset($coinbase))
                 <div class="wrapper">
                     <div class="top-header">
                         <div class="btn-bue-top">
-                            <a class="bue-top-btn" href="/cabinet/placebill" style="padding-left: 25px;padding-top: 10px;width: 155px;"> Отправить<br>биткоины</a>
+                            <a class="bue-top-btn" href="/cabinet/placebill">Купить биткоин</a>
                             <a class="sale-top-btn" href="/cabinet/placebill?type=2">Продать биткоин</a>
                             <div class="clear"></div>
                         </div>

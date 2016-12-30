@@ -44,7 +44,7 @@ if (!isset($user)) {
                 <div class="wrapper">
                     <div class="top-header">
                         <div class="btn-bue-top">
-                            <a class="bue-top-btn" href="/cabinet/placebill" style="padding-left: 25px;padding-top: 10px;width: 155px;"> Отправить<br>биткоины</a>
+                            <a class="bue-top-btn" href="/cabinet/placebill">Купить биткоин</a>
                             <a class="sale-top-btn" href="/cabinet/placebill?type=2">Продать биткоин</a>
                             <div class="clear"></div>
                         </div>
@@ -117,7 +117,11 @@ if (!isset($user)) {
         <div class="wrapper">
             <div class="title-help">
                 <h3>Личный кабинет пользователя</h3>
+                <?php if(!isset($placebill)) { ?>
                 <p>Страница информации по сделкам</p>
+                <?php }else { ?>
+                <p>Cоздание объявления</p>
+                <?php } ?>
                 <div class="info-balance-2">
                     <div class="block-nav-lk">
                         <ul>
