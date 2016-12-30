@@ -7,6 +7,10 @@
         </div>
         <div class="form-newob">
             <input type="text" value="<?= $this->coinbase->address ?>" readonly class="inp-newob-2">
+            <div style="display:flex;flex-direction:column;">
+            <p style="margin:auto;margin-bottom:20px;">Или используйте QR-код</p>
+	        <img style="margin:auto;" src="../../template/bit.team/img/elements/q-code.png">
+	        </div>
         </div>
         <div class="clear"></div>
     </form>

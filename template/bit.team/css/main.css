@@ -374,18 +374,18 @@ html{
 .table-btn-bue {
     display: block;
     height: 40px;
-    padding-top: 10px;
+    padding-top: 9px;
     background: #ebedf0;
     border-radius: 3px;
     width: 98px;
-    border: 1px solid #c7ccd3;
+    border: 2px solid #c7ccd3;
     float: right;
     cursor: pointer;
 }
 
 .table-btn-bue:hover {
     background: #01abe8;
-    border: 1px solid #01abe8;
+    border: 2px solid #01abe8;
     color: #fff;
 }
 
