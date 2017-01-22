@@ -1,7 +1,31 @@
 <?php require_once ROOT . '/views/layouts/cabinet/header.php'; ?>
 
 <div class="title-lk-block-2">
-    <a href="/cabinet/placebill" class="link-newob"></a>
+        <a href="/cabinet/placebill" class="link-newob"></a>
+    <h4>Активные сделки</h4>
+    <div class="clear"></div>
+</div>
+<div class="content-lk-2">
+        <div class="table-lk-2">
+            <table>
+                <tr>
+                    <th>Пользователь</th>
+                    <th>Система оплаты</th>
+                    <th>Кол-во бтк</th>
+                    <th>Статус сделки</th>
+                </tr>
+                <tr>
+                    <td>Тест</td>
+                    <td>Безнал</td>
+                    <td>0.8</td>
+                    <td>Проведена</td>
+                </tr>
+            </table>
+        </div>
+    <div class="clear"></div>
+</div>
+
+<div class="title-lk-block-2">
     <h4>Активные объявления</h4>
     <div class="clear"></div>
 </div>
@@ -40,29 +64,8 @@
     <?php endif; ?>
     <div class="clear"></div>
 </div>
-<div class="title-lk-block-2">
-    <h4>Активные сделки</h4>
-    <div class="clear"></div>
-</div>
-<div class="content-lk-2">
-        <div class="table-lk-2">
-            <table>
-                <tr>
-                    <th>Пользователь</th>
-                    <th>Система оплаты</th>
-                    <th>Кол-во бтк</th>
-                    <th>Статус сделки</th>
-                </tr>
-                <tr>
-                    <td>Тест</td>
-                    <td>Безнал</td>
-                    <td>0.8</td>
-                    <td>Проведена</td>
-                </tr>
-            </table>
-        </div>
-    <div class="clear"></div>
-</div>
+
+
 <?php require_once ROOT . '/views/layouts/footer.php'; ?>
 
 

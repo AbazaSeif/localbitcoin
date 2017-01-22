@@ -32,7 +32,7 @@ class CabinetController
         {
             Router::headerLocation('/user/signup');
         }
-        $placebill = "placebill";
+        
         $location = $currency_id = $price = $min_amount = $max_amount = $time_of_work = $comment = $expires_in = false;
         $submit = false;
         extract($params['post'], EXTR_IF_EXISTS);

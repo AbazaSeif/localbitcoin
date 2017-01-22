@@ -13,30 +13,27 @@
         </form>
     </div>
 
-    <div class="main-table-bue">
+<div class="main-table-bue">
         <h3>История транзакций</h3>
-        <?php //var_dump($trans); ?>
-        <!--
+        
         <div class="table-2">
             <table>
                 <tr>
                     <th class="left-t">Пользователь</th>
                     <th>Система оплаты</th>
-                    <th>Мин.Сумма</th>
-                    <th>Макс.Сумма</th>
+                    <th>Сумма</th>
                     <th class="right-t">Статус</th>
                 </tr>
                 <tr>
-                    <td class="left-t">Lulli Music</td>
+                    <td class="left-t">NewEXE</td>
                     <td><span class="color_blue">Сбербанк</span> </td>
-                    <td>Min. 1.500$</td>
-                    <td>Max. 1.500$</td>
-                    <td><span class="otp-color">Ожидает проверки</span> </td>
+                    <td>0.8 BTC</td>
+                    <td><span class="otp-color">Ожидание поступления</span> </td>
                 </tr>
                 
             </table>
         </div>
-        -->
-    </div>
+
+</div>
 
 <?php require_once ROOT.'/views/layouts/footer.php'; ?>
