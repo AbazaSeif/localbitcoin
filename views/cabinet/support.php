@@ -1,7 +1,7 @@
 <?php require_once ROOT . '/views/layouts/cabinet/header.php'; ?>
 
 <div class="title-lk-block">
-    <a href="/help" class="link-newob-faq"></a>
+<!--    <a href="/help" class="link-newob-faq"></a>-->
     <h4>Служба поддержки</h4>
     <div class="clear"></div>
 </div>
@@ -63,10 +63,16 @@
     <div class="right-lk-block">
         <?php if (!$result): ?>
             <h4>Задайте свой вопрос</h4>
+            <div class="content-mess" style="height: auto;max-height: 550px;">
+                <div class="mess-1">
+                    <p class="name-chat">Admin<span class="date-chat"><?php echo date("d.m.y"); ?></span></p>
+                    <p class="text-mess">
+                        Задайте интересующий Вас вопрос.
+                    </p>
+                </div>
+            </div>
             <form method="post">
-                <input type="text" name="topic" placeholder="Тема письма" class="inp-lk-1" value="<?= $topic ?>" required>
-                <input type="email" name="email" placeholder="Введите e-mail" class="inp-lk-1" <?= $email ?> required>
-                <textarea class="area-lk-1" name="message" placeholder="Пишите сообщение" <?= $message ?> required></textarea>
+                <textarea class="area-lk-1" name="message" placeholder="Введите запрос" <?= $message ?> required></textarea>
                 <button type="submit" class="send-mess-btn">Отправить запрос</button>
             </form>
         <?php else: ?>

@@ -1166,6 +1166,7 @@ Page help
 }
 
 .send-mess-btn {
+    cursor: pointer;
     float: right;
     border: 0;
     outline: 0;
