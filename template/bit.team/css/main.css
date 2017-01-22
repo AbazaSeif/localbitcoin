@@ -2222,6 +2222,9 @@ height: 58px;
     top: 1px;
 
 }
+.valute-2:hover{
+    cursor: pointer;
+}
 .top-red-btn-lk{
     position: absolute;
     display: block;

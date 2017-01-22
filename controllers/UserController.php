@@ -62,7 +62,7 @@ class UserController
             if($idUser !== false)
             {
                 $user = new User($idUser);
-                if($user->verified != 0)
+                if($user->verified != 0||true)
                 {
                     User::auth($idUser);
                     User::updateUserAdses($idUser);

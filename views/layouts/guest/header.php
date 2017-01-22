@@ -51,8 +51,8 @@ if(!User::isGuest() && !isset($coinbase))
                 <div class="wrapper">
                     <div class="top-header">
                         <div class="btn-bue-top">
-                            <a class="bue-top-btn" href="/cabinet/placebill" style="padding-left: 25px;padding-top: 10px;width: 155px;"> Отправить<br>биткоины</a>
-                            <a class="sale-top-btn" href="/cabinet/placebill?type=2">Продать биткоин</a>
+                            <a class="bue-top-btn" href="/?type=buy" style="padding-left: 30px;">Купить биткоины</a>
+                            <a class="sale-top-btn" href="/?type=sell">Продать биткоин</a>
                             <div class="clear"></div>
                         </div>
                         <div class="nav-top">
@@ -75,7 +75,7 @@ if(!User::isGuest() && !isset($coinbase))
                                 <a class="btn-lk" style="text-decoration: underline;font-size: 15px;">Вход</a>
                                 <a class="menu-phone"></a>
 <?php else: ?>
-                                <div class="user-lk-link">
+                                <div class="user-lk-link" style="width: 280px;">
                                     <div class="ava-user">
                                     <a href="/cabinet"><img src="/template/bit.team/img/ava-user.png" alt=""></a>
                                 </div>
@@ -84,7 +84,7 @@ if(!User::isGuest() && !isset($coinbase))
                                     <a href="/user/signout" class="top-clos-btn-lk"></a>
                                     <a href="/cabinet"><p class="name-user-top"><?= $user->username ?></p></a>
                                     
-                                    <p class="valute-2"><?= $coinbase->amount ?></p>
+                                    <p class="valute-2" onclick="location.href='/cabinet/refill';"><?= $coinbase->amount ?></p>
                                 </div>
                                     <div class="clear"></div>
                                 </div>

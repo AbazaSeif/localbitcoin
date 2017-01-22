@@ -175,13 +175,13 @@
             </div>
         </div>-->
     </div>
-    <div class="btn-link-lk">
+    <div class="btn-link-lk" style="width: 235px;">
         <p class="balance-lk-main">
             Баланс BTC:<span class="org-color"> 2.5015</span>
         </p>
         <a href="/cabinet/refill" class="btn-popol"></a>
         <a href="/cabinet/withdraw" class="btn-viv"></a>
-        <img src="../../template/bit.team/img/elements/q-code.png">
+<!--        <img src="../../template/bit.team/img/elements/q-code.png">-->
     </div>
     <div class="clear"></div>
 </div>
@@ -196,7 +196,7 @@
         <div class="list-cont-lk">
         <ul class="list-stat">
             <li><div class="stat_lk_1"><p>50<br><span class="style-text-stat">Количество сделок</span></p></div></li>
-            <li><div class="stat_lk_1"><p>$550<br><span class="style-text-stat">Сумма сделок</span></p></div></li>
+            <li><div class="stat_lk_1"><p>12.5BTC<br><span class="style-text-stat">Сумма сделок</span></p></div></li>
             <li><div class="stat_lk_1"><p>1400<br><span class="style-text-stat">Рейтинг</span></p></div></li>
             <li><div class="stat_lk_1"><p>87<br><span class="style-text-stat">Отзывов</span></p></div></li>
         </ul>

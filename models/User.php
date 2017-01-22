@@ -34,7 +34,7 @@ class User
         return $this->setUserDataById($idUser);
     }
 
-    private function __construct3($username, $email, $phone, $password)
+    private function __construct4($username, $email, $phone, $password)
     {
         return $this->setUserData($username, $email, $phone, $password);
     }
@@ -60,7 +60,6 @@ class User
     {
         $hashedPassword = password_hash($this->password, PASSWORD_DEFAULT);
         $verify_string = EmailActivation::generateVerifyString();
-        
         $sql = 'INSERT INTO users (username, email, phone, password, created_on, verify_string, verified)'
                 .' VALUES (:username, :email, :phone, :password, NOW(), :verify_string, 0)';
 

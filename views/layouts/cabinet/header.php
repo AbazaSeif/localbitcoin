@@ -44,8 +44,8 @@ if (!isset($user)) {
                 <div class="wrapper">
                     <div class="top-header">
                         <div class="btn-bue-top">
-                            <a class="bue-top-btn" href="/cabinet/placebill" style="padding-left: 25px;padding-top: 10px;width: 155px;"> Отправить<br>биткоины</a>
-                            <a class="sale-top-btn" href="/cabinet/placebill?type=2">Продать биткоин</a>
+                            <a class="bue-top-btn" href="/?type=buy" style="padding-left: 30px;">Купить биткоины</a>
+                            <a class="sale-top-btn" href="/?type=sell">Продать биткоин</a>
                             <div class="clear"></div>
                         </div>
                         <div class="nav-top">
@@ -63,16 +63,16 @@ if (!isset($user)) {
                 <div class="wrapper">
                     <div class="top-block-2">
                         <div class="block-lk-and-reg">
-                            <div class="user-lk-link">
-                                <div class="ava-user">
+                            <div class="user-lk-link" style="width: 280px;">
+                                <div class="ava-user" style="width: 60px;">
                                     <a href="/cabinet"><img src="/template/bit.team/img/ava-user.png" alt=""></a>
                                 </div>
                                 <div class="info-lk-top-user">
                                     <a href="/cabinet" class="top-red-btn-lk"></a>
                                     <a href="/user/signout" class="top-clos-btn-lk"></a>
-                                    <a href="/cabinet"><p class="name-user-top"><?= $user->username ?></p></a>
+                                    <a href="/cabinet"><p class="name-user-top" style="font-size: 18px;margin-bottom: 3px;"><?= $user->username ?></p></a>
                                     
-                                    <p class="valute-2"><?= $this->coinbase->amount ?></p>
+                                    <p class="valute-2" id="valute-2-2-2" style="#valute-2-2-2:hover{cursor: pointer;}" onclick="location.href='/cabinet/refill';"><?= $this->coinbase->amount ?></p>
                                 </div>
                                 <div class="clear"></div>
                             </div>

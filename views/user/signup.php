@@ -5,6 +5,7 @@
     <p>Создай свой аккаунт для полноценного пользования сервисом</p>
 </div>
 <div class="content-reg">
+    <?php if($result != true){ ?>
     <div class="dop-info-reg">
         <p>
             Поля, помеченные звёздочкой, обязательны для заполнения.<br><br>
@@ -15,6 +16,7 @@
             Нажимая кнопку "Создать аккаунт", Вы автоматически соглашаетесь с правилами сайта.
         </p>
     </div>
+    <?php } ?>
     <div class="form-reg-main">
         <?php if ($result == true): ?>
             <div class="informate-messege">Вы зарегистрированы! На email отправлена ссылка для подтверждения аккаунта.</div>
@@ -49,4 +51,4 @@
     </div>
 <?php endif; ?>
 
-<?php include ROOT . '/views/layouts/footer.php'; ?>
+<?php if($result != true){ include ROOT . '/views/layouts/footer.php'; }?>

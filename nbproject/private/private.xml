@@ -3,11 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/OpenServer/domains/localbitcoins.local/views/cabinet/active.php</file>
-            <file>file:/C:/OpenServer/domains/localbitcoins.local/views/cabinet/index.php</file>
-            <file>file:/C:/OpenServer/domains/localbitcoins.local/views/cabinet/refill.php</file>
-            <file>file:/C:/OpenServer/domains/localbitcoins.local/views/cabinet/adses.php</file>
-            <file>file:/C:/OpenServer/domains/localbitcoins.local/views/cabinet/withdraw.php</file>
+            <file>file:/C:/OpenServer/domains/LocalBT/views/layouts/cabinet/header.php</file>
+            <file>file:/C:/OpenServer/domains/LocalBT/views/cabinet/index.php</file>
+            <file>file:/C:/OpenServer/domains/LocalBT/views/layouts/guest/header.php</file>
         </group>
     </open-files>
 </project-private>

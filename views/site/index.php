@@ -1,6 +1,4 @@
-<?php include ROOT . '/views/layouts/guest/header.php'; ?>
-
-<?php
+<?php include ROOT . '/views/layouts/guest/header.php';
 foreach ($items as $value) {
     //echo '<a href='.$value['link'].'>'.$value['name'].'</a></br>';
 }
