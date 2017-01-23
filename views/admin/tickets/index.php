@@ -46,24 +46,18 @@
                     <?php endforeach; ?>
                 <?php else: ?>
                     <tr>
-                        <th>ID</th>
-                        <th>Тема</th>
-                        <th>Email</th>
-                        <th>Сообщение</th>
-                        <th>Создан</th>
                         <th>От</th>
+                        <th>Количество</th>
+                        <th>Создан</th>
 
                         <th>подробнее</th>
-                        <th>удалить</th>
+                        <th>закрыть</th>
                     </tr>
                     <?php foreach ($ticketsList as $ticket): ?>
                         <tr>
-                            <td><?php echo $ticket['id_msg']; ?></td>
-                            <td><?php echo $ticket['topic']; ?></td>
-                            <td><?php echo $ticket['email']; ?></td>
-                            <td><?php echo substr($ticket['message'], 0, 35).'...'; ?></td>
-                            <td><?php echo $ticket['created_on']; ?></td>
-                            <td><?php echo User::getUsernameById($ticket['user_id']); ?></td>
+                            <td><?php echo $ticket['username']; ?></td>
+                            <td><?php echo $ticket['count']; ?></td>
+                            <td><?php echo $ticket['created']; ?></td>
 
                             <td><a href="/adminTickets/viewsupport?id_msg=<?php echo $ticket['id_msg']; ?>" title="Подробнее"><i class="fa fa-info"></i> Просмотр</a></td>
                             <td><a href="/adminTickets/deletesupport?id_msg=<?php echo $ticket['id_msg']; ?>" title="Удалить"><i class="fa fa-times"></i></a></td>

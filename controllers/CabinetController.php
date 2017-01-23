@@ -158,14 +158,14 @@ class CabinetController
 
         $result = false;
 
-        if($topic && $email && $message)
+        if($message)
         {
-            if(Ticket::createSupportTicket($topic, $email, $message, User::getUserIdFromSession()))
+            if(Ticket::createSupportTicket_v2($message, User::getUserIdFromSession()))
             {
                 $result = true;
             }
         }
-
+        $messages = Ticket::getSupportTicketsList_v2(User::getUserIdFromSession());
         require_once(ROOT.'/views/cabinet/support.php');
         return true;
     }

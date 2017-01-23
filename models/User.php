@@ -409,6 +409,34 @@ class User
         else
             return false;
     }
+    
+    public static function  getUsernameByMsgid($id_msg)
+    {
+        $sql = "SELECT `username` FROM `users` INNER JOIN `support` ON `users`.`id_user` = `support`.`user_id` "
+                . "WHERE `support`.`id_msg` = :id_msg";
+        $result = $GLOBALS['DBH']->prepare($sql);
+        $result->bindParam(':id_msg', $id_msg, PDO::PARAM_INT);
+        $result->setFetchMode(PDO::FETCH_ASSOC);
+        $result->execute();
+        $row = $result->fetch();
+        if (is_array($row)) {
+            return $row['username'];
+        }
+    }
+    
+    public static function getUseridByMsgid($id_msg)
+    {
+        $sql = "SELECT `id_user` FROM `users` INNER JOIN `support` ON `users`.`id_user` = `support`.`user_id` "
+                . "WHERE `support`.`id_msg` = :id_msg";
+        $result = $GLOBALS['DBH']->prepare($sql);
+        $result->bindParam(':id_msg', $id_msg, PDO::PARAM_INT);
+        $result->setFetchMode(PDO::FETCH_ASSOC);
+        $result->execute();
+        $row = $result->fetch();
+        if (is_array($row)) {
+            return $row['id_user'];
+        }
+    }
 
     public static function getUsernameById($id_user = false)
     {

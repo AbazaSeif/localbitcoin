@@ -41,6 +41,32 @@ class Ticket
             return false;
     }
     
+    public static function createSupportTicket_v2($message, $user_id, $admin = false)
+    {
+        if(!$admin)
+        {
+            $sql = 'INSERT INTO `support`(`message`,`user_id`)'
+                .'VALUES (:message,:user_id)';
+        }
+        else
+        {
+            $sql = 'INSERT INTO `support`(`message`,`user_id`,`to_id`)'
+                .'VALUES (:message,0,:user_id)';
+        }
+        $result = $GLOBALS['DBH']->prepare($sql);
+        $result->bindParam(':message', $message, PDO::PARAM_STR);
+        $result->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+        if($result->execute())
+        {
+            $id_msg = $GLOBALS['DBH']->lastInsertId();
+            return $id_msg;
+        }
+        else
+        {
+            return false;
+        }     
+    }
+
     public static function getTicketsList()
     {
         $result = $GLOBALS['DBH']->query('SELECT * FROM tickets ORDER BY id_ticket desc');
@@ -76,6 +102,50 @@ class Ticket
         return $ticketsList;
     }
     
+    public static function getSupportTicketsListAdmin_v2()
+    {
+        $sql = "SELECT (SELECT username FROM users U WHERE U.id_user = S.user_id) AS 'username',"
+        . "max(created_on) AS 'created', "
+        . "count(`id_msg`) as 'count', max(`id_msg`) AS 'id_msg' FROM `support` S WHERE user_id != 0 AND closed = 0 GROUP BY user_id";
+        $result = $GLOBALS['DBH']->query($sql);
+        $ticketsList = array();
+        $i = 0;
+        while ($row = $result->fetch())
+        {
+            $ticketsList[$i]['username'] = $row['username'];
+            $ticketsList[$i]['created'] = $row['created'];
+            $ticketsList[$i]['count'] = $row['count'];
+            $ticketsList[$i]['id_msg'] = $row['id_msg'];
+            $i++;
+        }
+        return $ticketsList;
+        
+    }
+
+    public static function getSupportTicketsList_v2($user_id)
+    {
+        $result = $GLOBALS['DBH']->prepare('SELECT * FROM support WHERE (user_id = :user_id OR to_id = :user_id) AND closed = 0');
+        $result->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+        if($result->execute())
+        {
+            $ticketsList = array();
+            $i = 0;
+            while ($row = $result->fetch())
+            {
+                $ticketsList[$i]['id_msg'] = $row['id_msg'];
+                $ticketsList[$i]['message'] = $row['message'];
+                $ticketsList[$i]['created_on'] = $row['created_on'];
+                $ticketsList[$i]['user_id'] = $row['user_id'];
+                $i++;
+            }
+            return $ticketsList;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
     public static function getStrReason($reason)
     {
         switch ($reason)
@@ -157,6 +227,13 @@ class Ticket
 
         $result = $GLOBALS['DBH']->prepare($sql);
         $result->bindParam(':id_msg', $id_msg, PDO::PARAM_INT);
+        return $result->execute();
+    }
+    public static function closeSupportTicket($id_user)
+    {
+        $sql = 'UPDATE `support` SET `closed`=1 WHERE `user_id` = :id_user OR `to_id` = :id_user';
+        $result = $GLOBALS['DBH']->prepare($sql);
+        $result->bindParam(':id_user', $id_user, PDO::PARAM_INT);
         return $result->execute();
     }
 }

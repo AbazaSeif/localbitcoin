@@ -15,7 +15,7 @@ class AdminTicketsController extends AdminBase
             $mode = 1;
         }
         
-        $ticketsList = $mode == 1? Ticket::getTicketsList() : Ticket::getSupportTicketsList();
+        $ticketsList = $mode == 1? Ticket::getTicketsList() : Ticket::getSupportTicketsListAdmin_v2();
 
         require_once(ROOT.'/views/admin/tickets/index.php');
         return true;
@@ -32,7 +32,15 @@ class AdminTicketsController extends AdminBase
         {
             $errors[] = 'Ошибка в id сообщения поддержки';
         }
-
+        $username = User::getUsernameByMsgid($id_msg);
+        $userid = User::getUseridByMsgid($id_msg);
+        $message = false;
+        extract($params['post'], EXTR_IF_EXISTS);
+        if($message)
+        {
+            Ticket::createSupportTicket_v2($message,$userid,true);
+        }
+        $msglist = Ticket::getSupportTicketsList_v2($userid);
         require_once(ROOT.'/views/admin/tickets/view.php');
         return true;
     }
@@ -69,13 +77,13 @@ class AdminTicketsController extends AdminBase
 
         $submit = isset($params['post']['submit']) ? $params['post']['submit'] : false;
         $id_msg = isset($params['get']['id_msg']) ? $params['get']['id_msg'] : false;
-
+        $user_id = User::getUseridByMsgid($id_msg);
 
         if($id_msg !== false && Ticket::getSupportTicketByTicketId($id_msg))
         {          
             if($submit)
             {
-                if(Ticket::deleteSupportTicket($id_msg))
+                if(Ticket::closeSupportTicket($user_id))
                 {
                     Router::headerLocation('/AdminTickets');
                 }

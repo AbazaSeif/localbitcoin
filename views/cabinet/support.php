@@ -61,25 +61,27 @@
         </div>
     </div>
     <div class="right-lk-block">
-        <?php if (!$result): ?>
-            <h4>Задайте свой вопрос</h4>
-            <div class="content-mess" style="height: auto;max-height: 550px;">
-                <div class="mess-1">
-                    <p class="name-chat">Admin<span class="date-chat"><?php echo date("d.m.y"); ?></span></p>
-                    <p class="text-mess">
-                        Задайте интересующий Вас вопрос.
-                    </p>
-                </div>
+        <h4>Задайте свой вопрос</h4>
+        <div class="content-mess" style="height: auto;max-height: 550px;">
+            <div class="mess-1">
+                <p class="name-chat">Admin<span class="date-chat"><?php echo date("d.m.y"); ?></span></p>
+                <p class="text-mess">
+                    Задайте интересующий Вас вопрос.
+                </p>
             </div>
-            <form method="post">
-                <textarea class="area-lk-1" name="message" placeholder="Введите запрос" <?= $message ?> required></textarea>
-                <button type="submit" class="send-mess-btn">Отправить запрос</button>
-            </form>
-        <?php else: ?>
-            <div class="informate-messege">
-                Сообщение отправлено!
-            </div> 
-        <?php endif; ?>
+            <?php if(isset($messages)) { foreach ($messages as $key): ?>
+            <div class="mess-1">
+                <p class="name-chat"><?= $key['user_id']==0?'Admin':$user->username; ?><span class="date-chat"><?= $key['created_on'] ?></span></p>
+                <p class="text-mess">
+                    <?= $key['message'] ?>
+                </p>
+            </div>
+                <?php endforeach; }?>
+        </div>
+        <form method="post">
+            <textarea class="area-lk-1" name="message" placeholder="Введите запрос" <?= $message ?> required></textarea>
+            <button type="submit" class="send-mess-btn">Отправить запрос</button>
+        </form>
     </div>
     <div class="clear"></div>
 </div>
