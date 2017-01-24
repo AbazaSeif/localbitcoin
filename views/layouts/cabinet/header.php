@@ -125,7 +125,7 @@ if (!isset($user)) {
                             <li><a href="/cabinet/adses" <?php if(isset($currloc)&&$currloc == "adses") { ?> id="currloc" <?php } ?> ><span class="line-menu"></span>Архив сделок</a> </li>
                             <li><a href="/cabinet/active" <?php if(isset($currloc)&&$currloc == "active") { ?> id="currloc" <?php } ?> ><span class="line-menu"></span>Активные объявления</a> </li>
                             <li><a href="/cabinet/support" <?php if(isset($currloc)&&$currloc == "support") { ?> id="currloc" <?php } ?> ><span class="line-menu"></span>Служба поддержки</a> </li>
-                            <li><a href="/cabinet/refill" <?php if(isset($currloc)&&$currloc == "refill") { ?> id="currloc" <?php } ?> ><span class="line-menu"></span>Пополнить</a> </li>
+                            <li><a href="/cabinet/refill" <?php if(isset($currloc)&&$currloc == "refill") { ?> id="currloc" <?php } ?> ><span class="line-menu"></span>Пополнить/Вывести</a> </li>
                         </ul>
                         <div class="clear"></div>
                     </div>

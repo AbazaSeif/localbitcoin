@@ -578,8 +578,8 @@ Page help
 }
 
 .form-newob {
-    padding: 35px 40px;
-    background: #f1f2f4;
+    padding: 15px 30px;
+    /*background: #f1f2f4;*/
     border-radius: 0 0 5px 5px;
 }
 
@@ -596,16 +596,68 @@ Page help
     padding-left: 20px;
 }
 
+.info_get_btc {
+    font: 14px AndaleBold;
+    color: #6b727d;
+    margin-bottom: 10px;
+}
+
+.info_add_btc {
+    font: 14px AndaleBold;
+    color: #6b727d;
+    margin-bottom: 5px;
+}
+
+.balance_add_btc {
+    font: 16px AndaleBold;
+    display: inline-block; 
+    border: 1px solid #dfe1e6;
+    border-radius: 3px;
+    color: #6b727d;
+    height:30px; 
+    margin-bottom:20px;
+    background-color: #e5e7eb;
+    padding: 0 10px;
+    line-height: 30px;
+}
+
+.add_btc_submit {
+    border: none;
+    padding: 7px;
+    width: 150px;
+    color: white;
+    cursor: pointer;
+    margin-top: 10px;
+    border-radius: 3px;
+    font: 17px Andale;
+    font-weight: normal;
+    background-color: #1C568E;
+}
+
+.add_btc_submit:hover {
+    background-color: #297ACC;
+}
+
+.inp-newob-3 {
+    width: 100%;
+    border: 1px solid #dfe1e6;
+    height: 30px;
+    border-radius: 2px;
+    color: #6b727d;
+    font: 14px AndaleBold;
+    padding-left: 5px;
+    margin-bottom: 16px;
+}
+
 .inp-newob-2 {
     width: 100%;
     border: 1px solid #dfe1e6;
     background: #e5e7eb;
-    height: 43px;
+    height: 40px;
     border-radius: 2px;
     color: #6b727d;
     font: 12px AndaleBold;
-    padding-left: 22px;
-    margin-bottom: 16px;
+    margin-bottom: 25px;
 }
 
 .inp-newob {
@@ -845,10 +897,27 @@ Page help
     border-bottom: 1px dotted #fc5217;
 }
 
-.content_newob-1 {
-    padding-top: 60px;
+.bitcoin-operation-cont {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: stretch;
 }
 
+.content_newob-1 {
+    margin: 40px 10px 10px;
+    /*padding-top: 40px;*/
+    flex-basis: 300px;    
+    flex-grow: 1;
+    background: #f1f2f4;
+    border-radius: 5px;
+}
+
+/*.content_newob-1:last-child {
+    align-self: flex-end;
+}
+*/
 .btn-create-2 {
     width: 310px;
     height: 78px;
@@ -874,6 +943,7 @@ Page help
 }
 
 .main-table-bue {
+    margin-top: 40px;
     width: 100%;
 }
 
@@ -882,7 +952,7 @@ Page help
     color: #50565f;
     position: relative;
     padding-left: 20px;
-    margin-bottom: 60px;
+    margin-bottom: 30px;
 }
 
 .main-table-bue h3:before {
@@ -1314,7 +1384,7 @@ Page help
     position: absolute;
     right: 0;
     bottom: 0;
-    width: 632px;
+    width: 660px;
 }
 
 .block-nav-lk a {
@@ -2255,11 +2325,12 @@ height: 58px;
 .informate-messege{
 	width:100%;
 	background:rgba(68, 143, 214, 0.9);
-	padding:25px 40px;
-	font:14px AndaleBold;
+	padding:15px;
+	font:20px Andale;
     color: #fff;
-	border-radius:5px;
-	margin:5px 0;
+    font-weight: normal;
+	border-radius:5px 5px 0px 0px;
+    text-align: center;
 }
 
 .online-lk {

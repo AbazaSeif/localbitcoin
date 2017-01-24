@@ -1,20 +1,46 @@
 <?php require_once ROOT . '/views/layouts/cabinet/header.php'; ?>
 
-<div class="content_newob-1">
-    <form method="post">
-        <div class="informate-messege">
-            Переведите деньги на указанный Bitcoin-адрес:
-        </div>
-        <div class="form-newob">
-            <input type="text" value="<?= $this->coinbase->address ?>" readonly class="inp-newob-2">
-            <div style="display:flex;flex-direction:column;">
-            <p style="margin:auto;margin-bottom:20px;">Или используйте QR-код</p>
-	        <img style="margin:auto;" src="../../template/bit.team/img/elements/q-code.png">
-	        </div>
-        </div>
-        <div class="clear"></div>
-    </form>
+
+<div class="bitcoin-operation-cont">
+    <div class="content_newob-1">
+        <form method="post">
+            <div class="informate-messege">
+                Пополнить кошелек
+            </div>
+            <div class="form-newob">
+                <p class="balance_add_btc">Ваш баланс: 
+                    <span style="color: black; font-weight:900;"><?= $this->coinbase->amount ?> </span>BTC
+                </p>
+                <p class="info_add_btc">Адрес для пополнения</p>
+                <input type="text" class="inp-newob-3" placeholder = "Адрес" maxlength="40">
+                <p class="info_add_btc">Сумма пополнения в биткоинах</p>
+                <input type="text" class="inp-newob-3" placeholder = "0.0000" maxlength="7" pattern="\d+(\.\d{2})?">
+                <p class="info_add_btc">Описание</p>
+                <input type="text" class="inp-newob-3" maxlength="50">
+                <input type="submit" class="add_btc_submit" value="Продолжить">
+            </div>
+            <div class="clear"></div>
+        </form>
+    </div>
+
+    <div class="content_newob-1">
+        <form method="post">
+            <div class="informate-messege">
+                Вывести Bitcoin
+            </div>
+            <div class="form-newob">
+                <p class="info_get_btc">Используйте Bitcoin-адрес для получения биткоинов</p>
+                <input type="text" style="text-align:center;" value="<?= $this->coinbase->address ?>" readonly class="inp-newob-2">
+                <div style="display:flex;flex-direction:column;align-items:center;">
+                <p class="info_get_btc">Или QR-код</p>
+                <img style="margin:auto;" src="../../template/bit.team/img/elements/q-code.png">
+                </div>
+            </div>
+            <div class="clear"></div>
+        </form>
+    </div>
 </div>
+
 
 <div class="main-table-bue">
         <h3>История транзакций</h3>
