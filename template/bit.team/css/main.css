@@ -452,7 +452,8 @@ html{
 }
 
 .block-footer {
-    padding: 60px 0;
+    padding: 25px 10px;
+    background: #f5f7f9;
 }
 
 .block-footer img {
@@ -481,10 +482,6 @@ html{
     font: bold 15px Arial;
     color: #405261;
     margin-bottom: 25px !important;
-}
-
-.foot-bg {
-    background: #f5f7f9;
 }
 
 /*
