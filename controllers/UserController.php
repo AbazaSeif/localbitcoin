@@ -36,7 +36,7 @@ class UserController
             }
                 
         }
-
+        $signup = true;
         require_once(ROOT.'/views/user/signup.php');
         return true;
     }
@@ -47,10 +47,21 @@ class UserController
         $password = false;
         //$submitLogin = false;
         extract($params['post'], EXTR_IF_EXISTS);
-
-        if($username && $password)
+        if(isset($params['post']['g-recaptcha-response']))
+        {
+            $response = $params['post']['g-recaptcha-response'];
+            require_once 'components/recaptchalib.php';
+            $reCaptcha = new ReCaptcha("6LfJDRMUAAAAAPMoEPoKOa88SIykGLbqnSWAu3av");
+            $resp = $reCaptcha->verifyResponse($_SERVER["REMOTE_ADDR"], $response);
+        }
+        if(isset($response)&&!$resp->success)
         {
             $errors = false;
+            $errors[] = 'Вы робот?';
+        }
+        else if($username && $password)
+        {
+            
 
             $idUser = User::checkDataForLogin($username, $password);
             if($idUser !== false)
@@ -74,7 +85,6 @@ class UserController
         }
         else
             $errors[] = 'Данные для входа не отосланы на сервер, попробуйте ещё раз';
-
         require_once(ROOT.'/views/user/signin.php');
         return true;
     }

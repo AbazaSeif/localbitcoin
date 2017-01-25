@@ -15,11 +15,11 @@ foreach ($items as $value) {
             <form>
                 <input type="text" name="sum" class="inp-sum" placeholder="Сумма">
                 <select class="select-1-top">
-                    <option>EUR</option>
+                    <option>RUR</option>
                 </select>
                 <input type="text" name="sum" class="inp-sum" placeholder="Страна">
                 <select class="select-2-top">
-                    <option>USD</option>
+                    <option>BTK</option>
                 </select>
                 <button type="submit" class="btn-serche"><i><img src="/template/bit.team/img/icon/i-lupa.png"></i>Поиск</button>
             </form>

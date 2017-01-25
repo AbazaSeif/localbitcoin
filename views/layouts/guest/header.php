@@ -25,23 +25,20 @@ if(!User::isGuest() && !isset($coinbase))
 <?php if(User::isGuest()): ?>
             <div class="win-container">
                 <div class="close-left"></div>
-                <div class="popap-login" style="height: 370px">
+                <div class="popap-login" <?php if(!isset($signup)) { ?> style="height: 370px" <?php }else{ ?> style="height: 300px" <?php } ?>>
                     <div class="popap-title">
                         <h3>Вход в личный кабинет</h3>
                     </div>
                     <form method="post" action="/user/signin">
                         <div class="form-popap">
-                            <input type="text" name="username" pattern="^[a-zA-Z0-9]+$" required placeholder="Введите логин" class="popap-inp">
-                            <input type="password" name="password" placeholder="Введите пароль" required class="popap-inp">
-                            <input type="text" placeholder="Введите цифры" class="capcha-lk">
-                            <div class="img-capcha">
-                                <img src="../../../upload/cap_2.png" alt="">    
-                            </div>
+                            <input style="width: 303px" type="text" name="username" pattern="^[a-zA-Z0-9]+$" required placeholder="Введите логин" class="popap-inp">
+                            <input style="width: 303px" type="password" name="password" placeholder="Введите пароль" required class="popap-inp">
                             <div class="clear"></div>
-<!--                            <div style="display: flex;justify-content: center;" class="g-recaptcha" data-sitekey="6LfJDRMUAAAAAG88RE0h_A0sGuACtO0bkEdO1s-3"></div>-->
-                            
+                            <?php if(!isset($signup)) { ?>
+                            <div style="display: flex;justify-content: center;" class="g-recaptcha" data-sitekey="6LfJDRMUAAAAAG88RE0h_A0sGuACtO0bkEdO1s-3"></div>
+                            <?php } ?>
                         </div>
-                        <div class="btn-popap">
+                        <div class="btn-popap" style="width: 303px">
                             <p>Забыли пароль?<br><a class="vost-popap">Востановить</a> </p>
                             <button type="submit" value="1" class="inp-btn-popap">Войти</button>
                         </div>

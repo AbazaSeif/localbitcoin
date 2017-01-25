@@ -11,5 +11,3 @@
     <a href="/">На главную</a>
 </div> 
 <?php endif; ?>
-
-<?php require ROOT.'/views/layouts/footer.php'; ?>

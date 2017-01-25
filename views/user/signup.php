@@ -48,5 +48,3 @@
         <div class="clear"></div>
     </div>
 <?php endif; ?>
-
-<?php if($result != true){ include ROOT . '/views/layouts/footer.php'; }?>

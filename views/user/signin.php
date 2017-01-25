@@ -13,5 +13,3 @@
     </div> 
 
 <?php endif; ?>
-
-<?php require_once ROOT . '/views/layouts/footer.php'; ?>

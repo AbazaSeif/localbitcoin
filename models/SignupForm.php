@@ -9,6 +9,9 @@ class SignupForm
     public static function validateInput($username, $email, $phone, $password, $password2, $response)
     {
         $errors = array();
+        require_once 'components/recaptchalib.php';
+        $reCaptcha = new ReCaptcha("6LfJDRMUAAAAAPMoEPoKOa88SIykGLbqnSWAu3av");
+        $resp = $reCaptcha->verifyResponse($_SERVER["REMOTE_ADDR"], $response);
         if(strlen($username) < self::min_username_length)
         {
             $errors[] = 'Имя пользователя должно быть не короче '.self::min_username_length.' символов';
@@ -41,7 +44,7 @@ class SignupForm
         {
             $errors[] = 'Такой username уже используется';
         }
-        if(Capture::checkCapture($response,"6LfJDRMUAAAAAPMoEPoKOa88SIykGLbqnSWAu3av"))
+        if(!$resp->success)
         {
             $errors[] = 'Вы робот?';
         }
