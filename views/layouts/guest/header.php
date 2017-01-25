@@ -34,7 +34,7 @@ if(!User::isGuest() && !isset($coinbase))
                             <input style="width: 303px" type="text" name="username" pattern="^[a-zA-Z0-9]+$" required placeholder="Введите логин" class="popap-inp">
                             <input style="width: 303px" type="password" name="password" placeholder="Введите пароль" required class="popap-inp">
                             <div class="clear"></div>
-                            <?php if(!isset($signup)) { ?>
+                            <?php if(!isset($signup)&&!isset($login)) { ?>
                             <div style="display: flex;justify-content: center;" class="g-recaptcha" data-sitekey="6LfJDRMUAAAAAG88RE0h_A0sGuACtO0bkEdO1s-3"></div>
                             <?php } ?>
                         </div>
@@ -100,7 +100,7 @@ if(!User::isGuest() && !isset($coinbase))
                     </div>
                 </div>
             </div>
-            <div class="content-menu-phone">
+            <div class="content-menu-phone" style="padding-bottom: 0px;">
                 <ul>
                     <li>
                         <a href="/cabinet/placebill">Разместить объявление</a>
@@ -115,7 +115,7 @@ if(!User::isGuest() && !isset($coinbase))
                         <a href="/user/signup">Регистрация</a>
                     </li>
                     <li>
-                        <a href="/cabinet">Личный кабинет</a>
+                        <a href="/user/login">Личный кабинет</a>
                     </li>
                 </ul>
             </div>

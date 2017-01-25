@@ -11,19 +11,16 @@
             </ul>
         </div>
     <?php endif; ?>
-
-    <div class="signup-form"><!--sign up form-->
-        <h2>Вход на сайт</h2>
-        <form class="form-horizontal col-md-8" role="form" action="/user/signin" method="post">
-            <input type="email" name="email" placeholder="E-mail" value="<?php echo $email; ?>"/>
-            <input type="password" name="password" placeholder="Пароль" value="<?php echo $password; ?>"/>
-            <br /><br />
-            <input type="submit" name="submit" class="btn btn-default" value="Вход" />
-        </form>
-    </div><!--/sign up form-->
-
-    <br/>
-    <br/>
+    <form method="post" action="/user/signin">
+        <div class="form-popap">
+            <input style="width: 303px" type="text" name="username" pattern="^[a-zA-Z0-9]+$" required placeholder="Введите логин" class="popap-inp">
+            <input style="width: 303px" type="password" name="password" placeholder="Введите пароль" required class="popap-inp">
+            <div class="clear"></div>
+            <div style="display: flex;justify-content: center;" class="g-recaptcha" data-sitekey="6LfJDRMUAAAAAG88RE0h_A0sGuACtO0bkEdO1s-3"></div>
+        </div>
+        <div class="btn-popap" style="width: 303px">
+            <p>Забыли пароль?<br><a class="vost-popap">Востановить</a> </p>
+            <button type="submit" value="1" class="inp-btn-popap">Войти</button>
+        </div>
+    </form>
 </div>
-
-<?php include ROOT . '/views/layouts/footer.php'; ?>
