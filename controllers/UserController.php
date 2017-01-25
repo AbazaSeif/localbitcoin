@@ -16,32 +16,26 @@ class UserController
         {
             Router::headerLocation();
         }
-        $username = $email = $phone = $password = $password2 = $inputCaptcha = false;
+        $username = $email = $phone = $password = $password2 = false;
         $submit = false;
         extract($params['post'], EXTR_IF_EXISTS);
-
+        if(isset($params['post']['g-recaptcha-response']))
+        {
+            $response = $params['post']['g-recaptcha-response'];
+        }
         $result = false;
 
-        if(empty($submit))
-        {
-            Capture::getCapture();
-        }
-        else
-        {
-            if(!$errors = SignupForm::validateInput($username, $email, $phone, $password, $password2, $inputCaptcha))
+        if (!empty($submit)&&!$errors = SignupForm::validateInput($username, $email, $phone, $password, $password2, $response)) {
+            $user = new User($username, $email, $phone, $password);
+            if ($user->register()) {
+                Service::timeEvents();
+                $result = true;
+            } else
             {
-                $user = new User($username, $email, $phone, $password);
-                if($user->register())
-                {
-                    Capture::deleteCapture();
-                    Service::timeEvents();
-                    $result = true;
-                }
-                else
-                    $errors[] = 'Что-то пошло не так при записи пользователя в базу данных';
+                $errors[] = 'Что-то пошло не так при записи пользователя в базу данных';
             }
+                
         }
-
 
         require_once(ROOT.'/views/user/signup.php');
         return true;
@@ -62,7 +56,7 @@ class UserController
             if($idUser !== false)
             {
                 $user = new User($idUser);
-                if($user->verified != 0||true)
+                if($user->verified != 0)
                 {
                     User::auth($idUser);
                     User::updateUserAdses($idUser);

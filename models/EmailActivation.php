@@ -19,24 +19,33 @@ class EmailActivation
 
     public static function sendEmail($email, $verify_string)
     {
-        $verify_string = urlencode($verify_string);
-        $safe_email = urlencode($email);
-        $headers = 'Content-type: text/html; charset=windows-1251 \r\n';
+            $verify_string = urlencode($verify_string);
+            $safe_email = urlencode($email);
+            $url = SITE_URL.self::VERIFY_URL;
+            $to = $email;
 
-        $url = SITE_URL.self::VERIFY_URL;
-        $mail_body = <<<_MAIL
-          For: $email:
-          For activation account click <a href="$url?email=$safe_email&verify_string=$verify_string">$url?email=$safe_email&verify_string=$verify_string</a>
-               <br /> =============== <br /> 
-          Для $email:
-          Пожалуйста, перейдите по следующей ссылке для активации вашего аккаунта:
-          <a href="$url?email=$safe_email&verify_string=$verify_string">$url?email=$safe_email&verify_string=$verify_string</a>
-          Ссылка работает 7 дней, если не подтвердить аккаунт в течение этого времени, он будет удалён.
-_MAIL;
+            $subject = "Account activation - LocalBitcoins";
 
-        $mail_body = iconv('utf-8', 'windows-1251', $mail_body);
-        mail($email, "Account activation - ".SITE_NAME, $mail_body, $headers);
-    }
+            $message = " 
+            <html> 
+                <head> 
+                    <title>Account activation - LocalBitcoins</title> 
+                </head> 
+                <body> 
+                    <p>For: $email:</p>
+                    <p>For activation account click <a href='$url?email=$safe_email&verify_string=$verify_string'>$url?email=$safe_email&verify_string=$verify_string</a></p>
+                    <br /> =============== <br /> 
+                    <p>Для $email:</p>
+                    <p>Пожалуйста, перейдите по следующей ссылке для активации вашего аккаунта:</p>
+                    <p><a href='$url?email=$safe_email&verify_string=$verify_string'>$url?email=$safe_email&verify_string=$verify_string</a></p>
+                    <p>Ссылка работает 7 дней, если не подтвердить аккаунт в течение этого времени, он будет удалён.</p>
+                </body> 
+            </html>";
+
+            $headers = "Content-type: text/html; charset=utf-8 \r\n";
+            $headers .= "From: Bit Interactive <noreply@bit.team>\r\n";
+            mail($to, $subject, $message, $headers);
+        }
 
     public static function sendMessage($topic, $email, $message, $username)
     {

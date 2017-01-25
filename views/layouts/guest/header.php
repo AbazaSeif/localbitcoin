@@ -18,13 +18,14 @@ if(!User::isGuest() && !isset($coinbase))
         <link rel="stylesheet" type="text/css" href="../../../template/bit.team/css/animate.css"/>
         <script src="../../../template/bit.team/js/jquery-1.8.2.min.js"></script>
         <script src="../../../template/bit.team/js/js-realst.js"></script>
+        <script src='https://www.google.com/recaptcha/api.js'></script>
         <title><?= SITE_NAME ?></title>
     </head>
     <body>
 <?php if(User::isGuest()): ?>
             <div class="win-container">
                 <div class="close-left"></div>
-                <div class="popap-login">
+                <div class="popap-login" style="height: 370px">
                     <div class="popap-title">
                         <h3>Вход в личный кабинет</h3>
                     </div>
@@ -37,6 +38,8 @@ if(!User::isGuest() && !isset($coinbase))
                                 <img src="../../../upload/cap_2.png" alt="">    
                             </div>
                             <div class="clear"></div>
+<!--                            <div style="display: flex;justify-content: center;" class="g-recaptcha" data-sitekey="6LfJDRMUAAAAAG88RE0h_A0sGuACtO0bkEdO1s-3"></div>-->
+                            
                         </div>
                         <div class="btn-popap">
                             <p>Забыли пароль?<br><a class="vost-popap">Востановить</a> </p>

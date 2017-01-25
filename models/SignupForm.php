@@ -6,7 +6,7 @@ class SignupForm
     const min_username_length = 5;
     const min_password_length = 6;
 
-    public static function validateInput($username, $email, $phone, $password, $password2, $inputCaptcha)
+    public static function validateInput($username, $email, $phone, $password, $password2, $response)
     {
         $errors = array();
         if(strlen($username) < self::min_username_length)
@@ -29,10 +29,6 @@ class SignupForm
         {
             $errors[] = 'Пароли не совпадают';
         }
-        if($inputCaptcha != strtolower($_SESSION['rand_code']))
-        {
-            $errors[] = 'Неверный ввод с картинки';
-        }
         if (!$phone || !is_numeric($phone))
         {
             $errors[] = 'Неверно введён телефон';
@@ -44,6 +40,10 @@ class SignupForm
         if(User::checkUsernameExists($username))
         {
             $errors[] = 'Такой username уже используется';
+        }
+        if(Capture::checkCapture($response,"6LfJDRMUAAAAAPMoEPoKOa88SIykGLbqnSWAu3av"))
+        {
+            $errors[] = 'Вы робот?';
         }
         if(!empty($errors))
         {

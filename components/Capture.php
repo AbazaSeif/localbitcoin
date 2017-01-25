@@ -62,6 +62,23 @@ class Capture
         imagegif($src, 'upload/img.gif');
     }
     
+    public static function checkCapture($response, $secret)
+    {
+        $CapCurl = curl_init();
+        curl_setopt_array($CapCurl, array(
+            CURLOPT_URL => $secret,
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_POST => true,
+            CURLOPT_POSTFIELDS => http_build_query(array(
+                "secret" => "6LczABMUAAAAAN5rRID3fFj7YT8hKRAPYQ5Q_y-G",
+                "response" => $response
+                ))
+        ));
+        $CapResponse = curl_exec($CapCurl);
+        curl_close($CapCurl);
+        return $CapResponse["success"];
+    }
+
     public static function deleteCapture()
     {
         unset($_SESSION['rand_code']);

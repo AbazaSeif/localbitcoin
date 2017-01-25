@@ -39,10 +39,8 @@
                 <input type="tel" name="phone" pattern="[0-9]{10,13}" value="<?= $phone ?>" placeholder="* Мобильный телефон в формате 71234567890" required class="inp-reg">
                 <input type="password" name="password" pattern="[A-Za-zА-Яа-яЁё0-9]{6,}" placeholder="* Ваш пароль (от 6 символов)" class="inp-reg" required>
                 <input type="password" name="password2" pattern="[A-Za-zА-Яа-яЁё0-9]{6,}" placeholder="* Повторите пароль" class="inp-reg" required>
-                <div class="capcha-img">
-                    <img src="/upload/img.gif" alt="">
-                </div>
-                <input type="text" name="inputCaptcha" placeholder="Введите цифры" class="capcha-reg" required>
+                <div class="g-recaptcha" data-sitekey="6LfJDRMUAAAAAG88RE0h_A0sGuACtO0bkEdO1s-3"></div>
+<!--                <input type="text" name="inputCaptcha" placeholder="Введите цифры" class="capcha-reg" required>-->
                 <div class="clear"></div>
                 <button type="submit" name="submit" value="1" class="btn-reg-main"></button>
             </form>
