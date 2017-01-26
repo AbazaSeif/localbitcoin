@@ -977,14 +977,14 @@ Page help
 
 .table-2 th {
     background: #f8f8f9;
-    font: 12px AndaleBold;
+    font: 13px AndaleBold;
     color: #50565f;
     padding: 23px 0;
 }
 
 .table-2 td {
     border-bottom: 1px solid #f8f9fa;
-    font: 12px AndaleBold;
+    font: 13px AndaleBold;
     color: #50565f;
     padding: 23px 0;
 }
@@ -1815,9 +1815,9 @@ height: 58px;
     border: 0;
     outline: 0;
     width: 180px;
-    font: 11px AndaleBold;
-    color: #afb6c0;
-    padding-left: 15px;
+    font: 12px AndaleBold;
+    color: #50565f;
+    padding-left: 20px;
 }
 .in-lk-1 button{
     background: url("/img/gal.png") no-repeat;
@@ -2337,9 +2337,17 @@ height: 58px;
     margin-bottom: 25px;
 }
 
-.block-newcart{
+.block-newcart {
     width: 100%;
     margin-top: 5px;
+}
+
+.block-newcart-2 {
+    display: flex;
+    flex-direction: row;
+    margin: 0px 0px 10px;
+    /*justify-content: space-between;*/
+    /*width: 400px;*/
 }
 
 .btn-new-cart{
@@ -2350,12 +2358,38 @@ height: 58px;
     cursor: pointer;
     border-radius: 3px;
 }
+
+.btn-new-cart-2{
+    background-size: cover;
+    width: 365px;
+}
+
 .block-system-cart{
     box-sizing: border-box;
     border-radius: 3px;
     background: #f1f2f4;
     padding: 17px 20px;
     display: none;
+}
+
+
+
+.block-system-cart-2 {
+    padding: 2px 5px 15px;
+}
+
+.add-adv-sys-container .container-lk-1 {
+    padding: 15px 10px 0px;
+}
+
+.add-adv-sys-container input {
+    padding-left: 4px;
+    margin-left: 15px;
+    width: 140px;
+    border-bottom: 1px solid #dfe1e6;
+    color: #6b727d;
+    font: 14px AndaleBold;
+
 }
 
 .sysOp{

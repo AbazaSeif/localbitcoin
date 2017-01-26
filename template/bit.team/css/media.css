@@ -1,15 +1,17 @@
 @media screen and (max-width: 768px){
-	.menu-phone{
-		display: block;
-	}
-	.block-info-content-1{
-	width:100%;
+.menu-phone{
+	display: block;
+}
 
+.block-info-content-1{
+	width:100%;
 	float: none;
-	}
-	.in-lk-1{
+}
+
+.in-lk-1{
 	width: 87%;
 }
+
 .btn-popol{
 	margin: 5px auto;
 	float: none;

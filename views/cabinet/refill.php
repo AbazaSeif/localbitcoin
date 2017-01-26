@@ -5,7 +5,7 @@
     <div class="content_newob-1">
         <form method="post">
             <div class="informate-messege">
-                Пополнить кошелек
+                Отправить Bitсoin
             </div>
             <div class="form-newob">
                 <p class="balance_add_btc">Ваш баланс: 
@@ -26,7 +26,7 @@
     <div class="content_newob-1">
         <form method="post">
             <div class="informate-messege">
-                Вывести Bitcoin
+                Принять Bitcoin
             </div>
             <div class="form-newob">
                 <p class="info_get_btc">Используйте Bitcoin-адрес для получения биткоинов</p>
@@ -49,13 +49,13 @@
             <table>
                 <tr>
                     <th class="left-t">Пользователь</th>
-                    <th>Система оплаты</th>
+                    <!-- <th>Система оплаты</th> -->
                     <th>Сумма</th>
                     <th class="right-t">Статус</th>
                 </tr>
                 <tr>
                     <td class="left-t">NewEXE</td>
-                    <td><span class="color_blue">Сбербанк</span> </td>
+                    <!-- <td><span class="color_blue">Сбербанк</span> </td> -->
                     <td>0.8 BTC</td>
                     <td><span class="otp-color">Ожидание поступления</span> </td>
                 </tr>
