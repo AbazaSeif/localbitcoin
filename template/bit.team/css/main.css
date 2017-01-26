@@ -1998,8 +1998,9 @@ height: 58px;
     font:18px AndaleBold;
 }
 .btn-link-lk {
-    width: 410px;
-    float: right;
+    width: 235px;
+    float: left;
+    margin-left: 200px;
     padding: 20px;
     background: #f1f2f4;
 }
