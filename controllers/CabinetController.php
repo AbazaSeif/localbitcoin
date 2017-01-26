@@ -74,6 +74,8 @@ class CabinetController
             if($id_ads = PlaceBillForm::save($type, $location, $currency_id, $price, $min_amount, $max_amount, $time_of_work, $comment, $expires_in, User::getUserIdFromSession()))
             {
                 $result = true;
+                EmailActivation::sendCreateNotice(ADMIN_EMAIL, $id_ads);
+                EmailActivation::sendCreateNotice($_SESSION['email'], $id_ads);
                 Router::headerLocation("/cabinet/info?ads=$id_ads");
             }
         }
@@ -457,6 +459,8 @@ class CabinetController
             {
                 if(Messages::saveMessage($message, $from_user_id, $to_user_id, $ads_id))
                 {
+                    EmailActivation::sendResponse(ADMIN_EMAIL, $ads_id);
+                    EmailActivation::sendResponse(User::GetUsermailByAdsid($ads_id), $ads_id);
                     Router::headerLocation('/'.$router->getParsedURI()['address']."?ads=$ads_id");
                 }
             }

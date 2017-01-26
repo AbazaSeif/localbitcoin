@@ -324,6 +324,18 @@ class User
         else
             return false;
     }
+    
+    public static function GetUsermailByAdsid($ads_id)
+    {
+        $sql = 'SELECT `email` FROM `users`  INNER JOIN advertisements ON `user_id` = `id_user` WHERE `id_advertisement` = :ads_id';
+        $result = $GLOBALS['DBH']->prepare($sql);
+        $result->bindParam(':ads_id', $ads_id, PDO::PARAM_INT);
+        $result->execute();
+        $row = $result->fetch();
+        if (is_array($row)) {
+            return $row['email'];
+        }
+    }
 
     public static function checkUserExistsById($id_user)
     {

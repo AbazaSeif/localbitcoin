@@ -29,11 +29,11 @@ class EmailActivation
             $message = " 
             <html> 
                 <head> 
-                    <title>Account activation - LocalBitcoins</title> 
+                    <title>$subject</title> 
                 </head> 
                 <body> 
                     <p>For: $email:</p>
-                    <p>For activation account click <a href='$url?email=$safe_email&verify_string=$verify_string'>$url?email=$safe_email&verify_string=$verify_string</a></p>
+                    <p>To activate account click <a href='$url?email=$safe_email&verify_string=$verify_string'>$url?email=$safe_email&verify_string=$verify_string</a></p>
                     <br /> =============== <br /> 
                     <p>Для $email:</p>
                     <p>Пожалуйста, перейдите по следующей ссылке для активации вашего аккаунта:</p>
@@ -57,5 +57,46 @@ class EmailActivation
         $message = iconv('utf-8', 'windows-1251', $message);
         
         return mail(ADMIN_EMAIL, $topic, $message, $headers);
+    }
+    public static function sendCreateNotice($to, $noticeNumber)
+    {
+        $subject = "Создано объявление";
+        $headers = "Content-type: text/html; charset=utf-8 \r\n";
+        $headers .= "From: Bit Interactive <noreply@bit.team>\r\n";
+        $url = SITE_URL."/cabinet/editAds?ads=$noticeNumber";
+        $message = " 
+            <html> 
+                <head> 
+                    <title>$subject</title> 
+                </head> 
+                <body> 
+                    <p>Вы создали объявление нормер $noticeNumber</p>
+                    <p>Для редактирования объявление перейдите по ссылке:</p>
+                    <p><a href='$url'>$url</a></p>
+                    <p>Спасибо что пользуетесь нашим сервисом!</p>
+                </body> 
+            </html>";
+        mail($to,$subject,$message,$headers);
+    }
+    
+    public static function sendResponse($to, $adsNumber)
+    {
+        $subject = "Уведомление!";
+        $headers = "Content-type: text/html; charset=utf-8 \r\n";
+        $headers .= "From: Bit Interactive <noreply@bit.team>\r\n";
+        $url = SITE_URL."/cabinet/info?ads=$adsNumber";
+        $message = " 
+            <html> 
+                <head> 
+                    <title>$subject</title> 
+                </head> 
+                <body> 
+                    <p>На Ваше уведомление №$adsNumber откликнулись</p>
+                    <p>Чтобы узнать подробноисти, перейдите по ссылке:</p>
+                    <p><a href='$url'>$url</a></p>
+                    <p>Спасибо что пользуетесь нашим сервисом!</p>
+                </body> 
+            </html>";
+        mail($to,$subject,$message,$headers);
     }
 }
