@@ -78,7 +78,7 @@
 
             <p>Цена: <span class="right-text or-color"><?= "{$ads['price']} ", Currency::getStringName($ads['currency_id']), ' / BTC ' ?></span></p>
             <p>Способ оплаты: <span class="right-text">Универсальный (Webmoney, QIWI, на карту...)</span></p>
-            <p>Автор объявления: <span class="right-text cast-client"><?= User::getUsernameById($author_ads) ?></span></p>
+            <p>Автор объявления: <span class="right-text cast-client <?php echo (User::isOnline($ads['user_id']))?("stic_online"):("off_online"); ?>"><?= User::getUsernameById($author_ads) ?></span></p>
             <p>Количество BTC: <span class="right-text"><?= $ads['max_amount'] ?></span></p>
             <p>Местоположение: <span class="right-text color-b"><?= $ads['location'] ?></span></p>
         </div>

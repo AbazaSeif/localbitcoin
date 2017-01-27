@@ -46,7 +46,7 @@ foreach ($items as $value) {
                         ?>
                         <tr>
                             <td><span class="color_100">100%</span></td> <!--  color_100,50,35?> -->
-                            <td><span class="stic_online color_blue"><?= $username ?></span></td>
+                            <td><span class="<?php echo (User::isOnline($ads['user_id']))?("stic_online"):("off_online"); ?> color_blue"><?= $username ?></span></td>
                             <td>Универсальный перевод</td>
                             <!-- <td>Банковские переводы внутри странны (EOSWC)</td> -->
                             <td><span class="price_color"><?= $ads['price'], ' ', $currency . ' / BTC' ?></span></td>

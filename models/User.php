@@ -490,5 +490,30 @@ class User
                 break;
         }
     }
-
+    
+    public static function setOnline($id_user)
+    {
+        $time = time();
+        $sql = 'UPDATE `users` SET `online`= :time WHERE `id_user` = :id_user';
+        $result = $GLOBALS['DBH']->prepare($sql);
+        $result->bindParam(':id_user', $id_user, PDO::PARAM_INT);
+        $result->bindParam(':time', $time, PDO::PARAM_INT);
+        $result->setFetchMode(PDO::FETCH_ASSOC);
+        $result->execute();
+        return true;
+    }
+    public static function isOnline($id_user)
+    {
+        $time = time();
+        $sql = 'SELECT `online` FROM `users` WHERE `id_user` = :id_user';
+        $result = $GLOBALS['DBH']->prepare($sql);
+        $result->bindParam(':id_user', $id_user, PDO::PARAM_INT);
+        $result->setFetchMode(PDO::FETCH_ASSOC);
+        $result->execute();
+        $row = $result->fetch();
+        if(is_array($row))
+        {
+            return (($time-$row['online']) >600)?false:true;
+        }
+    }
 }

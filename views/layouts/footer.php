@@ -1,5 +1,7 @@
 </div>
-<?php if(User::isGuest()): ?>
+<?php 
+User::setOnline($_SESSION['id_user']);
+if(User::isGuest()): ?>
 <div class="block-info-main">
             <div class="wrapper">
                 <div class="block-video">

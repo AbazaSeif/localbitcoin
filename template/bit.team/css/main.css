@@ -1052,12 +1052,6 @@ Page help
     position: relative;
 }
 
-.cast-client:before {
-    content: url("../img/icon/i-online.png");
-    position: absolute;
-    top: -2px;
-    left: -10px;
-}
 
 .block-send h4 {
     color: #50565f;
