@@ -99,4 +99,25 @@ class EmailActivation
             </html>";
         mail($to,$subject,$message,$headers);
     }
+    
+    public static function sendTFACode($to, $code)
+    {
+        $subject = "Вход!";
+        $headers = "Content-type: text/html; charset=utf-8 \r\n";
+        $headers .= "From: Bit Interactive <noreply@bit.team>\r\n";
+        $username = User::getUsernameById($_SESSION['possible_id']);
+        $message = " 
+            <html> 
+                <head> 
+                    <title>$subject</title> 
+                </head> 
+                <body> 
+                    <p>Здравствуйте, $username. </p>
+                    <p>Код, необходимый для входа в аккаунт $username:</p>
+                    <p style='font-weight: 900;'>$code</p>
+                    <p>Спасибо что пользуетесь нашим сервисом!</p>
+                </body> 
+            </html>";
+        mail($to,$subject,$message,$headers);
+    }
 }

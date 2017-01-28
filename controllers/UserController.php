@@ -61,17 +61,23 @@ class UserController
         }
         else if($username && $password)
         {
-            
-
             $idUser = User::checkDataForLogin($username, $password);
             if($idUser !== false)
             {
                 $user = new User($idUser);
                 if($user->verified != 0)
                 {
-                    User::auth($idUser);
-                    User::updateUserAdses($idUser);
-                    Router::headerLocation('/cabinet/placebill');
+                    if(User::isEnableTFA($idUser))
+                    {
+                        $_SESSION['possible_id'] = $idUser;
+                        Router::headerLocation('/user/continue');
+                    }
+                    else
+                    {
+                        User::auth($idUser);
+                        User::updateUserAdses($idUser);
+                        Router::headerLocation('/cabinet/placebill');
+                    }
                 }
                 else
                 {
@@ -137,6 +143,33 @@ class UserController
     {
         $login = true;
         require_once(ROOT.'/views/user/login.php');
+        return true;
+    }
+    
+    public function actionContinue($params)
+    {
+        $code = false;
+        extract($params['post'], EXTR_IF_EXISTS);
+        if(!$code&&isset($_SESSION['possible_id']))
+        {
+            EmailActivation::sendTFACode(User::getMailById($_SESSION['possible_id']) ,User::setTFACode());;
+        }
+        else if($code)
+        {
+            if(isset($_SESSION['possible_id'])&&User::checkTFACode($code))
+            {
+                $idUser = $_SESSION['possible_id'];
+                $user = new User($idUser);
+                User::auth($idUser);
+                User::updateUserAdses($idUser);
+                Router::headerLocation('/cabinet/placebill');
+            }
+            else
+            {
+                $errors[] = 'Неправильный проверочный код';
+            }
+        }
+        require_once(ROOT.'/views/user/continue.php');
         return true;
     }
 }

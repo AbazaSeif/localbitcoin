@@ -1,5 +1,6 @@
 </div>
-<?php 
+<?php
+if(isset($_SESSION['id_user']))
 User::setOnline($_SESSION['id_user']);
 if(User::isGuest()): ?>
 <div class="block-info-main">

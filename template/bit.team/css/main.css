@@ -1892,9 +1892,19 @@ height: 58px;
     cursor: pointer;
 }
 
-.btn-authorization {
+.btn-authorized {
     position: absolute;
     background: url("../img/elements/btn-faqt.png");
+    width: 37px;
+    height: 37px;
+    right: 0;
+    top: 0;
+    cursor: pointer;
+}
+
+.btn-unauthorized {
+    position: absolute;
+    background: url("../img/elements/btn-faqt-no.png");
     width: 37px;
     height: 37px;
     right: 0;

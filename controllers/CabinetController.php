@@ -19,7 +19,15 @@ class CabinetController
         }
         
         $from = isset($params['get']['from']) ? $params['get']['from'] : false;
-        
+        $tfa = isset($params['get']['tfa']) ? $params['get']['tfa'] : false;
+        if($tfa&&!User::isEnableTFA())
+        {
+            User::enableTFA();
+        }
+        else if($tfa)
+        {
+            User::disableTFA();
+        }
         $adses = Advertisement::getAdsesByUserId(User::getUserIdFromSession());
         $currloc = "index";
         require_once(ROOT.'/views/cabinet/index.php');

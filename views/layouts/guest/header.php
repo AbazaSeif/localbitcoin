@@ -115,7 +115,7 @@ if(!User::isGuest() && !isset($coinbase))
                         <a href="/user/signup">Регистрация</a>
                     </li>
                     <li>
-                        <a href="/user/login">Личный кабинет</a>
+                        <a href="/user/login">Вход</a>
                     </li>
                 </ul>
             </div>

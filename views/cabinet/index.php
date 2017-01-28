@@ -47,7 +47,7 @@
                 </div>
             </div>
             <div class="container-lk-1">
-                <a class="btn-authorization" id="btn-double-auth"></a>
+                <a href="/cabinet?tfa=1" class="<?php echo(User::isEnableTFA())?"btn-authorized":"btn-unauthorized" ?>" id="btn-double-auth"></a>
                 <div class="in-lk-1"><span class="text-lk-1" style="width:230px;">Двухфакторная авторизация</span></div>
             </div>
             <div class="container-lk-1">

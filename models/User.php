@@ -117,6 +117,17 @@ class User
      * @param string $password <p>Пароль</p>
      * @return mixed : integer user id or false
      */
+    
+    static function getTFACode($len = 6) {
+        $b = "QWERTYUPASDFGHJKLZXCVBNMqwertyuopasdfghjkzxcvbnm123456789";
+        $s = "";
+        while ($len-- > 0)
+        {
+            $s .= $b[mt_rand(0, strlen($b))];
+        }  
+        return $s;
+    }
+
     public static function checkDataForLogin($username, $password)
     {
         $sql = 'SELECT password, id_user FROM users WHERE username = :username';
@@ -436,6 +447,19 @@ class User
         }
     }
     
+    public static function getMailById($id_usr)
+    {
+        $sql = "SELECT `email` FROM `users` WHERE `id_user` = :id_user";
+        $result = $GLOBALS['DBH']->prepare($sql);
+        $result->bindParam(':id_user', $id_usr, PDO::PARAM_INT);
+        $result->setFetchMode(PDO::FETCH_ASSOC);
+        $result->execute();
+        $row = $result->fetch();
+        if (is_array($row)) {
+            return $row['email'];
+        }
+    }
+
     public static function getUseridByMsgid($id_msg)
     {
         $sql = "SELECT `id_user` FROM `users` INNER JOIN `support` ON `users`.`id_user` = `support`.`user_id` "
@@ -498,10 +522,10 @@ class User
         $result = $GLOBALS['DBH']->prepare($sql);
         $result->bindParam(':id_user', $id_user, PDO::PARAM_INT);
         $result->bindParam(':time', $time, PDO::PARAM_INT);
-        $result->setFetchMode(PDO::FETCH_ASSOC);
         $result->execute();
         return true;
     }
+    
     public static function isOnline($id_user)
     {
         $time = time();
@@ -514,6 +538,70 @@ class User
         if(is_array($row))
         {
             return (($time-$row['online']) >600)?false:true;
+        }
+    }
+    
+    public static function enableTFA()
+    {
+        $sql = 'UPDATE `users` SET `tfa`= 1 WHERE `id_user` = :id_user';
+        $result = $GLOBALS['DBH']->prepare($sql);
+        $result->bindParam(':id_user', $_SESSION['id_user'], PDO::PARAM_INT);
+        $result->execute();
+        return true;
+    }
+    
+    public static function disableTFA()
+    {
+        $sql = 'UPDATE `users` SET `tfa`= 0 WHERE `id_user` = :id_user';
+        $result = $GLOBALS['DBH']->prepare($sql);
+        $result->bindParam(':id_user', $_SESSION['id_user'], PDO::PARAM_INT);
+        $result->execute();
+        return true;
+    }
+    
+    public static function isEnableTFA($id_user = false)
+    {
+        $sql = 'SELECT `tfa` FROM `users` WHERE `id_user` = :id_user';
+        $result = $GLOBALS['DBH']->prepare($sql);
+        if(!$id_user)
+        {
+            $result->bindParam(':id_user', $_SESSION['id_user'], PDO::PARAM_INT);
+        }
+        else
+        {
+            $result->bindParam(':id_user', $id_user, PDO::PARAM_INT);
+        }
+        $result->setFetchMode(PDO::FETCH_ASSOC);
+        $result->execute();
+        $row = $result->fetch();
+        if(is_array($row))
+        {
+            return ($row['tfa'] == 0)?false:true;
+        }
+    }
+    
+    public static function setTFACode()
+    {
+        $code = User::getTFACode(5);
+        $sql = 'UPDATE `users` SET `tfa_code`= :code WHERE `id_user` = :id_user';
+        $result = $GLOBALS['DBH']->prepare($sql);
+        $result->bindParam(':id_user', $_SESSION['possible_id'], PDO::PARAM_INT);
+        $result->bindParam(':code', $code, PDO::PARAM_STR);
+        $result->execute();
+        return $code;
+    }
+    
+    public static function checkTFACode($code)
+    {
+        $sql = 'SELECT `tfa_code` FROM `users` WHERE `id_user` = :id_user';
+        $result = $GLOBALS['DBH']->prepare($sql);
+        $result->bindParam(':id_user', $_SESSION['possible_id'], PDO::PARAM_INT);
+        $result->setFetchMode(PDO::FETCH_ASSOC);
+        $result->execute();
+        $row = $result->fetch();
+        if(is_array($row))
+        {
+            return ($row['tfa_code'] == $code)?true:false;
         }
     }
 }
