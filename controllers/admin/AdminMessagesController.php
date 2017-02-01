@@ -30,7 +30,6 @@ class AdminMessagesController extends AdminBase
             $h4 = 'Все сообщения, оставленные в системе всеми пользователями';
             $messages = Messages::getAllMessages();
         }
-
         require_once(ROOT.'/views/admin/messages/index.php');
         return true;
     }

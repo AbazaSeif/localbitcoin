@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: 10.0.2.11
--- Время создания: Янв 28 2017 г., 20:33
+-- Время создания: Фев 01 2017 г., 02:16
 -- Версия сервера: 5.6.32-78.0-log
 -- Версия PHP: 5.4.45
 
@@ -217,23 +217,24 @@ CREATE TABLE IF NOT EXISTS `users` (
   `verified` tinyint(4) DEFAULT '0',
   `blocked` tinyint(4) DEFAULT '0',
   `online` bigint(20) NOT NULL DEFAULT '0',
-  `tfa` int(11) NOT NULL DEFAULT '0'
+  `tfa` int(11) NOT NULL DEFAULT '0',
+  `tfa_code` varchar(5) NOT NULL DEFAULT ''
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `users`
 --
 
-INSERT INTO `users` (`id_user`, `username`, `email`, `phone`, `password`, `role`, `count_of_deals`, `transaction_volume`, `language`, `created_on`, `verify_string`, `verified`, `blocked`, `online`, `tfa`) VALUES
-(1, 'NewEXE', 'faunasvt@mail.ru', '71234567890', '$2y$10$moYbZJLnMLla6ajm6.Fk3.J/Ktivy6ao2yQmNNwEA.iEIeocVU2h2', 2, 2, 0, 'Russian', '2016-11-18 17:40:16', 'Fn[.Q68[3MDY2BvR', 1, 0, 1485583779, 0),
-(2, 'datzu4elo', 'datzu4elo@rr.ua', '', '$2y$10$D9zkDEKU45lQ1Q.ITffZfeF.qFiRmtwaGsTSY.SFfBiL5BaHnTUla', 1, 0, 0, 'Russian', '2016-11-02 15:08:05', '0bH1xI42eXTSL+5"', 1, 0, 0, 0),
-(3, 'fsfsdfsd', 'fsd@fdfs.tu', '', '$2y$10$30NviGeO43jexnDjDlup7.sjLZ4Z5Ge1Z/NO5h8LbD7EraTRHdoDK', 1, 0, 0, 'Russian', '2016-11-25 19:53:07', 'u81F^WtGXAb_R[&8', 1, 0, 0, 0),
-(4, 'Second', 'second@email.ru', '', '$2y$10$lfCAuakcBANZ6AcvpmfeiuT44zxGBR6y6WJqb3gU2XMZFY976GxSm', 1, 0, 0, 'Russian', '2016-11-26 02:43:23', '!YnHqr`.+q]cpA>e', 1, 0, 0, 0),
-(5, 'vinimaks', 'vinimaks56@mail.ru', '711515155115', '$2y$10$8X5yytM6AGEhj7nRwqXIvOMMrxJuuNo/.CqW9EwVAe6Bk0oz5DumG', 2, 3, 0, 'Russian', '2017-01-22 21:27:32', '.o SxMqp7cS%Zx*0', 1, 0, 0, 0),
-(9, 'stayko', 'stayko_10@mail.ru', '71234567890', '$2y$10$UZXO.ydXjSLxjC94VbEe0.YCS7Tspw9oSV60IOW8A4l0T7hFnq7Oe', 1, 0, 0, 'Russian', '2017-01-25 05:37:52', 'i4"RYuOm$[_rwM<%', 1, 0, 0, 0),
-(10, 'dmitrij', 'pastormaniac@gmail.com', '79000000000', '$2y$10$z00HhNSkaCZLJuPqXbOtxOibPqh6b4fbn9yLdi0iSMVvdt5JX5oW.', 1, 0, 0, 'Russian', '2017-01-25 12:53:15', '+eZZKvfHSbw>VtI~', 1, 0, 0, 0),
-(11, 'vexzian', 'dmitry067231@gmail.com', '79227074596', '$2y$10$SKKMOOJt9wjhh2kRcIxyhOdS21qE6Gks.FR7gFm40napl0MG9p.vW', 1, 0, 0, 'Russian', '2017-01-25 15:08:40', 'K;s00TVI:Y}Abwk{', 1, 0, 0, 0),
-(12, 'milliarderko', 'milliarderko@gmail.com', '79222220806', '$2y$10$52LQBhohG1/wRqkoQX61Gemdi99nOCynVSBiZ8knAdT66RbrJi5hK', 1, 0, 0, 'Russian', '2017-01-25 18:38:30', 'b?y]p:}OKt#H33l/', 1, 0, 0, 0);
+INSERT INTO `users` (`id_user`, `username`, `email`, `phone`, `password`, `role`, `count_of_deals`, `transaction_volume`, `language`, `created_on`, `verify_string`, `verified`, `blocked`, `online`, `tfa`, `tfa_code`) VALUES
+(1, 'NewEXE', 'faunasvt@mail.ru', '71234567890', '$2y$10$moYbZJLnMLla6ajm6.Fk3.J/Ktivy6ao2yQmNNwEA.iEIeocVU2h2', 2, 2, 0, 'Russian', '2016-11-18 17:40:16', 'Fn[.Q68[3MDY2BvR', 1, 0, 1485696224, 0, ''),
+(2, 'datzu4elo', 'datzu4elo@rr.ua', '', '$2y$10$D9zkDEKU45lQ1Q.ITffZfeF.qFiRmtwaGsTSY.SFfBiL5BaHnTUla', 1, 0, 0, 'Russian', '2016-11-02 15:08:05', '0bH1xI42eXTSL+5"', 1, 0, 0, 0, ''),
+(3, 'fsfsdfsd', 'fsd@fdfs.tu', '', '$2y$10$30NviGeO43jexnDjDlup7.sjLZ4Z5Ge1Z/NO5h8LbD7EraTRHdoDK', 1, 0, 0, 'Russian', '2016-11-25 19:53:07', 'u81F^WtGXAb_R[&8', 1, 0, 0, 0, ''),
+(4, 'Second', 'second@email.ru', '', '$2y$10$lfCAuakcBANZ6AcvpmfeiuT44zxGBR6y6WJqb3gU2XMZFY976GxSm', 1, 0, 0, 'Russian', '2016-11-26 02:43:23', '!YnHqr`.+q]cpA>e', 1, 0, 0, 0, ''),
+(5, 'vinimaks', 'vinimaks56@mail.ru', '711515155115', '$2y$10$8X5yytM6AGEhj7nRwqXIvOMMrxJuuNo/.CqW9EwVAe6Bk0oz5DumG', 2, 3, 0, 'Russian', '2017-01-22 21:27:32', '.o SxMqp7cS%Zx*0', 1, 0, 1485632707, 1, '16QN7'),
+(9, 'stayko', 'stayko_10@mail.ru', '71234567890', '$2y$10$UZXO.ydXjSLxjC94VbEe0.YCS7Tspw9oSV60IOW8A4l0T7hFnq7Oe', 1, 0, 0, 'Russian', '2017-01-25 05:37:52', 'i4"RYuOm$[_rwM<%', 1, 0, 0, 0, ''),
+(10, 'dmitrij', 'pastormaniac@gmail.com', '79000000000', '$2y$10$z00HhNSkaCZLJuPqXbOtxOibPqh6b4fbn9yLdi0iSMVvdt5JX5oW.', 1, 0, 0, 'Russian', '2017-01-25 12:53:15', '+eZZKvfHSbw>VtI~', 1, 0, 0, 0, ''),
+(11, 'vexzian', 'dmitry067231@gmail.com', '79227074596', '$2y$10$SKKMOOJt9wjhh2kRcIxyhOdS21qE6Gks.FR7gFm40napl0MG9p.vW', 1, 0, 0, 'Russian', '2017-01-25 15:08:40', 'K;s00TVI:Y}Abwk{', 1, 0, 0, 0, ''),
+(12, 'milliarderko', 'milliarderko@gmail.com', '79222220806', '$2y$10$52LQBhohG1/wRqkoQX61Gemdi99nOCynVSBiZ8knAdT66RbrJi5hK', 1, 0, 0, 'Russian', '2017-01-25 18:38:30', 'b?y]p:}OKt#H33l/', 1, 0, 1485876817, 0, '');
 
 -- --------------------------------------------------------
 

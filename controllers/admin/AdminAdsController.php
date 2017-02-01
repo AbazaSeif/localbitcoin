@@ -26,7 +26,7 @@ class AdminAdsController extends AdminBase
     {
         self::adminAccessLimiter();
 
-        $submit = $type = $location = $price = $currency_id = $min_amount = $max_amount = $time_of_work = $comment = false;
+        $submit = $type = $location = $price = $currency_id = $max_amount = $time_of_work = $comment = false;
         extract($params['post'], EXTR_IF_EXISTS);
         $id_ads = isset($params['get']['id_ads']) ? $params['get']['id_ads'] : false;
         if($id_ads !== false && Advertisement::getAdvertisementById($id_ads))

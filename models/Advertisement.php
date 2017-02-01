@@ -49,9 +49,7 @@ class Advertisement
             $advertisementsList[$i]['location'] = $row['location'];
             $advertisementsList[$i]['currency_id'] = $row['currency_id'];
             $advertisementsList[$i]['price'] = $row['price'];
-            $advertisementsList[$i]['min_amount'] = $row['min_amount'];
             $advertisementsList[$i]['max_amount'] = $row['max_amount'];
-            $advertisementsList[$i]['time_of_work'] = $row['time_of_work'];
             $advertisementsList[$i]['comment'] = $row['comment'];
             $advertisementsList[$i]['created_on'] = $row['created_on'];
             $advertisementsList[$i]['expires_in'] = $row['expires_in'];
@@ -213,9 +211,7 @@ class Advertisement
             $advertisementsList[$i]['location'] = $row['location'];
             $advertisementsList[$i]['currency_id'] = $row['currency_id'];
             $advertisementsList[$i]['price'] = $row['price'];
-            $advertisementsList[$i]['min_amount'] = $row['min_amount'];
             $advertisementsList[$i]['max_amount'] = $row['max_amount'];
-            $advertisementsList[$i]['time_of_work'] = $row['time_of_work'];
             $advertisementsList[$i]['comment'] = $row['comment'];
             $advertisementsList[$i]['created_on'] = $row['created_on'];
             $advertisementsList[$i]['expires_in'] = $row['expires_in'];
@@ -262,9 +258,7 @@ class Advertisement
             $advertisementsList[$i]['location'] = $row['location'];
             $advertisementsList[$i]['currency_id'] = $row['currency_id'];
             $advertisementsList[$i]['price'] = $row['price'];
-            $advertisementsList[$i]['min_amount'] = $row['min_amount'];
             $advertisementsList[$i]['max_amount'] = $row['max_amount'];
-            $advertisementsList[$i]['time_of_work'] = $row['time_of_work'];
             $advertisementsList[$i]['comment'] = $row['comment'];
             $advertisementsList[$i]['created_on'] = $row['created_on'];
             $advertisementsList[$i]['expires_in'] = $row['expires_in'];
@@ -298,9 +292,7 @@ class Advertisement
             $advertisementsList[$i]['location'] = $row['location'];
             $advertisementsList[$i]['currency_id'] = $row['currency_id'];
             $advertisementsList[$i]['price'] = $row['price'];
-            $advertisementsList[$i]['min_amount'] = $row['min_amount'];
             $advertisementsList[$i]['max_amount'] = $row['max_amount'];
-            $advertisementsList[$i]['time_of_work'] = $row['time_of_work'];
             $advertisementsList[$i]['comment'] = $row['comment'];
             $advertisementsList[$i]['created_on'] = $row['created_on'];
             $advertisementsList[$i]['expires_in'] = $row['expires_in'];
@@ -311,24 +303,17 @@ class Advertisement
         return $advertisementsList;
     }
 
-    public static function edit($id_ads, $type, $status, $location, $price, $currency_id, $min_amount, $max_amount, $time_of_work, $comment, $expires_in)
+    public static function edit($id_ads, $type, $location, $price, $currency_id, $max_amount, $comment)
     {
-        $sql = "UPDATE advertisements 
-            SET type = :type, status=:status, location = :location, price = :price, currency_id = :currency_id, min_amount = :min_amount, max_amount=:max_amount, time_of_work=:time_of_work, comment=:comment, expires_in=:expires_in 
-            WHERE id_advertisement = :id_ads";
+        $sql = "UPDATE advertisements SET type = :type, location = :location, price = :price, currency_id = :currency_id, max_amount=:max_amount, comment=:comment WHERE id_advertisement = :id_ads";
         $result = $GLOBALS['DBH']->prepare($sql);
         $result->bindParam(':id_ads', $id_ads, PDO::PARAM_INT);
         $result->bindParam(':type', $type, PDO::PARAM_INT);
-        $result->bindParam(':status', $status, PDO::PARAM_INT);
         $result->bindParam(':location', $location, PDO::PARAM_STR);
         $result->bindParam(':price', $price, PDO::PARAM_STR);
         $result->bindParam(':currency_id', $currency_id, PDO::PARAM_INT);
-        $result->bindParam(':min_amount', $min_amount, PDO::PARAM_STR);
         $result->bindParam(':max_amount', $max_amount, PDO::PARAM_STR);
-        $result->bindParam(':time_of_work', $time_of_work, PDO::PARAM_STR);
         $result->bindParam(':comment', $comment, PDO::PARAM_STR);
-        $result->bindParam(':expires_in', $expires_in, PDO::PARAM_STR);
-
         return $result->execute();
     }
 
