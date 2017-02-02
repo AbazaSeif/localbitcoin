@@ -90,6 +90,15 @@ $(document).ready(function() {
         $("#sys-1").hide();
     });
 
+
+    $(".btn-info-mess").toggle(function() { 
+        $(".modalInfoMessege").slideDown();
+      },  
+      function() { 
+        $(".modalInfoMessege").slideUp(); 
+      }
+    );
+
     // $('.btn-authorization').click(function() {
     //     if(document.getElementById('btn-double-auth').style.backgroundImage == 'url("http://localbitcoin/template/bit.team/img/elements/btn-faqt.png")'){
     //     //if($('#btn-double-auth').css('backgroundImage') === 'url("http://localbitcoin/template/bit.team/img/elements/btn-faqt.png")') {

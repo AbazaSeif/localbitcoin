@@ -17,7 +17,7 @@ if (!isset($user)) {
         <script src="../../../template/bit.team/js/js-realst.js"></script>
         <title><?= SITE_NAME ?></title>
     </head>
-    <body>
+    <body class="bg-main-bue">
         <div class="wind-lk-con" id="redact-lk-mail">
             <div class="close-left"></div>
             <div class="close-right"></div>
@@ -44,7 +44,7 @@ if (!isset($user)) {
                 <div class="wrapper">
                     <div class="top-header">
                         <div class="btn-bue-top">
-                            <a class="bue-top-btn" href="/?type=buy" style="padding-left: 30px;">Купить биткоин</a>
+                            <a class="bue-top-btn" href="/?type=buy" style="padding-left: 20px;">Купить биткоин</a>
                             <a class="sale-top-btn" href="/?type=sell">Продать биткоин</a>
                             <div class="clear"></div>
                         </div>

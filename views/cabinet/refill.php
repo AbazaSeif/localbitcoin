@@ -17,6 +17,7 @@
                 <input type="text" class="inp-newob-3" placeholder = "0.0000" maxlength="7" pattern="\d+(\.\d{2})?">
                 <p class="info_add_btc">Описание</p>
                 <input type="text" class="inp-newob-3" maxlength="50">
+                <p class="btc-out-comm-info">Комиссия за вывод - 1%</p>
                 <input type="submit" class="add_btc_submit" value="Продолжить">
             </div>
             <div class="clear"></div>

@@ -15,11 +15,13 @@ foreach ($items as $value) {
             <form>
                 <input type="text" name="sum" class="inp-sum" placeholder="Сумма">
                 <select class="select-1-top">
+                    <option>EUR</option>
                     <option>RUR</option>
                 </select>
                 <input type="text" name="sum" class="inp-sum" placeholder="Страна">
                 <select class="select-2-top">
-                    <option>BTK</option>
+                    <option>EUR</option>
+                    <option>BTC</option>
                 </select>
                 <button type="submit" class="btn-serche"><i><img src="/template/bit.team/img/icon/i-lupa.png"></i>Поиск</button>
             </form>
@@ -33,7 +35,7 @@ foreach ($items as $value) {
                         <th>Продавец</th>
                         <th>Способ оплаты</th>
                         <th>Цена</th>
-                        <th>Количество BTC</th>
+                        <th>Ограничения</th>
                         <th></th>
                     </tr>
                     <?php
@@ -46,12 +48,58 @@ foreach ($items as $value) {
                         ?>
                         <tr>
                             <td><span class="color_100">100%</span></td> <!--  color_100,50,35?> -->
-                            <td><span class="<?php echo (User::isOnline($ads['user_id']))?("stic_online"):("off_online"); ?> color_blue"><?= $username ?></span></td>
-                            <td>Универсальный перевод</td>
+                            <td>
+                                <span class="<?php echo (User::isOnline($ads['user_id']))?("stic_online"):("off_online"); ?> color_blue"><?= $username ?>
+                                    <span class="modalStatus"><?php echo (User::isOnline($ads['user_id']))?("Online"):("Offline"); ?></span>
+                                </span>
+                            </td>
+                            <td>Банковские переводы внутри странны (EOSWC)</td>
                             <!-- <td>Банковские переводы внутри странны (EOSWC)</td> -->
-                            <td><span class="price_color"><?= $ads['price'], ' ', $currency . ' / BTC' ?></span></td>
-                            <td><?= $ads['max_amount']?> </td>
-                            <td class="seg-bue-table"><a href="/cabinet/info?ads=<?= $ads['id_advertisement'] ?>" class="table-btn-bue"><?= $ads['user_id'] == User::getUserIdFromSession() ? 'Просмотр' : $type ?></td>
+                            <!-- <td><span class="price_color"><?= $ads['price'], ' ', $currency . ' / BTC' ?></span></td> -->
+                            <td><span class="price_color"><?= $ads['price'], ' ', $currency?></span></td>
+                            <!-- <td><?= $ads['max_amount']?> </td> -->
+                            <td>30 - 8000 EUR</td>
+                            <td class="seg-bue-table"><a href="/cabinet/info?ads=<?= $ads['id_advertisement'] ?>" class="table-btn-bue"><?= $ads['user_id'] == User::getUserIdFromSession() ? 'Купить' : $type ?></td>
+                        </tr>
+                    <?php endforeach; ?>
+                </table>
+            </div>
+        </div>
+
+        <div class="content-table">
+            <h3>Купить биткоины за наличные</h3>
+            <div class="table-1">
+                <table>
+                    <tr>
+                        <th>Рейтинг</th>
+                        <th>Продавец</th>
+                        <th>Способ оплаты</th>
+                        <th>Цена</th>
+                        <th>Ограничения</th>
+                        <th></th>
+                    </tr>
+                    <?php
+                    $i = 0;
+                    foreach ($adses as $ads):
+                        $username = User::getUsernameById($ads['user_id']);
+                        $currency = Currency::getStringName($ads['currency_id']);
+                        $symbol = Currency::getSymbol($ads['currency_id']);
+                        $type = Advertisement::getInvertStringType($ads['type']);
+                        ?>
+                        <tr>
+                            <td><span class="color_100">100%</span></td> <!--  color_100,50,35?> -->
+                            <td>
+                                <span class="<?php echo (User::isOnline($ads['user_id']))?("stic_online"):("off_online"); ?> color_blue"><?= $username ?>
+                                    <span class="modalStatus"><?php echo (User::isOnline($ads['user_id']))?("Online"):("Offline"); ?></span>
+                                </span>
+                            </td>
+                            <td>Банковские переводы внутри странны (EOSWC)</td>
+                            <!-- <td>Банковские переводы внутри странны (EOSWC)</td> -->
+                            <!-- <td><span class="price_color"><?= $ads['price'], ' ', $currency . ' / BTC' ?></span></td> -->
+                            <td><span class="price_color"><?= $ads['price'], ' ', $currency?></span></td>
+                            <!-- <td><?= $ads['max_amount']?> </td> -->
+                            <td>30 - 8000 EUR</td>
+                            <td class="seg-bue-table"><a href="/cabinet/info?ads=<?= $ads['id_advertisement'] ?>" class="table-btn-bue"><?= $ads['user_id'] == User::getUserIdFromSession() ? 'Купить' : $type ?></td>
                         </tr>
                     <?php endforeach; ?>
                 </table>
