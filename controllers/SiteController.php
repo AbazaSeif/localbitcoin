@@ -121,4 +121,30 @@ class SiteController
         return true;
     }
 
+    public function actionUser($params)
+    {
+        $sender_id = $params['get']['sender_id'];
+        $receiver_log = $params['get']['receiver_log'];
+        $receiver_id = User::getIdByUsername($receiver_log);
+        $receiver_phone = User::getUserPhoneById($receiver_id);
+        $receiver_email = User::getUserEmailById($receiver_id);
+        $all_comments = User::getUserCommentsById($receiver_id);
+        $comments_count = count($all_comments);
+
+        // echo $params['post']['comment'].' '.time();
+
+        if(isset($params['post']['comment']) && strlen($params['post']['comment']) > 0) {
+            if(!User::addComment($sender_id, $receiver_id, $params['post']['comment'])) {
+                $errors[] = "Отзыв не был добавлен. Попробуйте позже";
+            }
+
+            header("Location: http://localbitcoin/user?sender_id=$sender_id&receiver_log=$receiver_log");
+            // echo "OK!";
+            // unset($content, $params['post']['comment']);
+        }
+
+        require_once(ROOT.'/views/site/user.php');
+        return true;
+    }
+
 }

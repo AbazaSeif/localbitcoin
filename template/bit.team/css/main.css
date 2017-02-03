@@ -1253,9 +1253,9 @@ Page help
     width: 175px;
     height: 50px;
     background: #fc5217;
-    margin-top: -5px;
+    margin-top: -6px;
     color: #fff;
-    font: 14px AndaleBold;
+    font: 17px AndaleBold;
 }
 
 .block-uslov-2 h4 {
@@ -1343,10 +1343,11 @@ Page help
     min-height: 175px;
     border: 0;
     outline: 0;
+    resize: none;
     padding-left: 25px;
     padding-top: 15px;
     background: #f1f2f4;
-    border-radius: 4px;
+    border-radius: 0 0 0 4px ;
     color: #959ba5;
     margin-top: 20px;
     font: 14px Andale;
@@ -2359,6 +2360,12 @@ height: 58px;
     margin-bottom: 25px;
 }
 
+.offline-lk {
+    font:12px AndaleBold; 
+    color: #ff0000;
+    margin-bottom: 25px;
+}
+
 .block-newcart {
     width: 100%;
     margin-top: 5px;
@@ -2561,4 +2568,19 @@ height: 58px;
 .btc-out-comm-info {
     font: 12px AndaleBold;
     color: grey;
+}
+
+.table-ads-user-prof {
+    cursor: pointer;
+}
+
+.user-comment-error {
+    display: none;
+    font: 16px Andale;
+    background: linear-gradient(to top, #c83f38, #eb5d59);
+    border: 1px darkred;
+    padding: 8px 8px 8px 15px;
+    margin: 15px 0px;
+    border-radius: 5px;
+    color: white;
 }

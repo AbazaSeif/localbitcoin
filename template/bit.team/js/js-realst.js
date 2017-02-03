@@ -99,6 +99,16 @@ $(document).ready(function() {
       }
     );
 
+    $(".send-mess-btn").click(function() {
+        if($(".area-bue").val().length == 0) {
+            $(".user-comment-error").css("display", "block");
+            return false;
+        }
+        else {
+            $(".user-comment-error").css("display", "none");
+        }
+    })
+
     // $('.btn-authorization').click(function() {
     //     if(document.getElementById('btn-double-auth').style.backgroundImage == 'url("http://localbitcoin/template/bit.team/img/elements/btn-faqt.png")'){
     //     //if($('#btn-double-auth').css('backgroundImage') === 'url("http://localbitcoin/template/bit.team/img/elements/btn-faqt.png")') {

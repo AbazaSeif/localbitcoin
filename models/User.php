@@ -604,4 +604,111 @@ class User
             return ($row['tfa_code'] == $code)?true:false;
         }
     }
+
+    public static function addComment($sender_id, $receiver_id, $content) 
+    {
+        $comm_date = date("Y-m-d H:i:s");
+
+        $sql_add_comm = "INSERT INTO `comments` (sender_id, receiver_id, content, comm_date)"." VALUES ($sender_id, $receiver_id, '$content', '$comm_date')";
+
+        $result = $GLOBALS['DBH']->prepare($sql_add_comm);
+        $result->bindParam(':sender_id', $sender_id, PDO::PARAM_INT);
+        $result->bindParam(':receiver_id', $receiver_id, PDO::PARAM_INT);
+        $result->bindParam(':content', $content, PDO::PARAM_STR);
+
+        if($result->execute()) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    public static function getIdByUsername($username)
+    {
+        $sql_id = 'SELECT id_user FROM users WHERE username=\''.$username.'\'';
+
+        $result = $GLOBALS['DBH']->prepare($sql_id);
+        $result->execute();
+        $row = $result->fetch();
+
+        if(is_array($row))
+        {
+            return $row['id_user'];
+        }
+        else 
+        {
+            return '';
+        }
+    }
+
+    public static function getUserEmailById($id) 
+    {
+        $sql_email = 'SELECT email FROM users WHERE id_user=\''.$id.'\'';
+
+        $result = $GLOBALS['DBH']->prepare($sql_email);
+        $result->execute();
+        $row = $result->fetch();
+
+        if(is_array($row))
+        {
+            return $row['email'];
+        }
+        else 
+        {
+            return '';
+        }
+    }
+
+    public static function getUserPhoneById($id) 
+    {
+        $sql_phone = 'SELECT phone FROM users WHERE id_user=\''.$id.'\'';
+
+        $result = $GLOBALS['DBH']->prepare($sql_phone);
+        $result->execute();
+        $row = $result->fetch();
+
+        if(is_array($row))
+        {
+            return $row['phone'];
+        }
+        else 
+        {
+            return '';
+        }
+    }
+
+    public static function getUserCountOfDealsById($id) 
+    {
+        $sql_deals = 'SELECT count_of_deals FROM users WHERE id_user=\''.$id.'\'';
+
+        $result = $GLOBALS['DBH']->prepare($sql_deals);
+        $result->execute();
+        $row = $result->fetch();
+
+        if(is_array($row))
+        {
+            return $row['count_of_deals'];
+        }
+        else 
+        {
+            return '';
+        }
+    }
+
+    public static function getUserCommentsById($id) 
+    {
+        $sql_deals = 'SELECT * FROM comments WHERE receiver_id=\''.$id.'\'';
+
+        $result = $GLOBALS['DBH']->prepare($sql_deals);
+        $result->execute();
+        $all_comments = array();
+
+        while($row = $result->fetch())
+        {
+            $all_comments[] = $row;
+        }
+
+        return $all_comments;
+    }
 }
