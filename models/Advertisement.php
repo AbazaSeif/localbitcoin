@@ -38,25 +38,11 @@ class Advertisement
             return false;
 
         $advertisementsList = array();
-        $i = 0;
         $result->setFetchMode(PDO::FETCH_ASSOC);
         while ($row = $result->fetch())
         {
-            $advertisementsList[$i]['id_advertisement'] = $row['id_advertisement'];
-            $advertisementsList[$i]['id_ads'] = $row['id_advertisement'];
-            $advertisementsList[$i]['type'] = $row['type'];
-            $advertisementsList[$i]['status'] = $row['status'];
-            $advertisementsList[$i]['location'] = $row['location'];
-            $advertisementsList[$i]['currency_id'] = $row['currency_id'];
-            $advertisementsList[$i]['price'] = $row['price'];
-            $advertisementsList[$i]['max_amount'] = $row['max_amount'];
-            $advertisementsList[$i]['comment'] = $row['comment'];
-            $advertisementsList[$i]['created_on'] = $row['created_on'];
-            $advertisementsList[$i]['expires_in'] = $row['expires_in'];
-            $advertisementsList[$i]['user_id'] = $row['user_id'];
-            $i++;
+            $advertisementsList[]=$row;
         }
-
         return $advertisementsList;
     }
 
@@ -200,23 +186,10 @@ class Advertisement
             return false;
 
         $advertisementsList = array();
-        $i = 0;
         $result->setFetchMode(PDO::FETCH_ASSOC);
         while ($row = $result->fetch())
         {
-            $advertisementsList[$i]['id_advertisement'] = $row['id_advertisement'];
-            $advertisementsList[$i]['id_ads'] = $row['id_advertisement'];
-            $advertisementsList[$i]['type'] = $row['type'];
-            $advertisementsList[$i]['status'] = $row['status'];
-            $advertisementsList[$i]['location'] = $row['location'];
-            $advertisementsList[$i]['currency_id'] = $row['currency_id'];
-            $advertisementsList[$i]['price'] = $row['price'];
-            $advertisementsList[$i]['max_amount'] = $row['max_amount'];
-            $advertisementsList[$i]['comment'] = $row['comment'];
-            $advertisementsList[$i]['created_on'] = $row['created_on'];
-            $advertisementsList[$i]['expires_in'] = $row['expires_in'];
-            $advertisementsList[$i]['user_id'] = $row['user_id'];
-            $i++;
+            $advertisementsList[] = $row;
         }
 
         return $advertisementsList;
@@ -247,23 +220,10 @@ class Advertisement
             return false;
 
         $advertisementsList = array();
-        $i = 0;
         $result->setFetchMode(PDO::FETCH_ASSOC);
         while ($row = $result->fetch())
         {
-            $advertisementsList[$i]['id_advertisement'] = $row['id_advertisement'];
-            $advertisementsList[$i]['id_ads'] = $row['id_advertisement'];
-            $advertisementsList[$i]['type'] = $row['type'];
-            $advertisementsList[$i]['status'] = $row['status'];
-            $advertisementsList[$i]['location'] = $row['location'];
-            $advertisementsList[$i]['currency_id'] = $row['currency_id'];
-            $advertisementsList[$i]['price'] = $row['price'];
-            $advertisementsList[$i]['max_amount'] = $row['max_amount'];
-            $advertisementsList[$i]['comment'] = $row['comment'];
-            $advertisementsList[$i]['created_on'] = $row['created_on'];
-            $advertisementsList[$i]['expires_in'] = $row['expires_in'];
-            $advertisementsList[$i]['user_id'] = $row['user_id'];
-            $i++;
+            $advertisementsList[] = $row;
         }
 
         return $advertisementsList;
@@ -281,23 +241,10 @@ class Advertisement
             return false;
 
         $advertisementsList = array();
-        $i = 0;
         $result->setFetchMode(PDO::FETCH_ASSOC);
         while ($row = $result->fetch())
         {
-            $advertisementsList[$i]['id_advertisement'] = $row['id_advertisement'];
-            $advertisementsList[$i]['id_ads'] = $row['id_advertisement'];
-            $advertisementsList[$i]['type'] = $row['type'];
-            $advertisementsList[$i]['status'] = $row['status'];
-            $advertisementsList[$i]['location'] = $row['location'];
-            $advertisementsList[$i]['currency_id'] = $row['currency_id'];
-            $advertisementsList[$i]['price'] = $row['price'];
-            $advertisementsList[$i]['max_amount'] = $row['max_amount'];
-            $advertisementsList[$i]['comment'] = $row['comment'];
-            $advertisementsList[$i]['created_on'] = $row['created_on'];
-            $advertisementsList[$i]['expires_in'] = $row['expires_in'];
-            $advertisementsList[$i]['user_id'] = $row['user_id'];
-            $i++;
+            $advertisementsList[] = $row;
         }
 
         return $advertisementsList;

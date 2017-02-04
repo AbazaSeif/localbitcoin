@@ -33,8 +33,19 @@ class SiteController
             array('name' => 'Информация о продавце', 'link' => '/cabinet/info'),
         );
 
-        $adses = Advertisement::getAdvertisementsList('only active, yeah bitch');
-
+        $adses = Advertisement::getAdvertisementsList('Active');
+        $count_sell = 0;
+        $count_buy = 0;
+        foreach ($adses as $ads){
+            if($ads['type'] == 1)
+            {
+                $count_sell++;
+            }
+            else
+            {
+                $count_buy++;
+            }
+        }
         require_once(ROOT.'/views/site/index.php');
         return true;
     }

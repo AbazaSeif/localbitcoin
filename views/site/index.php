@@ -27,8 +27,9 @@ foreach ($items as $value) {
             </form>
         </div>
         <div class="content-table">
-            <h3>Купить биткоины онлайн</h3>
+            <h3><?php echo $type == 'buy'?"Купить ":"Продать "; ?> биткоины онлайн</h3>
             <div class="table-1">
+                <?php if(($type == 'buy' &&$count_buy > 0)||($type == 'sell' && $count_sell > 0)){ ?>
                 <table>
                     <tr>
                         <th>Рейтинг</th>
@@ -39,12 +40,11 @@ foreach ($items as $value) {
                         <th></th>
                     </tr>
                     <?php
-                    $i = 0;
                     foreach ($adses as $ads):
                         $username = User::getUsernameById($ads['user_id']);
                         $currency = Currency::getStringName($ads['currency_id']);
                         $symbol = Currency::getSymbol($ads['currency_id']);
-                        $type = Advertisement::getInvertStringType($ads['type']);
+                        if($ads['type'] == ($type == 'buy'?2:1)){
                         ?>
                         <tr>
                             <td><span class="color_100">100%</span></td> <!--  color_100,50,35?> -->
@@ -59,16 +59,19 @@ foreach ($items as $value) {
                             <td><span class="price_color"><?= $ads['price'], ' ', $currency?></span></td>
                             <!-- <td><?= $ads['max_amount']?> </td> -->
                             <td>30 - 8000 EUR</td>
-                            <td class="seg-bue-table"><a href="/cabinet/info?ads=<?= $ads['id_advertisement'] ?>" class="table-btn-bue"><?= $ads['user_id'] == User::getUserIdFromSession() ? 'Купить' : $type ?></td>
+                            <td class="seg-bue-table"><a href="/cabinet/info?ads=<?= $ads['id_advertisement'] ?>" class="table-btn-bue"><?= $ads['user_id'] == User::getUserIdFromSession() ? 'Купить' : Advertisement::getInvertStringType($ads['type']); ?></td>
                         </tr>
-                    <?php endforeach; ?>
+                    <?php }endforeach;?>
                 </table>
+               <?php } else {?> 
+               <div style="color:grey;">Извините, но предложений по <?= $type=="buy"?"покупке ":"продаже ";?>пока нет</div><?php }?>
             </div>
         </div>
 
         <div class="content-table">
-            <h3>Купить биткоины за наличные</h3>
+            <h3><?php echo $type == 'buy'?"Купить ":"Продать "; ?> биткоины онлайн</h3>
             <div class="table-1">
+                <?php if(($type == 'buy' &&$count_buy > 0)||($type == 'sell' && $count_sell > 0)){ ?>
                 <table>
                     <tr>
                         <th>Рейтинг</th>
@@ -79,12 +82,11 @@ foreach ($items as $value) {
                         <th></th>
                     </tr>
                     <?php
-                    $i = 0;
                     foreach ($adses as $ads):
                         $username = User::getUsernameById($ads['user_id']);
                         $currency = Currency::getStringName($ads['currency_id']);
                         $symbol = Currency::getSymbol($ads['currency_id']);
-                        $type = Advertisement::getInvertStringType($ads['type']);
+                        if($ads['type'] == ($type == 'buy'?2:1)){
                         ?>
                         <tr>
                             <td><span class="color_100">100%</span></td> <!--  color_100,50,35?> -->
@@ -99,10 +101,12 @@ foreach ($items as $value) {
                             <td><span class="price_color"><?= $ads['price'], ' ', $currency?></span></td>
                             <!-- <td><?= $ads['max_amount']?> </td> -->
                             <td>30 - 8000 EUR</td>
-                            <td class="seg-bue-table"><a href="/cabinet/info?ads=<?= $ads['id_advertisement'] ?>" class="table-btn-bue"><?= $ads['user_id'] == User::getUserIdFromSession() ? 'Купить' : $type ?></td>
+                            <td class="seg-bue-table"><a href="/cabinet/info?ads=<?= $ads['id_advertisement'] ?>" class="table-btn-bue"><?= $ads['user_id'] == User::getUserIdFromSession() ? 'Купить' : Advertisement::getInvertStringType($ads['type']) ?></td>
                         </tr>
-                    <?php endforeach; ?>
+                    <?php }endforeach;?>
                 </table>
+                <?php } else {?> 
+               <div style="color:grey;">Извините, но предложений по <?= $type=="buy"?"покупке ":"продаже ";?>пока нет</div><?php }?>
             </div>
         </div>
     <?php else: ?>
