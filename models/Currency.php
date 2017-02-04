@@ -10,13 +10,13 @@ class Currency
         if (!isset($_SESSION['currency_time'])) {
             $_SESSION['currency_time'] = time();
             $_SESSION['currency_RUR'] = Service::BTCtoRUR(1);
-            $_SESSION['currency_USD'] = Service::BTCtoRUR(1);
+            $_SESSION['currency_USD'] = Service::BTCtoUSD(1);
         }
         else if((time() - $_SESSION['currency_time'])> 3600)
         {
             $_SESSION['currency_time'] = time();
             $_SESSION['currency_RUR'] = Service::BTCtoRUR(1);
-            $_SESSION['currency_USD'] = Service::BTCtoRUR(1);
+            $_SESSION['currency_USD'] = Service::BTCtoUSD(1);
         }
         if($currency_name == 'RUR')
         {          
