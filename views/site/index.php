@@ -49,7 +49,7 @@ foreach ($items as $value) {
                         <tr>
                             <td><span class="color_100">100%</span></td> <!--  color_100,50,35?> -->
                             <td>
-                                <a href="/user?sender_id=<?= $_SESSION['id_user'] ?>&receiver_log=<?= $username ?>" class="<?php echo (User::isOnline($ads['user_id']))?("stic_online"):("off_online"); ?> color_blue table-ads-user-prof"><?= $username ?>
+                                <a href="/user?receiver_log=<?= $username ?>" class="<?php echo (User::isOnline($ads['user_id']))?("stic_online"):("off_online"); ?> color_blue table-ads-user-prof"><?= $username ?>
                                     <span class="modalStatus"><?php echo (User::isOnline($ads['user_id']))?("Online"):("Offline"); ?></span>
                                 </a>
                             </td>

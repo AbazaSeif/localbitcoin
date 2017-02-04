@@ -29,6 +29,8 @@ class CabinetController
             User::disableTFA();
         }
         $adses = Advertisement::getAdsesByUserId(User::getUserIdFromSession());
+        $all_comments = User::getUserCommentsById($_SESSION['id_user']);
+        $comments_count = count($all_comments);
         $currloc = "index";
         require_once(ROOT.'/views/cabinet/index.php');
         return true;

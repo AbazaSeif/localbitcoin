@@ -123,26 +123,18 @@ class SiteController
 
     public function actionUser($params)
     {
-        $sender_id = $params['get']['sender_id'];
-        $receiver_log = $params['get']['receiver_log'];
-        $receiver_id = User::getIdByUsername($receiver_log);
-        $receiver_phone = User::getUserPhoneById($receiver_id);
-        $receiver_email = User::getUserEmailById($receiver_id);
-        $all_comments = User::getUserCommentsById($receiver_id);
-        $comments_count = count($all_comments);
-
-        // echo $params['post']['comment'].' '.time();
-
-        if(isset($params['post']['comment']) && strlen($params['post']['comment']) > 0) {
-            if(!User::addComment($sender_id, $receiver_id, $params['post']['comment'])) {
+        $sender_id = isset($_SESSION['id_user'])?$_SESSION['id_user']:false;
+        $receiver = isset($params['get']['receiver_log'])?User::getUserByUsername($params['get']['receiver_log']):false;
+        if($sender_id !== false&&isset($params['post']['comment']) && strlen($params['post']['comment']) > 0) {
+            if(!User::addComment($sender_id, $receiver['id_user'], $params['post']['comment'])) {
                 $errors[] = "Отзыв не был добавлен. Попробуйте позже";
             }
-
-            header("Location: http://localbitcoin/user?sender_id=$sender_id&receiver_log=$receiver_log");
-            // echo "OK!";
-            // unset($content, $params['post']['comment']);
         }
-
+        if($receiver !== false)
+        {
+            $all_comments = User::getUserCommentsById($receiver['id_user']);
+            $comments_count = count($all_comments);
+        }
         require_once(ROOT.'/views/site/user.php');
         return true;
     }

@@ -624,76 +624,14 @@ class User
         }
     }
 
-    public static function getIdByUsername($username)
+    public static function getUserByUsername($username)
     {
-        $sql_id = 'SELECT id_user FROM users WHERE username=\''.$username.'\'';
+        $sql_id = 'SELECT id_user,username,email,phone,count_of_deals FROM users WHERE username=\''.$username.'\'';
 
         $result = $GLOBALS['DBH']->prepare($sql_id);
         $result->execute();
         $row = $result->fetch();
-
-        if(is_array($row))
-        {
-            return $row['id_user'];
-        }
-        else 
-        {
-            return '';
-        }
-    }
-
-    public static function getUserEmailById($id) 
-    {
-        $sql_email = 'SELECT email FROM users WHERE id_user=\''.$id.'\'';
-
-        $result = $GLOBALS['DBH']->prepare($sql_email);
-        $result->execute();
-        $row = $result->fetch();
-
-        if(is_array($row))
-        {
-            return $row['email'];
-        }
-        else 
-        {
-            return '';
-        }
-    }
-
-    public static function getUserPhoneById($id) 
-    {
-        $sql_phone = 'SELECT phone FROM users WHERE id_user=\''.$id.'\'';
-
-        $result = $GLOBALS['DBH']->prepare($sql_phone);
-        $result->execute();
-        $row = $result->fetch();
-
-        if(is_array($row))
-        {
-            return $row['phone'];
-        }
-        else 
-        {
-            return '';
-        }
-    }
-
-    public static function getUserCountOfDealsById($id) 
-    {
-        $sql_deals = 'SELECT count_of_deals FROM users WHERE id_user=\''.$id.'\'';
-
-        $result = $GLOBALS['DBH']->prepare($sql_deals);
-        $result->execute();
-        $row = $result->fetch();
-
-        if(is_array($row))
-        {
-            return $row['count_of_deals'];
-        }
-        else 
-        {
-            return '';
-        }
+        return $row;
     }
 
     public static function getUserCommentsById($id) 

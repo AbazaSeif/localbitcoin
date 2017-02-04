@@ -233,7 +233,7 @@
             <li><div class="stat_lk_1"><p>50<br><span class="style-text-stat">Количество сделок</span></p></div></li>
             <li><div class="stat_lk_1"><p>12.5BTC<br><span class="style-text-stat">Сумма сделок</span></p></div></li>
             <li><div class="stat_lk_1"><p>1400<br><span class="style-text-stat">Рейтинг</span></p></div></li>
-            <li><div class="stat_lk_1"><p>87<br><span class="style-text-stat">Отзывов</span></p></div></li>
+            <li><div class="stat_lk_1"><p><?= $comments_count ?><br><span class="style-text-stat">Отзывов</span></p></div></li>
         </ul>
         <div class="clear"></div>
         </div>
@@ -241,26 +241,16 @@
 <div class="wrapper">
         <div class="recal-lk">
             <h3>Отзывы о продавце</h3>
-            <div class="recal-block-lk">
-                <p class="title-recal">Андрей Дружков <span class="recal-date">От 24.02.2017</span> </p>
-                <p class="text-recall">
-                    Разнообразный и богатый опыт сложившаяся структура организации позволяет оенить значение систмы обучения кадров, соотетствует насущным потребностям.
-                    С другой стороны сложившаяся структура организации обеспечивает широому кругу (специалистов) участие в формировании дальнйших направлений развития.
-
-                    Повседневная практика показывает, что постоянное информацино-пропагандское обеспечение нашей деятельости обеспечивает широкому кругу (специалистов)
-                    участие в формировании дальнейших направлений развития.
-                </p>
-            </div>
-            <div class="recal-block-lk">
-                <p class="title-recal">Андрей Дружков <span class="recal-date">От 24.02.2017</span> </p>
-                <p class="text-recall">
-                    Разнообразный и богатый опыт сложившаяся структура организации позволяет оенить значение систмы обучения кадров, соотетствует насущным потребностям.
-                    С другой стороны сложившаяся структура организации обеспечивает широому кругу (специалистов) участие в формировании дальнйших направлений развития.
-
-                    Повседневная практика показывает, что постоянное информацино-пропагандское обеспечение нашей деятельости обеспечивает широкому кругу (специалистов)
-                    участие в формировании дальнейших направлений развития.
-                </p>
-            </div>
+            <?php foreach ($all_comments as $comm): ?>
+                <div class="recal-block-lk">
+                    <p class="title-recal"> <?= User::getUsernameById($comm['sender_id']) ?>
+                        <span class="recal-date">От <?= $comm['comm_date'] ?></span>
+                    </p>
+                    <p class="text-recall">
+                        <?= $comm['content'] ?>
+                    </p>
+                </div>
+            <?php endforeach; ?>
         </div>
     </div>
 
