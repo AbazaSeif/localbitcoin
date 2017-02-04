@@ -162,6 +162,10 @@ class AdminController extends AdminBase
         {
             $commentsList = User::getCommentsList();
         }
+        else
+        {
+            $commentsList = User::getUserCommentsById($params['get']['user_id']);
+        }
         require_once(ROOT . '/views/admin/recall.php');
         return true;
     }

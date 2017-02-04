@@ -57,17 +57,6 @@
             </div>
             <?php endforeach; ?>
         </div>
-        <?php if($sender_id !== false&&$sender_id != $receiver['id_user']){ ?>
-        <div class="block-ost-zav" style="border-top: 3px solid #fc5217; margin-top: 50px;">
-            <form method="post">
-                <textarea class="area-bue" name="comment" maxlength="500" placeholder="Оставьте отзыв о продавце" style="margin-top: 0; color: black; font: 17px AndaleBold;"></textarea>
-                <p class="user-comment-error">Отзыв не может быть пустым. Введите данные!</p>
-                <button type="submit" class="send-mess-btn" style="margin-bottom: 30px;">Оставить отзыв</button>
-            </form>
-            <div class="clear"></div>
-       </div>
-        <?php }?>
-
     </div>
 
 <?php require_once ROOT.'/views/layouts/footer.php'; ?>

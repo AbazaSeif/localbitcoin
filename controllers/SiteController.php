@@ -138,11 +138,11 @@ class SiteController
     {
         $sender_id = isset($_SESSION['id_user'])?$_SESSION['id_user']:false;
         $receiver = isset($params['get']['receiver_log'])?User::getUserByUsername($params['get']['receiver_log']):false;
-        if($sender_id !== false&&isset($params['post']['comment']) && strlen($params['post']['comment']) > 0) {
-            if(!User::addComment($sender_id, $receiver['id_user'], $params['post']['comment'])) {
-                $errors[] = "Отзыв не был добавлен. Попробуйте позже";
-            }
-        }
+        // if($sender_id !== false&&isset($params['post']['comment']) && strlen($params['post']['comment']) > 0) {
+        //     if(!User::addComment($sender_id, $receiver['id_user'], $params['post']['comment'])) {
+        //         $errors[] = "Отзыв не был добавлен. Попробуйте позже";
+        //     }
+        // }
         if($receiver !== false)
         {
             $all_comments = User::getUserCommentsById($receiver['id_user']);
