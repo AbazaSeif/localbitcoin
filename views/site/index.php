@@ -18,7 +18,7 @@ foreach ($items as $value) {
                     <option>EUR</option>
                     <option>RUR</option>
                 </select>
-                <input type="text" name="sum" class="inp-sum" placeholder="Страна">
+                <!-- <input type="text" name="sum" class="inp-sum" placeholder="Страна"> -->
                 <select class="select-2-top">
                     <option>EUR</option>
                     <option>BTC</option>
