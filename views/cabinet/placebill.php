@@ -30,8 +30,8 @@
                 <input type = "text" name = "location" pattern="^[А-Яа-яЁё\s]+$" value = "<?= $location ?>" placeholder = "Введите местоположение, только русские буквы" required class="inp-newob-2">
                 <select class="sel-new-ob" name="currency_id">
                     <option disabled>Выберите валюту</option>
+                    <option value = "1">USD</option>    
                     <option value = "2">RUR</option>
-                    <option value = "1">BTK</option>    
                 </select>
                 <select class="sel-new-ob" name="payment_id">
                     <option disabled>Выберите способ оплаты</option>

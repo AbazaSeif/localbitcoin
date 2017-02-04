@@ -228,7 +228,7 @@ html{
 }
 
 .select-1-top {
-    width: 227px;
+    width: 340px;
     background: url("../img/bg/bg-select.png") repeat-x;
     height: 45px;
     border-radius: 3px;
@@ -241,7 +241,7 @@ html{
 }
 
 .select-2-top {
-    width: 340px;
+    width: 227px;
     background: url("../img/bg/bg-select.png") repeat-x;
     height: 45px;
     border-radius: 3px;
@@ -276,6 +276,7 @@ html{
 .content-table {
     width: 100%;
     padding-top: 60px;
+    margin-bottom: 50px;
 }
 
 .content-table h3 {

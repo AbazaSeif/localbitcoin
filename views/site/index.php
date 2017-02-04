@@ -5,24 +5,28 @@ foreach ($items as $value) {
 ?>
 
 <div class="content-main">
-    <?php if (count($adses) != 0): ?>
+    <?php if (count($adses) != 0 || (count($adses) == 0 && $search_conditions != '')): ?>
         <div class="block-btn-bur">
             <a href="?type=sell" class="btn-sale-main <?php if ($type == 'sell') echo ' active-bue-m'; ?>">Быстрая продажа</a>
             <a href="?type=buy" class="btn-bue-main <?php if ($type == 'buy') echo ' active-bue-m'; ?>">Быстрая покупка</a>
             <div class="clear"></div>
         </div>
         <div class="form-main-bue">
-            <form>
+            <form method="post">
                 <input type="text" name="sum" class="inp-sum" placeholder="Сумма">
-                <select class="select-1-top">
-                    <option>EUR</option>
-                    <option>RUR</option>
+                <select class="select-2-top" name="currency">
+                    <option disabled>Выберите валюту</option>
+                    <option value = "1">USD</option>    
+                    <option value = "2">RUR</option>
+                </select>
+                <select class="select-1-top" name="payment">
+                    <option disabled>Выберите способ оплаты</option>
+                    <option value = "1">Банковской картой (VISA, MasterCard)</option> 
+                    <option value = "2">WebМоney</option> 
+                    <option value = "3">QIWI Wallet</option> 
+                    <option value = "4">Яндекс.Деньги</option>
                 </select>
                 <!-- <input type="text" name="sum" class="inp-sum" placeholder="Страна"> -->
-                <select class="select-2-top">
-                    <option>EUR</option>
-                    <option>BTC</option>
-                </select>
                 <button type="submit" class="btn-serche"><i><img src="/template/bit.team/img/icon/i-lupa.png"></i>Поиск</button>
             </form>
         </div>
@@ -53,18 +57,16 @@ foreach ($items as $value) {
                                     <span class="modalStatus"><?php echo (User::isOnline($ads['user_id']))?("Online"):("Offline"); ?></span>
                                 </a>
                             </td>
-                            <td>Банковские переводы внутри странны (EOSWC)</td>
-                            <!-- <td>Банковские переводы внутри странны (EOSWC)</td> -->
-                            <!-- <td><span class="price_color"><?= $ads['price'], ' ', $currency . ' / BTC' ?></span></td> -->
+                            <td><?= Advertisement::getPaymentMethodById($ads['payment_method']) ?></td>
                             <td><span class="price_color"><?= $ads['price'], ' ', $currency?></span></td>
                             <!-- <td><?= $ads['max_amount']?> </td> -->
-                            <td>30 - 8000 EUR</td>
+                            <td><?= $ads['min_amount'].' - '.$ads['max_amount'] ?></td>
                             <td class="seg-bue-table"><a href="/cabinet/info?ads=<?= $ads['id_advertisement'] ?>" class="table-btn-bue"><?= $ads['user_id'] == User::getUserIdFromSession() ? 'Купить' : Advertisement::getInvertStringType($ads['type']); ?></td>
                         </tr>
                     <?php }endforeach;?>
                 </table>
                <?php } else {?> 
-               <div style="color:grey;">Извините, но предложений по <?= $type=="buy"?"покупке ":"продаже ";?>пока нет</div><?php }?>
+               <div style="color:grey;"><?= $search_conditions != '' ? "Поиск не дал результатов" : ("Извините, но предложений по " .($type=="buy"?"покупке ":"продаже ")."пока нет") ?></div><?php }?>
             </div>
         </div>
 

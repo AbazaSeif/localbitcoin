@@ -109,6 +109,13 @@ $(document).ready(function() {
         }
     })
 
+    $(".btn-serche").click(function() {
+        if($(".inp-sum").val().length == 0) {
+            alert("Введите сумму для поиска");
+            return false;
+        }
+    })
+
     // $('.btn-authorization').click(function() {
     //     if(document.getElementById('btn-double-auth').style.backgroundImage == 'url("http://localbitcoin/template/bit.team/img/elements/btn-faqt.png")'){
     //     //if($('#btn-double-auth').css('backgroundImage') === 'url("http://localbitcoin/template/bit.team/img/elements/btn-faqt.png")') {

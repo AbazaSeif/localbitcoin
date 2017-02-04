@@ -10,22 +10,28 @@ class Advertisement
 
     //const SHOW_BY_DEFAULT = 10;
 
-    public static function getAdvertisementsList($onlyActive = false, $limit = false)
+    public static function getAdvertisementsList($onlyActive = false, $search_condotions = '', $limit = false)
     {
         //$limit = self::SHOW_BY_DEFAULT;
 
         if ($limit !== false)
         {
-            $sql = 'SELECT * FROM advertisements '
-                .'ORDER BY id_advertisement DESC LIMIT :limit';
+            $sql = 'SELECT * FROM advertisements :condition'
+                .' ORDER BY id_advertisement DESC LIMIT :limit';
 
             $result = $GLOBALS['DBH']->prepare($sql);
             $result->bindParam(':limit', $limit, PDO::PARAM_INT);
+            $result->bindParam(':condition', $search_condotions, PDO::PARAM_STR);
         }
         else
         {
             $sql = 'SELECT * FROM advertisements ';
-            if ($onlyActive) $sql .= 'WHERE status = 0 ';
+            if ($onlyActive && $search_condotions !== '') {
+                $sql .= $search_condotions. ' AND status = 0 ';
+            }
+            else {
+                $sql .= 'WHERE status = 0 ';
+            }
             $sql .= 'ORDER BY id_advertisement DESC';
 
             $result = $GLOBALS['DBH']->prepare($sql);
@@ -262,6 +268,20 @@ class Advertisement
         $result->bindParam(':max_amount', $max_amount, PDO::PARAM_STR);
         $result->bindParam(':comment', $comment, PDO::PARAM_STR);
         return $result->execute();
+    }
+
+    public static function getPaymentMethodById($id)
+    {
+        switch ($id) {
+            case '1':
+                return 'Банковской картой (VISA, MasterCard)';
+            case '2':
+                return 'WebМоney';
+            case '3':
+                return 'QIWI Wallet';
+            case '4':
+                return 'Яндекс.Деньги';
+        }
     }
 
 }
