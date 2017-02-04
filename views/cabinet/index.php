@@ -230,7 +230,7 @@
     </div>
         <div class="list-cont-lk">
         <ul class="list-stat">
-            <li><div class="stat_lk_1"><p>50<br><span class="style-text-stat">Количество сделок</span></p></div></li>
+            <li><div class="stat_lk_1"><p><?= count($adses) ?><br><span class="style-text-stat">Количество сделок</span></p></div></li>
             <li><div class="stat_lk_1"><p>12.5BTC<br><span class="style-text-stat">Сумма сделок</span></p></div></li>
             <li><div class="stat_lk_1"><p>1400<br><span class="style-text-stat">Рейтинг</span></p></div></li>
             <li><div class="stat_lk_1"><p><?= $comments_count ?><br><span class="style-text-stat">Отзывов</span></p></div></li>
@@ -240,7 +240,7 @@
 </div>
 <div class="wrapper">
         <div class="recal-lk">
-            <h3>Отзывы о продавце</h3>
+            <h3>Отзывы о продавце <?= $comments_count == 0 ? 'отсутствуют' : '' ?></h3>
             <?php foreach ($all_comments as $comm): ?>
                 <div class="recal-block-lk">
                     <p class="title-recal"> <?= User::getUsernameById($comm['sender_id']) ?>
