@@ -44,6 +44,9 @@
             <a href="/admin/users"><i class="fa fa-users fa-3x" aria-hidden="true"></i> Пользователи</a>
           </li>
           <li>
+              <a href="/admin/recall"><i class="fa fa-comments fa-3x" aria-hidden="true"></i> Отзывы</a>
+          </li>
+          <li>
             <a href="/admin/ads"><i class="fa fa-desktop fa-3x"></i> Объявления</a>
           </li>
           <li>

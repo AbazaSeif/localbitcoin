@@ -649,4 +649,29 @@ class User
 
         return $all_comments;
     }
+    public static function getCommentsList()
+    {
+        $result = $GLOBALS['DBH']->query('SELECT * FROM comments');
+        $all_comments = array();
+        while ($row = $result->fetch()) {
+            $all_comments[] = $row;
+        }
+
+        return $all_comments;
+    }
+    public static function deleteCommentById($id)
+    {
+        $sql = 'DELETE FROM `comments` WHERE `id` = :id';
+        $result = $GLOBALS['DBH']->prepare($sql);
+        $result->bindParam(':id', $id, PDO::PARAM_INT);
+        return $result->execute();
+    }
+    public static function editCommentById($id, $content) {
+        $sql = 'UPDATE `comments` SET `content`= :content WHERE `id` = :id';
+        $result = $GLOBALS['DBH']->prepare($sql);
+        $result->bindParam(':id', $id, PDO::PARAM_INT);
+        $result->bindParam(':content', $content, PDO::PARAM_STR);
+        return $result->execute();
+    }
+
 }

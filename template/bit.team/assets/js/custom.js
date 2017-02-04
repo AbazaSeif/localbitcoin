@@ -233,3 +233,9 @@ function change_ads(item)
     document.getElementById('comment').value = parr.children[9].innerText;
     document.getElementById('edit_ads_id').value = parr.children[0].innerText;
 }
+function change_comm(item)
+{
+    var parr = item.parentElement.parentElement;
+    document.getElementById('comment').value = parr.children[3].innerText;
+    document.getElementById('edit_comm_id').value = parr.children[0].innerText;
+}

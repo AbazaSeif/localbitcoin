@@ -145,4 +145,24 @@ class AdminController extends AdminBase
         require_once(ROOT . '/views/admin/wallets.php');
         return true;
     }
+    public function actionRecall($params)
+    {
+        self::adminAccessLimiter();
+        $id_comm = isset($params['post']['id_comm'])?$params['post']['id_comm']:false;
+        $edit_comm_id = isset($params['post']['edit_comm_id'])?$params['post']['edit_comm_id']:false;
+        if($id_comm !== false)
+        {
+            User::deleteCommentById($id_comm);
+        }
+        else if($edit_comm_id !== false)
+        {
+            User::editCommentById($edit_comm_id,$params['post']['content']);
+        }
+        if(!isset($params['get']['user_id']))
+        {
+            $commentsList = User::getCommentsList();
+        }
+        require_once(ROOT . '/views/admin/recall.php');
+        return true;
+    }
 }

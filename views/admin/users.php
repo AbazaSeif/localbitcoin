@@ -44,12 +44,15 @@
             <a class="active-menu" href="/admin/users"><i class="fa fa-users fa-3x" aria-hidden="true"></i> Пользователи</a>
           </li>
           <li>
+              <a href="/admin/recall"><i class="fa fa-comments fa-3x" aria-hidden="true"></i> Отзывы</a>
+          </li>
+          <li>
             <a href="/admin/ads"><i class="fa fa-desktop fa-3x"></i> Объявления</a>
           </li>
           <li>
             <a href="/admin/messages"><i class="fa fa-envelope-o fa-3x"></i> Сообщения</a>
           </li>
-          <li  >
+          <li>
             <a href="/admin/tickets"><i class="fa fa-ticket fa-3x"></i> Тикеты</a>
           </li> 
           <li  >
@@ -81,9 +84,10 @@
                         <th>Ads</th>
                         <th>Объявления</th>
                         <th>Сообщения</th>
+                        <th>Отзывы</th>
                         <th>Активирован</th>
-                        <th>Заблокирован</th>
-                        <th>Администратор?</th>
+                        <th>Blocked?</th>
+                        <th>Admin?</th>
                         <th></th>
                         <th></th>
                       </tr>
@@ -97,6 +101,7 @@
                           <td><?php echo $user['count_of_deals']; ?></td>
                           <td><a href="/admin/ads?user_id=<?php echo $user['id_user']; ?>" title="Найти все объявления юзера"><i class="fa fa-search"></i> Показать</a></td>
                           <td><a href="/admin/messages?user_id=<?php echo $user['id_user']; ?>" title="Найти все сообщения юзера"><i class="fa fa-search"></i> Найти</a></td>
+                          <td><a href="/admin/recall?user_id=<?php echo $user['id_user']; ?>" title="Найти все отзы о пользователе"><i class="fa fa-search"></i> Показать</a></td>
                           <td><?php echo User::getStrVerifiedOrBlocked($user['verified']); ?></td>
                           <td><?php echo User::getStrVerifiedOrBlocked($user['blocked']); ?></td>
                           <td><?php User::isAdmin($user['id_user'])? print 'Да' : print 'Нет';?></td>
