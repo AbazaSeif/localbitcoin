@@ -58,7 +58,7 @@ foreach ($items as $value) {
                                 </a>
                             </td>
                             <td><?= Advertisement::getPaymentMethodById($ads['payment_method']) ?></td>
-                            <td><span class="price_color"><?= $ads['price'], ' ', $currency?></span></td>
+                            <td><span class="price_color"><?= ((($ads['price']/100) *Currency::getExchangeRate($currency))+ Currency::getExchangeRate($currency)), ' ', $currency?>/1 BTC</span></td>
                             <!-- <td><?= $ads['max_amount']?> </td> -->
                             <td><?= $ads['min_amount'].' - '.$ads['max_amount'] ?></td>
                             <td class="seg-bue-table"><a href="/cabinet/info?ads=<?= $ads['id_advertisement'] ?>" class="table-btn-bue"><?= $ads['user_id'] == User::getUserIdFromSession() ? 'Купить' : Advertisement::getInvertStringType($ads['type']); ?></td>

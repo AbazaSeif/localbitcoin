@@ -22,12 +22,8 @@
 
         <form method="post">
             <div class="form-newob">
-                <!-- <input class = "text-form" type = "text" name = "price" pattern = "\d+(\.\d{2,})?" value = "<?= $price ?>" placeholder = "Укажите цену за 1 BTC, например
-                <?php
-                echo Currency::getExchangeRate('rur') . '  для рублей или ' . Currency::getExchangeRate('usd') . ' для долларов';
-                ?>" required> -->
-
-                <input type = "text" name = "location" pattern="^[А-Яа-яЁё\s]+$" value = "<?= $location ?>" placeholder = "Введите местоположение, только русские буквы" required class="inp-newob-2">
+                
+                <!--Currency::getExchangeRate('rur')'usd'-->
                 <select class="sel-new-ob" name="currency_id">
                     <option disabled>Выберите валюту</option>
                     <option value = "1">USD</option>    
@@ -38,11 +34,9 @@
                     <option value = "1">Банковской картой (VISA, MasterCard)</option>
                     <option value = "2">WebМоney</option>
                     <option value = "3">QIWI Wallet</option>
-                    <option value = "3">Яндекс.Деньги</option>
+                    <option value = "4">Яндекс.Деньги</option>
                 </select>
-                <input type="text" placeholder="Цена за BTC" name="price" value = "<?= $price ?>" class="inp-newob-2">
                 <input type="text" style="margin-bottom:15px;" placeholder="Реквизиты для оплаты" name="reqs" class="inp-newob-2">
-
                 <div class="block-newcart block-newcart-2">
                     <a class="btn-new-cart btn-new-cart-2">   
                     </a>
@@ -133,11 +127,10 @@
                     </ul>
                     <div class="clear"></div>
                 </div>
-
-                <input type="number" min="0" value="0.000000" step="0.000001" placeholder="Количество BTC" name="max_amount" value = "<?= $max_amount ?>" class="inp-newob-2">
-                Объявление активно до: 
-                <input type="date" name="expires_in" min="<?= $todayHtml ?>" max="<?= $plusYearHtml ?>" value="<?= $plusMonthHtml ?>" class="inp-newob">
-                <input type="text" placeholder="Дни и часы работы (например, &laquo;с 9 утра до 12 вечера, пн-сб&raquo;)" name="time_of_work" class="inp-newob-2">
+                <input type="number" step="0.1" name="price" class="inp-newob" style="width: 45%;">
+                <span style="color: #666;font-style: italic;"><span class="input-group-addon">%</span>Размер прибыли, которую вы хотите получить сверх рыночной цены</span>
+                <input style="padding-right:5px" type="number" value="0" name="min_amount" class="inp-newob"><span style="color: #666;font-style: italic;">Минимальный лимит транзакции</span>
+                <input style="padding-right:5px" type="number" value="0" name="max_amount" class="inp-newob"><span style="color: #666;font-style: italic;">Максимальный лимит транзакции</span>
                 <textarea class="are-new" name="comment" placeholder = "Комментарий к объявлению"><?php isset($comment) ? print $comment : ''; ?></textarea>
                 <input class="inp-newob" type="password" name="password" placeholder="Пароль">
             </div>

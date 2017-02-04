@@ -7,16 +7,29 @@ class Currency
 
     public static function getExchangeRate($currency_name)
     {
-        if($currency_name == 'rur')
-        {
-            return Service::BTCtoRUR(1);
+        if (!isset($_SESSION['currency_time'])) {
+            $_SESSION['currency_time'] = time();
+            $_SESSION['currency_RUR'] = Service::BTCtoRUR(1);
+            $_SESSION['currency_USD'] = Service::BTCtoRUR(1);
         }
-        elseif($currency_name == 'usd')
+        else if((time() - $_SESSION['currency_time'])> 3600)
         {
-            return Service::BTCtoUSD(1);
+            $_SESSION['currency_time'] = time();
+            $_SESSION['currency_RUR'] = Service::BTCtoRUR(1);
+            $_SESSION['currency_USD'] = Service::BTCtoRUR(1);
+        }
+        if($currency_name == 'RUR')
+        {          
+            return $_SESSION['currency_RUR'];
+        }
+        elseif($currency_name == 'USD')
+        {
+            return $_SESSION['currency_USD'];
         }
         else
+        {
             return false;
+        }           
     }
 
     public static function getStringName($id_currency)

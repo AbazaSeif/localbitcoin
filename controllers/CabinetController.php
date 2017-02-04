@@ -43,7 +43,7 @@ class CabinetController
             Router::headerLocation('/user/signup');
         }
         
-        $location = $currency_id = $price = $min_amount = $max_amount = $time_of_work = $comment = $expires_in = false;
+        $payment_id = $currency_id = $price = $min_amount = $max_amount = $comment = false;
         $submit = false;
         extract($params['post'], EXTR_IF_EXISTS);
         $type = isset($params['get']['type']) ? Security::safe_intval($params['get']['type']) : 1;
@@ -51,23 +51,8 @@ class CabinetController
         if($type != 1 && $type != 2)
         {
             $type = 1;
-        }
-        
-        $todayHtml = date("Y-m-d");
-        $plusMonthHtml = date('Y-m-d', strtotime($todayHtml . '+1 month'));
-        $plusYearHtml = date('Y-m-d', strtotime($todayHtml . '+1 year'));
-        
-        if (!PlaceBillForm::checkDateValid($expires_in))
-        {
-            $expires_in = $plusMonthHtml;
-        }
-        $dt = new DateTime($expires_in);
-        $expires_in = $dt->format('Y-m-d');
-        
-        //var_dump($params['post']);
-        
+        }        
         $errors = false;
-
         if($type == 1 && !$this->coinbase->checkBalanceNotNull())
         {
             $errors[] = 'Вы не можете разместить объявление на продажу BTC, сначала пополните кошелёк';
@@ -81,7 +66,7 @@ class CabinetController
 
         if($submit !== false && $errors == false)
         {
-            if($id_ads = PlaceBillForm::save($type, $location, $currency_id, $price, $min_amount, $max_amount, $time_of_work, $comment, $expires_in, User::getUserIdFromSession()))
+            if($id_ads = PlaceBillForm::save($type, $currency_id, $price, $min_amount, $max_amount, $comment, User::getUserIdFromSession(), $payment_id))
             {
                 $result = true;
                 EmailActivation::sendCreateNotice(ADMIN_EMAIL, $id_ads);
@@ -490,7 +475,7 @@ class CabinetController
         {
             $errors[] = 'Ошибка в ads_id';
         }
-
+        $adses = Advertisement::getAdsesByUserId(User::getUserIdFromSession());
         require_once(ROOT.'/views/cabinet/info.php');
         return true;
     }

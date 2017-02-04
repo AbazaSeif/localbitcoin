@@ -78,16 +78,14 @@
                 <div class="clear"></div>
             </div>
 
-            <p>Цена: <span class="right-text or-color"><?= "{$ads['price']} ", Currency::getStringName($ads['currency_id']), ' / BTC ' ?></span></p>
-            <p>Способ оплаты: <span class="right-text">SEPA (RC) Банковский перевод</span></p>
+            <p>Цена: <span class="right-text or-color"><?= ((($ads['price']/100) *Currency::getExchangeRate(Currency::getStringName($ads['currency_id'])))+ Currency::getExchangeRate(Currency::getStringName($ads['currency_id']))), Currency::getStringName($ads['currency_id']), ' /1 BTC ' ?></span></p>
+            <p>Способ оплаты: <span class="right-text"><?= Advertisement::getPaymentMethodById($ads['payment_method']) ?></span></p>
             <p>Автор объявления: <span class="right-text cast-client <?php echo (User::isOnline($ads['user_id']))?("stic_online"):("off_online"); ?>"><?= User::getUsernameById($author_ads) ?><span class="color_100"> (100%)</span></span></p>
             <!-- <p>Количество BTC: <span class="right-text"><?= $ads['max_amount'] ?></span></p> -->
-            <p>Ограничения по сделке: <span class="right-text">30 - 9000 EUR</span></p>
-            <p>Местоположение: <span class="right-text color-b"><?= $ads['location'] ?></span></p>
-            <p>Окно оплаты: <span class="right-text">60 мин</span></p>
-            <p>Кол-во сделок: <span class="right-text">987</span></p>
+            <p>Ограничения по сделке: <span class="right-text"><?= $ads['min_amount'].' - '.$ads['max_amount'].' '.Currency::getStringName($ads['currency_id']) ?></span></p>
+            <p>Кол-во сделок: <span class="right-text"><?= count($adses) ?></span></p>
             <p>Сумма сделок: <span class="right-text">2,879$</span></p>
-            <p>Рейтинг пользователя: <span class="right-text color-b">18700</span></p>
+            <p>Рейтинг пользователя: <span class="right-text color-b">100</span></p>
         </div>
 
         <div class="block-send">

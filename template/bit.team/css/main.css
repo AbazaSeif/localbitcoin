@@ -23,6 +23,20 @@ html{
     clear: both;
 }
 
+.input-group-addon{
+    padding: 12px 12px;
+    position: relative;
+    left: -12px;
+    top: 2px;
+    font-weight: normal;
+    line-height: 1;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: #555;
+    text-align: center;
+    background-color: #eee;
+    border: 1px solid #ccc;
+}
+
 .top-header {
     width: 100%;
     height: 60px;
