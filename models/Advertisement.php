@@ -256,17 +256,17 @@ class Advertisement
         return $advertisementsList;
     }
 
-    public static function edit($id_ads, $type, $location, $price, $currency_id, $max_amount, $comment)
+    public static function edit($id_ads, $price, $currency_id, $min_amount, $max_amount, $comment, $payment_method)
     {
-        $sql = "UPDATE advertisements SET type = :type, location = :location, price = :price, currency_id = :currency_id, max_amount=:max_amount, comment=:comment WHERE id_advertisement = :id_ads";
+        $sql = "UPDATE advertisements SET price = :price, currency_id = :currency_id, min_amount=:min_amount, max_amount=:max_amount, comment=:comment, payment_method=:payment_method WHERE id_advertisement = :id_ads";
         $result = $GLOBALS['DBH']->prepare($sql);
         $result->bindParam(':id_ads', $id_ads, PDO::PARAM_INT);
-        $result->bindParam(':type', $type, PDO::PARAM_INT);
-        $result->bindParam(':location', $location, PDO::PARAM_STR);
         $result->bindParam(':price', $price, PDO::PARAM_STR);
         $result->bindParam(':currency_id', $currency_id, PDO::PARAM_INT);
+        $result->bindParam(':min_amount', $min_amount, PDO::PARAM_STR);
         $result->bindParam(':max_amount', $max_amount, PDO::PARAM_STR);
         $result->bindParam(':comment', $comment, PDO::PARAM_STR);
+        $result->bindParam(':payment_method', $payment_method, PDO::PARAM_INT);
         return $result->execute();
     }
 

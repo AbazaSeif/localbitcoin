@@ -18,7 +18,7 @@
                 <li><a href="/adminUser">Управление пользователями</a></li>
                 <li><a href="/adminAds">Управление объявлениями</a></li>
                 <li><a href="/adminMessages">Управление сообщениями</a></li>
-                <li><a href="/adminTickets">Тикеты и поддержка</a></li>
+                <li><a href="/adminTickets">Арбитраж и поддержка</a></li>
                 <li><a href="/adminWallets">Управление кошельками</a></li>
             </ul>
             

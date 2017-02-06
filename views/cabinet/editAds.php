@@ -33,17 +33,23 @@
             <div class="form-newob">
                 <!-- <input class = "text-form" type = "text" name = "price"  -->
 
-                <input type = "text" name = "location" pattern="^[А-Яа-яЁё\s]+$" value = "<?= $ads['location'] ?>" placeholder = "Введите местоположение, только русские буквы" required class="inp-newob-2">
                 <select class="sel-new-ob" name="currency_id">
                     <option disabled>Выберете валюту</option>
                     <option <?= $ads['currency_id'] == 1 ? 'selected ' : '' ?>value = "1">USD</option>
                     <option <?= $ads['currency_id'] == 2 ? 'selected ' : '' ?>value = "2">RUR</option>
                 </select>
-                <input type="text" name="price" pattern = "\d+(\.\d{2,})?" value = "<?= $ads['price'] ?>" placeholder = "Укажите цену за 1 BTC, например <?= Currency::getExchangeRate('rur') . ' для рублей или ' . Currency::getExchangeRate('usd') . ' для долларов'; ?>" required class="inp-newob-2">
-                <input type="number" min="0" step="0.000001" placeholder="Количество BTC" name="min_amount" value = "<?= $ads['max_amount'] ?>" class="inp-newob-2">
-                Объявление активно до: 
-                <input type="date" name="expires_in" min="<?= $todayHtml ?>" max="<?= $plusYearHtml ?>" value="<?= date('Y-m-d', strtotime($ads['expires_in'])) ?>" class="inp-newob">
-                <input type="text" placeholder="Дни и часы работы (например, &laquo;с 9 утра до 12 вечера, пн-сб&raquo;)" name="time_of_work" value="<?= $ads['time_of_work'] ?>" class="inp-newob-2">
+                <select class="sel-new-ob" name="payment_id" >
+                    <option disabled>Выберите способ оплаты</option>
+                    <option <?= $ads['payment_method'] == 1 ? 'selected ' : '' ?> value = "1">Банковской картой (VISA, MasterCard)</option>
+                    <option <?= $ads['payment_method'] == 2 ? 'selected ' : '' ?> value = "2">WebМоney</option>
+                    <option <?= $ads['payment_method'] == 3 ? 'selected ' : '' ?> value = "3">QIWI Wallet</option>
+                    <option <?= $ads['payment_method'] == 4 ? 'selected ' : '' ?> value = "4">Яндекс.Деньги</option>
+                </select>
+                <input type="number" min="0" step="0.000001" placeholder="Количество BTC" name="btc" value = "<?= $ads['max_amount'] ?>" class="inp-newob-2">
+                <input type="number" step="0.1" name="price" class="inp-newob" value="<?= $ads['price'] ?>" style="width: 45%;">
+                <span style="color: #666;font-style: italic;"><span class="input-group-addon">%</span>Размер прибыли, которую вы хотите получить сверх рыночной цены</span>
+                <input style="padding-right:5px" type="number" step="0.1" value="<?= $ads['min_amount'] ?>" name="min_amount" class="inp-newob"><span style="color: #666;font-style: italic;">Минимальный лимит транзакции</span>
+                <input style="padding-right:5px" type="number" step="0.1" value="<?= $ads['max_amount'] ?>" name="max_amount" class="inp-newob"><span style="color: #666;font-style: italic;">Максимальный лимит транзакции</span>
                 <textarea class="are-new" name="comment" placeholder = "Комментарий к объявлению"><?php isset($ads['comment']) ? print $ads['comment'] : ''; ?></textarea>
             </div>
             <div class="newob-create">

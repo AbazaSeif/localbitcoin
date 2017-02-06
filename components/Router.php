@@ -139,14 +139,14 @@ class Router
     }
 
     private function actionIsFounded($controllername, $actionname)
-    {
+    {     
         $controllername = ucfirst($controllername).'Controller';
         $actionname = 'action'.ucfirst($actionname);
         if($this->controllerFileExists($controllername))
         {
             //require_once $controllername.'.php';
-            $object = new $controllername;
-            return method_exists($object, $actionname);
+            // $object = new $controllername;
+            return method_exists($controllername, $actionname);
         }
         else
             return false;

@@ -2361,12 +2361,13 @@ height: 58px;
 .informate-messege{
 	width:100%;
 	background:rgba(68, 143, 214, 0.9);
+    border-radius: 5px;
 	padding:15px;
 	font:20px Andale;
     color: #fff;
     font-weight: normal;
-	border-radius:5px 5px 0px 0px;
     text-align: center;
+    margin-bottom: 20px;
 }
 
 .online-lk {

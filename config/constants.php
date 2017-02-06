@@ -2,7 +2,7 @@
 define('ADMIN_EMAIL', 'faunasvt@mail.ru');
 define('ADMIN_ID', 1);
 
-define('SITE_URL', 'http://localbitcoins.local');
+define('SITE_URL', 'http://localbt');
 define('SITE_NAME', 'LocalBitcoins');
 define('HTML_TITLE_DELIMITER', ' :: ');
 

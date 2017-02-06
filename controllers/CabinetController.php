@@ -9,6 +9,7 @@ class CabinetController
     public function __construct()
     {
         $this->coinbase = new Coinbase();
+        //echo 'Подключается контроллер';
     }
     
     public function actionIndex($params)
@@ -85,7 +86,7 @@ class CabinetController
             Router::headerLocation();
         }
         
-        $submit = $status = $location = $price = $currency_id = $min_amount = $max_amount = $time_of_work = $comment = $expires_in = false;
+        $submit = $status = $price = $currency_id = $min_amount = $max_amount = $time_of_work = $comment = $payment_method = false;
         extract($params['post'], EXTR_IF_EXISTS);
         
         $id_ads = isset($params['get']['ads'])? $params['get']['ads'] : false;
@@ -95,12 +96,6 @@ class CabinetController
         $todayHtml = date("Y-m-d");
         $plusMonthHtml = date('Y-m-d', strtotime($todayHtml . '+1 month'));
         $plusYearHtml = date('Y-m-d', strtotime($todayHtml . '+1 year'));
-        if (!PlaceBillForm::checkDateValid($expires_in))
-        {
-            $expires_in = $plusMonthHtml;
-        }
-        $dt = new DateTime($expires_in);
-        $expires_in = $dt->format('Y-m-d');
         
         $errors = false;
         $result = false;
@@ -108,24 +103,27 @@ class CabinetController
         if($id_ads !== false && Advertisement::getAdvertisementById($id_ads))
         {
             $ads = Advertisement::getAdvertisementById($id_ads);
-            
-            $type = $ads['type'];
             $user_id = $ads['user_id'];
-            $expires_in = $ads['expires_in'];
             $status = $ads['status'];
-            
-            
+
             if(User::getUserIdFromSession() == $ads['user_id'] && $ads['status'] == 0)
             {
                 if($submit)
-               {
-                 if($result = Advertisement::edit($id_ads, $type, $status, $location, $price, $currency_id, $min_amount, $max_amount, $time_of_work, $comment, $expires_in))
                 {
+                    $price = $params['post']['price'];
+                    $currency_id = Security::safe_idval($params['post']['currency_id']);
+                    $payment_method = $params['post']['payment_id'];
+                    $min_amount = $params['post']['min_amount'];
+                    $max_amount = $params['post']['max_amount'];
+                    $comment = $params['post']['comment'];
+                    
+                    if($result = Advertisement::edit($id_ads, $price, $currency_id, $min_amount, $max_amount, $comment, $payment_method))
+                    {
                         Router::headerLocation('/cabinet?from=editSuccess');
+                    }
+                    else
+                        $errors[] = 'Ошибка при обновлении объявления';
                 }
-                else
-                    $errors[] = 'Ошибка при обновлении бд';
-              }
             }
             else
             {
@@ -267,7 +265,7 @@ class CabinetController
         }
         
         $router = new Router();
-
+        $all_comments = $comments_count = $acc_created_on = false;
         $submit = $message = $dispute = $reason = false;
         extract($params['post'], EXTR_IF_EXISTS);
         $ads_id = isset($params['get']['ads']) ? $params['get']['ads'] : false;
@@ -275,7 +273,6 @@ class CabinetController
         if($ads_id)
         {
             $ads = Advertisement::getAdvertisementById($ads_id);
-
             /* переменные для чата */
             $from_user_id = User::getUserIdFromSession();
             $to_user_id = isset($ads['user_id']) ? $ads['user_id'] : false;
@@ -283,11 +280,14 @@ class CabinetController
             if($to_user_id !== false && User::checkUserExistsById($to_user_id))
             {
                 $userTo = new User($to_user_id);
+                $acc_created_on = $userTo -> created_on;
             }
             else
                 $errors[] = 'Ошибка в id_ads';
             /* -------------------- */
 
+            $all_comments = User::getUserCommentsById($to_user_id);
+            $comments_count = count($all_comments);
 
             $author_ads = (int) $ads['user_id'];
             $loggined_user = (int) User::getUserIdFromSession();
@@ -384,20 +384,20 @@ class CabinetController
                                 $confirm = isset($params['post']['confirm']) ? $params['post']['confirm'] : false; //..и, если он перевёл рубли, нажимаю
                                 if($confirm) //"перевести битки"
                                 {
-                                   Agreement::setIsMoneyTransfered($ads_id, true);
-                                
+                                 Agreement::setIsMoneyTransfered($ads_id, true);
+                                 
                                 //if(Coinbase::sendBTCfromReserve($author_ads, $amountInBtc, $ads_id))
                                 //{
-                                     Advertisement::setStatus(4, $ads);
+                                 Advertisement::setStatus(4, $ads);
                                 //}
                                 //else
                                 //{
                                 //    $errors[] = 'Проблема с переводом денег';
                                 //}
-                                }
-                            }
-                            
-                        }
+                             }
+                         }
+                         
+                     }
                         elseif(isset($params['post']['agree'])) //нажимаю на "я хочу перевести ему битки"
                         {
                             $coinbaseObj = new Coinbase();
@@ -421,11 +421,11 @@ class CabinetController
                             {
                                 Advertisement::setStatus(3, $ads_id);
                                 
-                                   Agreement::setIsMoneyTransfered($ads_id, true);
+                                Agreement::setIsMoneyTransfered($ads_id, true);
                                 
                                 //if(Coinbase::sendBTCfromReserve($loggined_user, $amountInBtc, $ads_id))
                                 //{
-                                     Advertisement::setStatus(4, $ads);
+                                Advertisement::setStatus(4, $ads);
                                 //}
                                 //else
                                 //{
@@ -437,8 +437,8 @@ class CabinetController
                         }
                         elseif(isset($params['post']['agree'])) //нажимаю на "я хочу перевести ему рубли"
                         {
-                                Agreement::updateToId($loggined_user, $ads_id);
-                                Advertisement::setStatus(2, $ads_id);
+                            Agreement::updateToId($loggined_user, $ads_id);
+                            Advertisement::setStatus(2, $ads_id);
                             
                         }
                     }
@@ -464,8 +464,14 @@ class CabinetController
             
             if($dispute !== false && $reason !== false)
             {
-                if(Ticket::create($reason, $loggined_user, $ads_id))
-                { 
+                if($id = Ticket::create($reason, $loggined_user, $ads_id))
+                {
+                    if(isset($_FILES['f'])&&($_FILES['f']['type'] == "image/jpeg"||$_FILES['f']['type'] == "image/png"))
+                    {
+                        $ext = explode(".", $_FILES['f']['name'])[1];
+                        $uploadfile = "images/t".$id.".".$ext;
+                        move_uploaded_file($_FILES['f']['tmp_name'], $uploadfile);
+                    }
                     Router::headerLocation('/'.$router->getParsedURI()['address'].'?ticketSend=1&ads='.$ads_id);
                 }
                 else Router::headerLocation ('/'.$router->getParsedURI()['address'].'?ticketSend=0&ads='.$ads_id);

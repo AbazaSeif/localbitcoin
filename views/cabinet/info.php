@@ -266,13 +266,14 @@
                 При создании генератора мы использовали небезызвестный универсальный код речей.
                 Текст генерируется абзацами случайным образом от двух до десяти предложений.</p>
             <?php if($ticketSend === false): ?>
-                <form method="post">
+                <form method="post" enctype='multipart/form-data'>
                     <select class="sel-new-ob-3" name="reason">
                         <option value="0" disabled="">Выберите причину спора</option>
                         <option value="1">Не оплачено</option>
                         <option value="2">Обман</option>
                         <option value="3">Отказываюсь</option>
                     </select>
+                    <input type="file" name="f" accept="image/*" style="outline: none;">
                     <button class="spor-btn" type="submit" name="dispute" value="1">Оспорить</button>
                 </form>
             <?php elseif($ticketSend == 1): ?>
@@ -309,8 +310,8 @@
             <ul>
                 <li>Пользователь подтвердил платёжеспособность</li>
                 <li>Пользователь подтвердил адрес электронной почты</li>
-                <li>Срок существования учётной записи: <span class="color-b"> 3 года</span></li>
-                <li>У пользователя <a href="#">58 положительных отзывов</a></li>
+                <li>Учетная запись была создана: <span class="color-b"><?= $acc_created_on ?></span></li>
+                <li>У пользователя <a href="#"><?= $comments_count ?> отзывов</a></li>
                 <li>Местонахождение подтверждено</li>
             </ul>
             <div class="clear"></div>

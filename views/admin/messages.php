@@ -53,7 +53,7 @@
             <a class="active-menu" href="/admin/messages"><i class="fa fa-envelope-o fa-3x"></i> Сообщения</a>
           </li>
           <li  >
-            <a href="/admin/tickets"><i class="fa fa-ticket fa-3x"></i> Тикеты</a>
+            <a href="/admin/tickets"><i class="fa fa-ticket fa-3x"></i> Арбитраж</a>
           </li> 
           <li  >
             <a href="/admin/support"><i class="fa fa-question-circle fa-3x"></i> Поддержка</a>

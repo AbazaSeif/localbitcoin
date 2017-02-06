@@ -1,5 +1,5 @@
 <?php
-//$start = microtime(true);
+$start = microtime(true);
 require 'vendor/autoload.php';
 
 define('_JEXEC', 1);
@@ -12,9 +12,7 @@ define('ROOT', dirname(__FILE__));
 session_start();
 
 $GLOBALS['DBH'] = Db::getConnection();
-
 $router = new Router();
 $router->run();
-
-//$end = microtime(true) - $start;
-//echo 'Страница сгенерирована за ', $end;
+$end = microtime(true) - $start;
+echo 'Страница сгенерирована за ', $end;

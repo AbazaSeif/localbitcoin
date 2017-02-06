@@ -5,7 +5,7 @@ defined('_JEXEC') or die('Restricted access');
 class Service
 {
 
-    private static $btc_ePublicApiAddres = 'https://btc-e.com/api/2/';
+    private static $btc_e = 'https://btc-e.com/api/2/';
 
     public static function timeEvents()
     {
@@ -21,24 +21,24 @@ class Service
         $result2 = $result->execute();
     }
     
-    public static function BTCtoUSD($btcAmount)
+    public static function BTCtoUSDFromBtc_e($btcAmount)
     {
-        $btcData = self::getDataFromPublicApi('btc_usd', 'ticker');
-        $usd = $btcAmount * $btcData['last'];
+        $btcData = self::getDataFromBtc_e('btc_usd', 'ticker');
+        $usd = $btcAmount * $btcData['avg'];
         return number_format($usd, 2, '.', '');
     }
 
-    public static function BTCtoRUR($btcAmount)
+    public static function BTCtoRURFromBtc_e($btcAmount)
     {
-        $btcData = self::getDataFromPublicApi('btc_rur', 'ticker');
-        $rur = $btcAmount * $btcData['last'];
+        $btcData = self::getDataFromBtc_e('btc_rur', 'ticker');
+        $rur = $btcAmount * $btcData['avg'];
         return $rur;
     }
 
-    public static function RURtoBTC($rurAmount)
+    public static function RURtoBTCFromBtc_e($rurAmount)
     {
-        $rurData = self::getDataFromPublicApi('rur_btc', 'ticker');
-        $btc = $rurAmount * $rurData['last'];
+        $rurData = self::getDataFromBtc_e('rur_btc', 'ticker');
+        $btc = $rurAmount * $rurData['avg'];
         return $rur;
     }
 
@@ -49,9 +49,9 @@ class Service
         return $uah;
     }
 
-    private static function getDataFromPublicApi($pair, $task)
+    private static function getDataFromBtc_e($pair, $task)
     {
-        $url = self::$btc_ePublicApiAddres.$pair.'/'.$task;
+        $url = self::$btc_e.$pair.'/'.$task;
 
         $opts = array('http' =>
             array(

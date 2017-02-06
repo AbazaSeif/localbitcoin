@@ -53,7 +53,7 @@
             <a href="/admin/messages"><i class="fa fa-envelope-o fa-3x"></i> Сообщения</a>
           </li>
           <li  >
-            <a class="active-menu" href="/admin/tickets"><i class="fa fa-ticket fa-3x"></i> Тикеты</a>
+            <a class="active-menu" href="/admin/tickets"><i class="fa fa-ticket fa-3x"></i> Арбитраж</a>
           </li> 
           <li  >
             <a href="/admin/support"><i class="fa fa-question-circle fa-3x"></i> Поддержка</a>
@@ -71,7 +71,7 @@
           <div class="col-md-12">
             <div class="panel panel-default">
               <div class="panel-heading">
-              Тикеты
+              Арбитраж
               </div>
               <div class="panel-body">
                 <div class="table-responsive">
@@ -82,16 +82,20 @@
                         <th>Причина спора</th>
                         <th>От</th>
                         <th>Сделка</th>
+                        <th>Вложение</th>
                         <th>Создан</th>
-
                         <th>удалить</th>
                     </tr>
                     <?php foreach ($ticketsList as $ticket): ?>
                         <tr>
-                            <td><?php echo $ticket['id_ticket']; ?></td>
+                            <td><?php echo $id = $ticket['id_ticket']; ?></td>
                             <td><?php echo Ticket::getStrReason($ticket['reason']); ?></td>
                             <td><?php echo User::getUsernameById($ticket['from_id']); ?></td>
                             <td><a href="/cabinet/info?ads=<?php echo $ticket['ads_id']; ?>" target="_blank">Просмотр <i class="fa fa-external-link"></i></a></td>
+                            <td><?php if(file_exists("images/t$id.png")||file_exists("images/t$id.jpg")||file_exists("images/t$id.jpeg")){?>
+                              <a target="_blank" href="<?= file_exists("images/t$id.png")?SITE_URL."/images/t$id.png":(file_exists("images/t$id.jpg")?SITE_URL."/images/t$id.jpg":SITE_URL."/images/t$id.jpeg") ?>">Показать</a>
+                              <?php }?>
+                            </td>
                             <td><?php echo $ticket['created_on']; ?></td>
                             <td><button onclick="document.getElementById('id_ticket').value = <?= $ticket['id_ticket']; ?> " class="bt-clear-delete" title="Удалить" data-toggle="modal" data-target="#delete"><i class="fa fa-times"></i></button></td>
                         </tr>

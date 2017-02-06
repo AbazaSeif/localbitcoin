@@ -39,7 +39,7 @@
             <table>
                 <tr>
                     <th><span class="lrft-pol-td">Пользователь</span></th>
-                    <th>Цена за BTC</th>
+                    <th>Доп. процент</th>
                     <th>Количество BTC</th>
                     <th>Дата</th>
                     <th class="right-td">Тип сделки</th>
