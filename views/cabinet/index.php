@@ -59,7 +59,7 @@
             </div>
             <div class="container-lk-1">
                 <a class="btn-redact-lk" id="btn-red-pass"></a>
-                <div class="in-lk-1">
+                <div class="in-lk-1" style="padding-left: 20px;">
                     <span class="text-lk-1">Пароль:</span>
                     <span class="text-lk-2">***********</span>
                     <div class="clear"></div>

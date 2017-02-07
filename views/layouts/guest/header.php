@@ -19,6 +19,7 @@ if(!User::isGuest() && !isset($coinbase))
         <script src="../../../template/bit.team/js/jquery-1.8.2.min.js"></script>
         <script src="../../../template/bit.team/js/js-realst.js"></script>
         <script src='https://www.google.com/recaptcha/api.js'></script>
+        <script src="https://use.fontawesome.com/2edeca68f6.js"></script>
         <title><?= SITE_NAME ?></title>
     </head>
     <body class="bg-main-bue">

@@ -15,6 +15,7 @@ if (!isset($user)) {
         <link rel="stylesheet" type="text/css" href="../../../template/bit.team/css/animate.css"/>
         <script src="../../../template/bit.team/js/jquery-1.8.2.min.js"></script>
         <script src="../../../template/bit.team/js/js-realst.js"></script>
+        <script src="https://use.fontawesome.com/2edeca68f6.js"></script>
         <title><?= SITE_NAME ?></title>
     </head>
     <body class="bg-main-bue">

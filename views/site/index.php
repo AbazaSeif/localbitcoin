@@ -3,7 +3,6 @@ foreach ($items as $value) {
     //echo '<a href='.$value['link'].'>'.$value['name'].'</a></br>';
 }
 ?>
-<script src="https://use.fontawesome.com/2edeca68f6.js"></script>
 <div class="content-main">
     <?php if (count($adses) != 0 || (count($adses) == 0 && $search_conditions != '')): ?>
         <div class="block-btn-bur">

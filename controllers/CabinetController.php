@@ -496,7 +496,7 @@ class CabinetController
             $errors[] = 'Ошибка в ads_id';
         }
         $adses = Advertisement::getAdsesByUserId(User::getUserIdFromSession());
-        $requistes = User::getUserRequisitesById(User::getUserIdFromSession());
+        $requistes = User::getUserRequisitesById($author_ads);
         require_once(ROOT.'/views/cabinet/info.php');
         return true;
     }
