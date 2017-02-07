@@ -45,7 +45,6 @@
                     <option <?= $ads['payment_method'] == 3 ? 'selected ' : '' ?> value = "3">QIWI Wallet</option>
                     <option <?= $ads['payment_method'] == 4 ? 'selected ' : '' ?> value = "4">Яндекс.Деньги</option>
                 </select>
-                <input type="number" min="0" step="0.000001" placeholder="Количество BTC" name="btc" value = "<?= $ads['max_amount'] ?>" class="inp-newob-2">
                 <input type="number" step="0.1" name="price" class="inp-newob" value="<?= $ads['price'] ?>" style="width: 45%;">
                 <span style="color: #666;font-style: italic;"><span class="input-group-addon">%</span>Размер прибыли, которую вы хотите получить сверх рыночной цены</span>
                 <input style="padding-right:5px" type="number" step="0.1" value="<?= $ads['min_amount'] ?>" name="min_amount" class="inp-newob"><span style="color: #666;font-style: italic;">Минимальный лимит транзакции</span>

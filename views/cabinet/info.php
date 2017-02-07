@@ -377,7 +377,7 @@
                 <?php elseif($isAuthor): ?>
                     <div class="informate-messege">Вы - создатель объявления, поэтому Ваши сообщения здесь видны всем.</div>
                 <?php else: ?>
-                    <div class="informate-messege">Начать переписку с автором:</div>
+                    <div class="informate-messege">Переписка с автором:</div>
                 <?php endif; ?>
             </div>
             <div class="form-send-mess">

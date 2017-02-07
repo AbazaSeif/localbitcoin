@@ -3,8 +3,8 @@
     <div class="content_newob-1">
         <form method="post">
             <div class="form-newob">
-                <input type="text" placeholder="Сумма платежа, BTC" name="amount" class="inp-newob-2">
-                <input type="text" placeholder="Номер BTC-кошелька" name="address" class="inp-newob-2">
+                <input type="text" placeholder="Сумма платежа, BTC" name="amount" class="inp-newob-2" required="required">
+                <input type="text" placeholder="Номер BTC-кошелька" name="address" class="inp-newob-2" required="required">
             </div>
             <div class="newob-create-2">
                 <button type="submit" class="btn-create-2"><i><img src="/template/bit.team/img/icon/i-reg-2.png" alt=""></i>Перевести средства</button>

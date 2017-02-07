@@ -56,7 +56,7 @@ class CabinetController
         $errors = false;
         if($type == 1 && !$this->coinbase->checkBalanceNotNull())
         {
-            $errors[] = 'Вы не можете разместить объявление на продажу BTC, сначала пополните кошелёк';
+            $errors[] = 'Вы не можете разместить объявление на продажу BTC, сначала <a style="text-decoration:underline;" active="blue" href="/cabinet/refill">пополните кошелёк</a>';
         }
         if ($type == 1)
         {

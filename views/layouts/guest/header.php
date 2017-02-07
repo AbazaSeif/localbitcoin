@@ -51,8 +51,8 @@ if(!User::isGuest() && !isset($coinbase))
                 <div class="wrapper">
                     <div class="top-header">
                         <div class="btn-bue-top">
-                            <a class="bue-top-btn" href="/?type=buy" style="padding-left: 20px;">Купить биткоин</a>
-                            <a class="sale-top-btn" href="/?type=sell">Продать биткоин</a>
+                            <a class="bue-top-btn" style="background-color: <?php if(isset($type)&&$type == 'sell') echo "#fff;color:#6b727d;border-bottom-color:#fff;"; ?>" href="/?type=buy" style="padding-left: 20px;"><i class="fa fa-arrow-circle-down fa-2x"></i>Купить биткоин</a>
+                            <a class="sale-top-btn" href="/?type=sell" style="background-color: <?php if(isset($type)&&$type == 'sell') echo "#fc5217;color:white"; ?>"><i class="fa fa-arrow-circle-up fa-2x"></i>Продать биткоин</a>
                             <div class="clear"></div>
                         </div>
                         <div class="nav-top">

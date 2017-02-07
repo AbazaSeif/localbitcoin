@@ -92,13 +92,17 @@ html{
     font: 13px AndaleBold;
 }
 
-.bue-top-btn:before {
+/*.bue-top-btn:before {
     content: url("../img/icon/i-sale-top.png");
     position: absolute;
     left: 23px;
     top: 20px;
+}*/
+.fa{
+    position: absolute;
+    left: 20px;
+    top: 16px;
 }
-
 .sale-top-btn {
     width: 175px;
     height: 60px;
@@ -113,12 +117,12 @@ html{
     font: 13px AndaleBold;
 }
 
-.sale-top-btn:before {
+/*.sale-top-btn:before {
     content: url("../img/icon/i-bue-top.png");
     position: absolute;
     left: 23px;
     top: 20px;
-}
+}*/
 
 .bg-block-top {
     background: #01abe8;
@@ -965,6 +969,8 @@ Page help
 .newob-create-2 {
     float: right;
     margin-bottom: 10px;
+    padding-right: 30px;
+    padding-bottom: 10px;
 }
 
 .btn-create-2 i {
@@ -1410,7 +1416,7 @@ Page help
     position: absolute;
     right: 0;
     bottom: 0;
-    width: 660px;
+    width: 700px;
 }
 
 .block-nav-lk a {

@@ -37,9 +37,7 @@
                     <option value = "4">Яндекс.Деньги</option>
                 </select>
                 <input type="text" style="margin-bottom:15px;" placeholder="Реквизиты для оплаты" name="reqs" class="inp-newob-2">
-                <div class="block-newcart block-newcart-2">
-                    <a class="btn-new-cart btn-new-cart-2" style="min-width: 230px;">   
-                    </a>
+                <div class="block-newcart block-newcart-2" style="display:flex;flex-direction: column">
                     <div class="add-adv-sys-container">
                         <div class="container-lk-1" id="sys-1">
                         <div class="in-lk-1">
@@ -90,6 +88,8 @@
                         </div>
                         </div>
                     </div>
+                    <a class="btn-new-cart btn-new-cart-2" style="min-width: 230px;">   
+                    </a>
                 </div>
 
                 <div class="block-system-cart block-system-cart-2">
