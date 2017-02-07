@@ -92,11 +92,13 @@
                     <div class="clear"></div>
                 </div>
             </div>
+            <form method="post">
+                <input type="hidden" name="chosen_type" id="chosen_req_type" value="">
                 <div class="container-lk-1" id="sys-1">
                 <div class="in-lk-1">
                     <button class="btn-add-cart"></button>
                     <img src="../../template/bit.team/img/system_oplat/op6.png" alt="">
-                    <input type="text" placeholder="Введите реквизиты">
+                    <input type="text" id="1" name="1" pattern="[0-9-]+" placeholder="Введите реквизиты">
                     <div class="clear"></div>
                 </div>
                 </div>
@@ -104,7 +106,7 @@
                 <div class="in-lk-1">
                     <button class="btn-add-cart"></button>
                     <img src="../../template/bit.team/img/system_oplat/op5.png" alt="">
-                    <input type="text" placeholder="Введите реквизиты">
+                    <input type="text" id="2" name="2" placeholder="Введите реквизиты">
                     <div class="clear"></div>
                 </div>
                 </div>
@@ -112,7 +114,7 @@
                 <div class="in-lk-1">
                     <button class="btn-add-cart"></button>
                     <img src="../../template/bit.team/img/system_oplat/op4.png" alt="">
-                    <input type="text" placeholder="Введите реквизиты">
+                    <input type="text" id="3" name="3" placeholder="Введите реквизиты">
                     <div class="clear"></div>
                 </div>
                 </div>
@@ -120,7 +122,7 @@
                 <div class="in-lk-1">
                     <button class="btn-add-cart"></button>
                     <img src="../../template/bit.team/img/system_oplat/op3.png" alt="">
-                    <input type="text" placeholder="Введите реквизиты">
+                    <input type="text" id="4" name="4" placeholder="Введите реквизиты">
                     <div class="clear"></div>
                 </div>
                 </div>
@@ -128,7 +130,7 @@
                 <div class="in-lk-1">
                     <button class="btn-add-cart"></button>
                     <img src="../../template/bit.team/img/system_oplat/op2.png" alt="">
-                    <input type="text" placeholder="Введите реквизиты">
+                    <input type="text" id="5" name="5" placeholder="Введите реквизиты">
                     <div class="clear"></div>
                 </div>
                 </div>
@@ -136,51 +138,50 @@
                 <div class="in-lk-1">
                     <button class="btn-add-cart"></button>
                     <img src="../../template/bit.team/img/system_oplat/op1.png" alt="">
-                    <input type="text" placeholder="Введите реквизиты">
+                    <input type="text" id="6" name="6" placeholder="Введите реквизиты">
                     <div class="clear"></div>
                 </div>
                 </div>
 
                 <div class="block-newcart">
-                    <a class="btn-new-cart">   
-                    </a>
+                    <input type="submit" class="btn-new-cart" value="" />
                     <div class="block-system-cart">
                         <ul>
                             <li>
                             <div class="sysOp" id="btn-sys-1">
-                                <img src="../../template/bit.team/img/system_oplat/op6.png" alt="">
+                                <img src="../../template/bit.team/img/system_oplat/op6.png" alt="" onclick="document.getElementById('chosen_req_type').value = 1">
                             </div>
                             </li>
                             <li>
                             <div class="sysOp" id="btn-sys-2">
-                                <img src="../../template/bit.team/img/system_oplat/op5.png" alt="">
+                                <img src="../../template/bit.team/img/system_oplat/op5.png" alt="" onclick="document.getElementById('chosen_req_type').value = 2">
                             </div>
                             </li>
                             <li>
                             <div class="sysOp" id="btn-sys-3">
-                                <img src="../../template/bit.team/img/system_oplat/op4.png" alt="">
+                                <img src="../../template/bit.team/img/system_oplat/op4.png" alt="" onclick="document.getElementById('chosen_req_type').value = 3">
                             </div>
                             </li>
                             <li>
                             <div class="sysOp" id="btn-sys-4">
-                                <img src="../../template/bit.team/img/system_oplat/op3.png" alt="">
+                                <img src="../../template/bit.team/img/system_oplat/op3.png" alt="" onclick="document.getElementById('chosen_req_type').value = 4">
                             </div>
                             </li>
                             <li>
                             <div class="sysOp" id="btn-sys-5">
-                                <img src="../../template/bit.team/img/system_oplat/op2.png" alt="">
+                                <img src="../../template/bit.team/img/system_oplat/op2.png" alt="" onclick="document.getElementById('chosen_req_type').value = 5">
                             </div>
                             </li>
                             <li>
                             <div class="sysOp" id="btn-sys-6">
-                                <img src="../../template/bit.team/img/system_oplat/op1.png" alt="">
+                                <img src="../../template/bit.team/img/system_oplat/op1.png" alt="" onclick="document.getElementById('chosen_req_type').value = 6">
                             </div>
                             </li>
                         </ul>
                         <div class="clear"></div>
                     </div>
                 </div>
-
+            </form>
         </div>
 <!--        <div class="block-lk-balance">
             <div class="sposob-op-seg">

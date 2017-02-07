@@ -34,13 +34,16 @@ $(document).ready(function() {
     $('.reg-btn-bot').mouseleave(function() {
         $('.reg-btn-bot').removeClass('animated shake');
     });
-    $(".btn-new-cart").toggle(function() { 
-        $(".block-system-cart").slideDown();
-      },  
-      function() { 
-        $(".block-system-cart").slideUp(); 
-      }
-    );
+
+
+    // $(".btn-new-cart").toggle(function() { 
+    //     $(".block-system-cart").slideDown();
+    //   },  
+    //   function() { 
+    //     $(".block-system-cart").slideUp(); 
+    //   }
+    // );
+
     $("#btn-sys-1").click(function(){
         $("#sys-1").show();
         $("#sys-2").hide();

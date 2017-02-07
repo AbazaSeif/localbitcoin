@@ -674,4 +674,24 @@ class User
         return $result->execute();
     }
 
+    public static function addRequisite($us_id, $req_type, $req_num) 
+    {
+        $sql = "INSERT INTO requisites (id_user, system_id, card_num) VALUES ($us_id, $req_type, :req_num)";
+
+        $result = $GLOBALS['DBH']->prepare($sql);
+        $result->bindParam(':req_num', $req_num, PDO::PARAM_STR);
+        
+        return $result->execute();
+    }
+
+    public static function getUserRequisitesById($id)
+    {
+        $sql = "SELECT * requisites WHERE id_user = $id";
+        $result = $GLOBALS['DBH']->prepare($sql);
+        $result->execute();
+
+        $row = $result->fetch();
+        return $row;
+    }
+
 }
