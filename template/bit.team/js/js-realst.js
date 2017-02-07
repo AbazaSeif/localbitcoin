@@ -34,8 +34,6 @@ $(document).ready(function() {
     $('.reg-btn-bot').mouseleave(function() {
         $('.reg-btn-bot').removeClass('animated shake');
     });
-
-
     // $(".btn-new-cart").toggle(function() { 
     //     $(".block-system-cart").slideDown();
     //   },  
@@ -45,6 +43,7 @@ $(document).ready(function() {
     // );
 
     $("#btn-sys-1").click(function(){
+        $("#system_id").val("6");
         $("#sys-1").show();
         $("#sys-2").hide();
         $("#sys-3").hide();
@@ -53,6 +52,7 @@ $(document).ready(function() {
         $("#sys-6").hide();
     });
      $("#btn-sys-2").click(function(){
+        $("#system_id").val("5");
         $("#sys-2").show();
         $("#sys-1").hide();
         $("#sys-3").hide();
@@ -61,6 +61,7 @@ $(document).ready(function() {
         $("#sys-6").hide();
     });
       $("#btn-sys-3").click(function(){
+        $("#system_id").val("4");
         $("#sys-3").show();
         $("#sys-2").hide();
         $("#sys-1").hide();
@@ -69,6 +70,7 @@ $(document).ready(function() {
         $("#sys-6").hide();
     });
        $("#btn-sys-4").click(function(){
+        $("#system_id").val("3");
         $("#sys-4").show();
         $("#sys-2").hide();
         $("#sys-3").hide();
@@ -77,6 +79,7 @@ $(document).ready(function() {
         $("#sys-6").hide();
     });
         $("#btn-sys-5").click(function(){
+        $("#system_id").val("2");
         $("#sys-5").show();
         $("#sys-2").hide();
         $("#sys-3").hide();
@@ -84,7 +87,8 @@ $(document).ready(function() {
         $("#sys-1").hide();
         $("#sys-6").hide();
     });
-         $("#btn-sys-6").click(function(){
+        $("#btn-sys-6").click(function(){
+        $("#system_id").val("1");
         $("#sys-6").show();
         $("#sys-2").hide();
         $("#sys-3").hide();
@@ -118,7 +122,7 @@ $(document).ready(function() {
             return false;
         }
     })
-
+    
     // $('.btn-authorization').click(function() {
     //     if(document.getElementById('btn-double-auth').style.backgroundImage == 'url("http://localbitcoin/template/bit.team/img/elements/btn-faqt.png")'){
     //     //if($('#btn-double-auth').css('backgroundImage') === 'url("http://localbitcoin/template/bit.team/img/elements/btn-faqt.png")') {
@@ -130,5 +134,32 @@ $(document).ready(function() {
     //     }
     // });
 
+
+    $("#add_paymethod").click(function () {
+        var system_id = $("#system_id").val();
+        if(system_id.length > 0)
+        {
+            var content = $('#'+system_id).val();
+            var user_id = $('#user_id').val();
+            if(content.length > 0)
+            {
+                var src = "../../template/bit.team/img/system_oplat/op" + system_id + ".png"
+                var img = '<img src="' + src + '">';
+                $('#' + system_id).val("");
+                var one = $('#insert_here').append('<div class="container-lk-1" id="container"></div');
+                var two = $('#container').append('<div class="in-lk-1" id="lk"></div>');
+                $('#lk').append(img);
+                $('#lk').append('<span class="text-lk-add">' + content + '</span>');
+                $('#lk').append('<div class="clear">');
+                $.ajax({
+                url: '../ajax.php',
+                type:'POST',
+                data:'system_id='+system_id+'&card_num='+content+'&user_id='+user_id,
+                success: function(data){
+                    }
+                });
+            }
+        }
+    }) 
 });
 

@@ -15,4 +15,4 @@ $GLOBALS['DBH'] = Db::getConnection();
 $router = new Router();
 $router->run();
 $end = microtime(true) - $start;
-echo 'Страница сгенерирована за ', $end;
+// echo 'Страница сгенерирована за ', $end;

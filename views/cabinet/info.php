@@ -27,10 +27,23 @@
 <div class="block-bue-2">
     <div class="left-bue-block">
         <div class="info-o-dog">
-            <h4>Информация о сделке</h4>
-
-            <div class="block-info-plat">
+            
+            <h4 style="margin-bottom: 20px;">Информация о сделке</h4>
+            <div style="margin-bottom: 10px;">
+             <?php foreach ($requistes as $req): ?>
+                        <div class="container-lk-1">
+                            <div class="in-lk-1" style="background: transparent;">
+                                <img src="../../template/bit.team/img/system_oplat/op<?= $req['system_id'] ?>.png">
+                                <span class="text-lk-add"><?= $req['card_num'] ?></span>
+                                <div class="clear"></div>
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
+            </div>
+<!--            <div class="block-info-plat">
+               
                 <ul>
+                    
                     <li class="block-l-inf">
                         <ul>
                             <li>
@@ -76,9 +89,9 @@
 
                 </ul>
                 <div class="clear"></div>
-            </div>
+            </div>-->
 
-            <p>Цена: <span class="right-text or-color"><?= ((($ads['price']/100) *Currency::getExchangeRate(Currency::getStringName($ads['currency_id'])))+ Currency::getExchangeRate(Currency::getStringName($ads['currency_id']))), Currency::getStringName($ads['currency_id']), ' /1 BTC ' ?></span></p>
+            <p>Цена: <span class="right-text or-color"><?= number_format(((($ads['price']/100) *Currency::getExchangeRate(Currency::getStringName($ads['currency_id'])))+ Currency::getExchangeRate(Currency::getStringName($ads['currency_id']))), 2, ',', ' '),' ', Currency::getStringName($ads['currency_id']), ' / 1 BTC ' ?></span></p>
             <p>Способ оплаты: <span class="right-text"><?= Advertisement::getPaymentMethodById($ads['payment_method']) ?></span></p>
             <p>Автор объявления: <span class="right-text cast-client <?php echo (User::isOnline($ads['user_id']))?("stic_online"):("off_online"); ?>"><?= User::getUsernameById($author_ads) ?><span class="color_100"> (100%)</span></span></p>
             <!-- <p>Количество BTC: <span class="right-text"><?= $ads['max_amount'] ?></span></p> -->

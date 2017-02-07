@@ -20,15 +20,17 @@ class CabinetController
         }
         
         $chosen_type = isset($params['post']['chosen_type']) ? $params['post']['chosen_type'] : false;
-        $chosen_type_num = $chosen_type === false ? false : $params['post'][$chosen_type];
-
-        if($chosen_type != false && $chosen_type_num != false) {
-            $user_id = User::getUserIdFromSession();
-
-            if(!User::addRequisite($user_id, $chosen_type, $chosen_type_num)) {
-                $errors[] = 'Реквизит не был добавлен';
+        if($chosen_type !== false&&$chosen_type != "a")
+        {
+            $chosen_type_num = $chosen_type === false ? false : $params['post'][$chosen_type];
+            if ($chosen_type != false && $chosen_type_num != false) {
+                $user_id = User::getUserIdFromSession();
+                if (!User::addRequisite($user_id, $chosen_type, $chosen_type_num)) {
+                    $errors[] = 'Реквизит не был добавлен';
+                }
             }
         }
+            
 
         $from = isset($params['get']['from']) ? $params['get']['from'] : false;
         $tfa = isset($params['get']['tfa']) ? $params['get']['tfa'] : false;
@@ -44,6 +46,7 @@ class CabinetController
         $all_comments = User::getUserCommentsById($_SESSION['id_user']);
         $comments_count = count($all_comments);
         $currloc = "index";
+        $requistes = User::getUserRequisitesById(User::getUserIdFromSession());
         require_once(ROOT.'/views/cabinet/index.php');
         return true;
     }
@@ -54,19 +57,7 @@ class CabinetController
         {
             Router::headerLocation('/user/signup');
         }
-        
-        $chosen_type = isset($params['post']['chosen_type']) ? $params['post']['chosen_type'] : false;
-        $chosen_type_num = $chosen_type === false ? false : $params['post'][$chosen_type];
-
-        if($chosen_type != false && $chosen_type_num != false) {
-            $user_id = User::getUserIdFromSession();
-
-            if(!User::addRequisite($user_id, $chosen_type, $chosen_type_num)) {
-                $errors[] = 'Реквизит не был добавлен';
-            }
-        }
-
-        $location = $currency_id = $price = $min_amount = $max_amount = $time_of_work = $comment = $expires_in = false;
+        $payment_id = $currency_id = $price = $min_amount = $max_amount = $time_of_work = $comment = $expires_in = false;
         $submit = false;
         extract($params['post'], EXTR_IF_EXISTS);
         $type = isset($params['get']['type']) ? Security::safe_intval($params['get']['type']) : 1;
@@ -97,6 +88,7 @@ class CabinetController
                 Router::headerLocation("/cabinet/info?ads=$id_ads");
             }
         }
+        $requistes = User::getUserRequisitesById(User::getUserIdFromSession());
         require_once(ROOT.'/views/cabinet/placebill.php');
         return true;
     }
@@ -504,6 +496,7 @@ class CabinetController
             $errors[] = 'Ошибка в ads_id';
         }
         $adses = Advertisement::getAdsesByUserId(User::getUserIdFromSession());
+        $requistes = User::getUserRequisitesById(User::getUserIdFromSession());
         require_once(ROOT.'/views/cabinet/info.php');
         return true;
     }

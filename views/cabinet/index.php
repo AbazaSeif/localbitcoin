@@ -85,20 +85,22 @@
                 <a href="/cabinet?tfa=1" class="<?php echo(User::isEnableTFA())?"btn-authorized":"btn-unauthorized" ?>" id="btn-double-auth"></a>
                 <div class="in-lk-1"><span class="text-lk-1" style="width:230px;">Двухфакторная авторизация</span></div>
             </div>
+            <?php foreach ($requistes as $req): ?>
             <div class="container-lk-1">
                 <div class="in-lk-1">
-                    <img src="../../template/bit.team/img/system_oplat/op6.png" alt="">
-                    <span class="text-lk-add">4587-8977-8756-1235</span>
+                    <img src="../../template/bit.team/img/system_oplat/op<?= $req['system_id'] ?>.png">
+                    <span class="text-lk-add"><?= $req['card_num'] ?></span>
                     <div class="clear"></div>
                 </div>
             </div>
+            <?php endforeach; ?>
             <form method="post">
-                <input type="hidden" name="chosen_type" id="chosen_req_type" value="">
+                <input type="hidden" name="chosen_type" id="chosen_req_type" value="a">
                 <div class="container-lk-1" id="sys-1">
                 <div class="in-lk-1">
                     <button class="btn-add-cart"></button>
                     <img src="../../template/bit.team/img/system_oplat/op6.png" alt="">
-                    <input type="text" id="1" name="1" pattern="[0-9-]+" placeholder="Введите реквизиты">
+                    <input type="text" id="6" name="6" pattern="[0-9-]+" placeholder="Введите реквизиты">
                     <div class="clear"></div>
                 </div>
                 </div>
@@ -106,7 +108,7 @@
                 <div class="in-lk-1">
                     <button class="btn-add-cart"></button>
                     <img src="../../template/bit.team/img/system_oplat/op5.png" alt="">
-                    <input type="text" id="2" name="2" placeholder="Введите реквизиты">
+                    <input type="text" id="5" name="5" placeholder="Введите реквизиты">
                     <div class="clear"></div>
                 </div>
                 </div>
@@ -114,7 +116,7 @@
                 <div class="in-lk-1">
                     <button class="btn-add-cart"></button>
                     <img src="../../template/bit.team/img/system_oplat/op4.png" alt="">
-                    <input type="text" id="3" name="3" placeholder="Введите реквизиты">
+                    <input type="text" id="4" name="4" placeholder="Введите реквизиты">
                     <div class="clear"></div>
                 </div>
                 </div>
@@ -122,7 +124,7 @@
                 <div class="in-lk-1">
                     <button class="btn-add-cart"></button>
                     <img src="../../template/bit.team/img/system_oplat/op3.png" alt="">
-                    <input type="text" id="4" name="4" placeholder="Введите реквизиты">
+                    <input type="text" id="3" name="3" placeholder="Введите реквизиты">
                     <div class="clear"></div>
                 </div>
                 </div>
@@ -130,7 +132,7 @@
                 <div class="in-lk-1">
                     <button class="btn-add-cart"></button>
                     <img src="../../template/bit.team/img/system_oplat/op2.png" alt="">
-                    <input type="text" id="5" name="5" placeholder="Введите реквизиты">
+                    <input type="text" id="2" name="2" placeholder="Введите реквизиты">
                     <div class="clear"></div>
                 </div>
                 </div>
@@ -138,7 +140,7 @@
                 <div class="in-lk-1">
                     <button class="btn-add-cart"></button>
                     <img src="../../template/bit.team/img/system_oplat/op1.png" alt="">
-                    <input type="text" id="6" name="6" placeholder="Введите реквизиты">
+                    <input type="text" id="1" name="1" placeholder="Введите реквизиты">
                     <div class="clear"></div>
                 </div>
                 </div>
@@ -149,32 +151,32 @@
                         <ul>
                             <li>
                             <div class="sysOp" id="btn-sys-1">
-                                <img src="../../template/bit.team/img/system_oplat/op6.png" alt="" onclick="document.getElementById('chosen_req_type').value = 1">
+                                <img src="../../template/bit.team/img/system_oplat/op6.png" alt="" onclick="document.getElementById('chosen_req_type').value = 6">
                             </div>
                             </li>
                             <li>
                             <div class="sysOp" id="btn-sys-2">
-                                <img src="../../template/bit.team/img/system_oplat/op5.png" alt="" onclick="document.getElementById('chosen_req_type').value = 2">
+                                <img src="../../template/bit.team/img/system_oplat/op5.png" alt="" onclick="document.getElementById('chosen_req_type').value = 5">
                             </div>
                             </li>
                             <li>
                             <div class="sysOp" id="btn-sys-3">
-                                <img src="../../template/bit.team/img/system_oplat/op4.png" alt="" onclick="document.getElementById('chosen_req_type').value = 3">
+                                <img src="../../template/bit.team/img/system_oplat/op4.png" alt="" onclick="document.getElementById('chosen_req_type').value = 4">
                             </div>
                             </li>
                             <li>
                             <div class="sysOp" id="btn-sys-4">
-                                <img src="../../template/bit.team/img/system_oplat/op3.png" alt="" onclick="document.getElementById('chosen_req_type').value = 4">
+                                <img src="../../template/bit.team/img/system_oplat/op3.png" alt="" onclick="document.getElementById('chosen_req_type').value = 3">
                             </div>
                             </li>
                             <li>
                             <div class="sysOp" id="btn-sys-5">
-                                <img src="../../template/bit.team/img/system_oplat/op2.png" alt="" onclick="document.getElementById('chosen_req_type').value = 5">
+                                <img src="../../template/bit.team/img/system_oplat/op2.png" alt="" onclick="document.getElementById('chosen_req_type').value = 2">
                             </div>
                             </li>
                             <li>
                             <div class="sysOp" id="btn-sys-6">
-                                <img src="../../template/bit.team/img/system_oplat/op1.png" alt="" onclick="document.getElementById('chosen_req_type').value = 6">
+                                <img src="../../template/bit.team/img/system_oplat/op1.png" alt="" onclick="document.getElementById('chosen_req_type').value = 1">
                             </div>
                             </li>
                         </ul>

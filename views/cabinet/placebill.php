@@ -36,18 +36,26 @@
                     <option value = "3">QIWI Wallet</option>
                     <option value = "4">Яндекс.Деньги</option>
                 </select>
-                <input type="text" style="margin-bottom:15px;" placeholder="Реквизиты для оплаты" name="reqs" class="inp-newob-2">
+                <div id="insert_here">
+                    <?php foreach ($requistes as $req): ?>
+                        <div class="container-lk-1">
+                            <div class="in-lk-1">
+                                <img src="../../template/bit.team/img/system_oplat/op<?= $req['system_id'] ?>.png" alt="">
+                                <span class="text-lk-add"><?= $req['card_num'] ?></span>
+                                <div class="clear"></div>
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
                 <div class="block-newcart block-newcart-2" style="display:flex;flex-direction: column">
-                <div class="block-newcart block-newcart-2">
-                <form method="post">
-                    <input type="submit" class="btn-new-cart btn-new-cart-2" value="" />
                     <div class="add-adv-sys-container">
-                        <input type="hidden" name="chosen_type" id="chosen_req_type" value="">
+                        <input type="hidden" id="system_id" value="1">
+                        <input type="hidden" id="user_id" value="<?= User::getUserIdFromSession()?>">
                         <div class="container-lk-1" id="sys-1">
                         <div class="in-lk-1">
                             <button class="btn-add-cart"></button>
                             <img src="../../template/bit.team/img/system_oplat/op6.png" alt="">
-                            <input type="text" id="1" name="1" pattern="[0-9-]+" placeholder="Введите реквизиты">
+                            <input type="text" placeholder="Введите реквизиты" id="6">
                             <div class="clear"></div>
                         </div>
                         </div>
@@ -55,7 +63,7 @@
                         <div class="in-lk-1">
                             <button class="btn-add-cart"></button>
                             <img src="../../template/bit.team/img/system_oplat/op5.png" alt="">
-                            <input type="text" id="2" name="2" placeholder="Введите реквизиты">
+                            <input type="text" placeholder="Введите реквизиты" id="5">
                             <div class="clear"></div>
                         </div>
                         </div>
@@ -63,7 +71,7 @@
                         <div class="in-lk-1">
                             <button class="btn-add-cart"></button>
                             <img src="../../template/bit.team/img/system_oplat/op4.png" alt="">
-                            <input type="text" id="3" name="3" placeholder="Введите реквизиты">
+                            <input type="text" placeholder="Введите реквизиты" id="4">
                             <div class="clear"></div>
                         </div>
                         </div>
@@ -71,7 +79,7 @@
                         <div class="in-lk-1">
                             <button class="btn-add-cart"></button>
                             <img src="../../template/bit.team/img/system_oplat/op3.png" alt="">
-                            <input type="text" id="4" name="4" placeholder="Введите реквизиты">
+                            <input type="text" placeholder="Введите реквизиты" id="3">
                             <div class="clear"></div>
                         </div>
                         </div>
@@ -79,7 +87,7 @@
                         <div class="in-lk-1">
                             <button class="btn-add-cart"></button>
                             <img src="../../template/bit.team/img/system_oplat/op2.png" alt="">
-                            <input type="text" id="5" name="5" placeholder="Введите реквизиты">
+                            <input type="text" placeholder="Введите реквизиты" id="2">
                             <div class="clear"></div>
                         </div>
                         </div>
@@ -87,12 +95,12 @@
                         <div class="in-lk-1">
                             <button class="btn-add-cart"></button>
                             <img src="../../template/bit.team/img/system_oplat/op1.png" alt="">
-                            <input type="text" id="6" name="6" placeholder="Введите реквизиты">
+                            <input type="text" placeholder="Введите реквизиты" id="1">
                             <div class="clear"></div>
                         </div>
                         </div>
                     </div>
-                    <a class="btn-new-cart btn-new-cart-2" style="min-width: 230px;">   
+                    <a class="btn-new-cart btn-new-cart-2" id="add_paymethod" style="min-width: 230px;">   
                     </a>
                 </div>
 
@@ -100,32 +108,32 @@
                     <ul>
                         <li>
                             <div class="sysOp" id="btn-sys-1">
-                                <img src="../../template/bit.team/img/system_oplat/op6.png" alt="" onclick="document.getElementById('chosen_req_type').value = 1">
+                                <img src="../../template/bit.team/img/system_oplat/op6.png" alt="">
                             </div>
                         </li>
                         <li>
                             <div class="sysOp" id="btn-sys-2">
-                                <img src="../../template/bit.team/img/system_oplat/op5.png" alt="" onclick="document.getElementById('chosen_req_type').value = 2">
+                                <img src="../../template/bit.team/img/system_oplat/op5.png" alt="">
                             </div>
                         </li>
                         <li>
                             <div class="sysOp" id="btn-sys-3">
-                                <img src="../../template/bit.team/img/system_oplat/op4.png" alt="" onclick="document.getElementById('chosen_req_type').value = 3">
+                                <img src="../../template/bit.team/img/system_oplat/op4.png" alt="">
                             </div>
                         </li>
                         <li>
                             <div class="sysOp" id="btn-sys-4">
-                                <img src="../../template/bit.team/img/system_oplat/op3.png" alt="" onclick="document.getElementById('chosen_req_type').value = 4">
+                                <img src="../../template/bit.team/img/system_oplat/op3.png" alt="">
                             </div>
                         </li>
                         <li>
                             <div class="sysOp" id="btn-sys-5">
-                                <img src="../../template/bit.team/img/system_oplat/op2.png" alt="" onclick="document.getElementById('chosen_req_type').value = 5">
+                                <img src="../../template/bit.team/img/system_oplat/op2.png" alt="">
                             </div>
                         </li>
                         <li>
                             <div class="sysOp" id="btn-sys-6">
-                                <img src="../../template/bit.team/img/system_oplat/op1.png" alt="" onclick="document.getElementById('chosen_req_type').value = 6">
+                                <img src="../../template/bit.team/img/system_oplat/op1.png" alt="">
                             </div>
                         </li>
                     </ul>

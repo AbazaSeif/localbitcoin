@@ -1842,7 +1842,7 @@ height: 58px;
 
 .in-lk-1 img{
     float: left;
-    margin-left: 10px;
+    /*margin-left: 10px;*/
 }
 .in-lk-1 input{
     background: transparent;
@@ -2428,7 +2428,7 @@ height: 58px;
 }
 
 .add-adv-sys-container .container-lk-1 {
-    padding: 15px 10px 0px;
+    padding: 15px 0px 0px;
 }
 
 .add-adv-sys-container input {
