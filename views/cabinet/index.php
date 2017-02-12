@@ -87,18 +87,20 @@
             </div>
             <?php foreach ($requistes as $req): ?>
             <div class="container-lk-1">
+                <a class="fa fa-times rm-cart" aria-hidden="true" href="/cabinet?rm=<?= $req['id'] ?>"></a>
                 <div class="in-lk-1">
                     <img src="../../template/bit.team/img/system_oplat/op<?= $req['system_id'] ?>.png">
                     <span class="text-lk-add"><?= $req['card_num'] ?></span>
                     <div class="clear"></div>
                 </div>
             </div>
+            
             <?php endforeach; ?>
             <form method="post">
                 <input type="hidden" name="chosen_type" id="chosen_req_type" value="a">
                 <div class="container-lk-1" id="sys-1">
                 <div class="in-lk-1">
-                    <button class="btn-add-cart"></button>
+                    <button class="btn-add-cart" type="submit"></button>
                     <img src="../../template/bit.team/img/system_oplat/op6.png" alt="">
                     <input type="text" id="6" name="6" pattern="[0-9-]+" placeholder="Введите реквизиты">
                     <div class="clear"></div>
@@ -106,7 +108,7 @@
                 </div>
                 <div class="container-lk-1" id="sys-2">
                 <div class="in-lk-1">
-                    <button class="btn-add-cart"></button>
+                    <button class="btn-add-cart" type="submit"></button>
                     <img src="../../template/bit.team/img/system_oplat/op5.png" alt="">
                     <input type="text" id="5" name="5" placeholder="Введите реквизиты">
                     <div class="clear"></div>
@@ -114,7 +116,7 @@
                 </div>
                 <div class="container-lk-1" id="sys-3">
                 <div class="in-lk-1">
-                    <button class="btn-add-cart"></button>
+                    <button class="btn-add-cart" type="submit"></button>
                     <img src="../../template/bit.team/img/system_oplat/op4.png" alt="">
                     <input type="text" id="4" name="4" placeholder="Введите реквизиты">
                     <div class="clear"></div>
@@ -122,7 +124,7 @@
                 </div>
                 <div class="container-lk-1" id="sys-4">
                 <div class="in-lk-1">
-                    <button class="btn-add-cart"></button>
+                    <button class="btn-add-cart" type="submit"></button>
                     <img src="../../template/bit.team/img/system_oplat/op3.png" alt="">
                     <input type="text" id="3" name="3" placeholder="Введите реквизиты">
                     <div class="clear"></div>
@@ -130,7 +132,7 @@
                 </div>
                 <div class="container-lk-1" id="sys-5">
                 <div class="in-lk-1">
-                    <button class="btn-add-cart"></button>
+                    <button class="btn-add-cart" type="submit"></button>
                     <img src="../../template/bit.team/img/system_oplat/op2.png" alt="">
                     <input type="text" id="2" name="2" placeholder="Введите реквизиты">
                     <div class="clear"></div>
@@ -138,7 +140,7 @@
                 </div>
                 <div class="container-lk-1" id="sys-6">
                 <div class="in-lk-1">
-                    <button class="btn-add-cart"></button>
+                    <button class="btn-add-cart" type="submit"></button>
                     <img src="../../template/bit.team/img/system_oplat/op1.png" alt="">
                     <input type="text" id="1" name="1" placeholder="Введите реквизиты">
                     <div class="clear"></div>

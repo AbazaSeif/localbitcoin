@@ -16,7 +16,7 @@ foreach ($items as $value) {
                 <select class="select-2-top" name="currency">
                     <option disabled>Выберите валюту</option>
                     <option value = "1">USD</option>    
-                    <option value = "2">RUR</option>
+                    <option value = "2" selected>RUR</option>
                 </select>
                 <select class="select-1-top" name="payment">
                     <option disabled>Выберите способ оплаты</option>

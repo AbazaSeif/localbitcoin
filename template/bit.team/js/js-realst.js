@@ -34,13 +34,13 @@ $(document).ready(function() {
     $('.reg-btn-bot').mouseleave(function() {
         $('.reg-btn-bot').removeClass('animated shake');
     });
-    // $(".btn-new-cart").toggle(function() { 
-    //     $(".block-system-cart").slideDown();
-    //   },  
-    //   function() { 
-    //     $(".block-system-cart").slideUp(); 
-    //   }
-    // );
+    $(".btn-new-cart").toggle(function() { 
+        $(".block-system-cart").slideDown();
+       },  
+       function() { 
+         $(".block-system-cart").slideUp(); 
+       }
+     );
 
     $("#btn-sys-1").click(function(){
         $("#system_id").val("6");
@@ -135,7 +135,7 @@ $(document).ready(function() {
     // });
 
 
-    $("#add_paymethod").click(function () {
+    $(".btn-add-cart").click(function () {
         var system_id = $("#system_id").val();
         if(system_id.length > 0)
         {

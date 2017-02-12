@@ -1841,8 +1841,9 @@ height: 58px;
 }
 
 .in-lk-1 img{
+    width: 45px;
     float: left;
-    /*margin-left: 10px;*/
+    margin-left: 10px;
 }
 .in-lk-1 input{
     background: transparent;
@@ -1854,7 +1855,7 @@ height: 58px;
     padding-left: 20px;
 }
 .in-lk-1 button{
-    background: url("/img/gal.png") no-repeat;
+    background: url("../img/gal.png") no-repeat;
     border: 0;
     width: 10px;
     height: 10px;
@@ -2421,6 +2422,7 @@ height: 58px;
     border-radius: 3px;
     background: #f1f2f4;
     padding: 17px 20px;
+    display: none;
 }
 
 .block-system-cart-2 {
@@ -2603,4 +2605,13 @@ height: 58px;
     margin: 15px 0px;
     border-radius: 5px;
     color: white;
+}
+
+.rm-cart{
+    color: #01ABE8;
+    float: right;
+    position: relative;
+    left: -20px;
+    top: 10px;
+    cursor: pointer;
 }

@@ -18,7 +18,10 @@ class CabinetController
         {
             Router::headerLocation();
         }
-        
+        if(isset($params['get']['rm']))
+        {
+            User::rmRequisite($params['get']['rm']);
+        }
         $chosen_type = isset($params['post']['chosen_type']) ? $params['post']['chosen_type'] : false;
         if($chosen_type !== false&&$chosen_type != "a")
         {
@@ -56,6 +59,10 @@ class CabinetController
         if(User::isGuest())
         {
             Router::headerLocation('/user/signup');
+        }
+        if(isset($params['get']['rm']))
+        {
+            User::rmRequisite($params['get']['rm']);
         }
         $payment_id = $currency_id = $price = $min_amount = $max_amount = $time_of_work = $comment = $expires_in = false;
         $submit = false;
@@ -496,7 +503,8 @@ class CabinetController
             $errors[] = 'Ошибка в ads_id';
         }
         $adses = Advertisement::getAdsesByUserId(User::getUserIdFromSession());
-        $requistes = User::getUserRequisitesById($author_ads);
+        if(isset($author_ads))
+            $requistes = User::getUserRequisitesById($author_ads);
         require_once(ROOT.'/views/cabinet/info.php');
         return true;
     }

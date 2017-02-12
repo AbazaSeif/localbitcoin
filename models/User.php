@@ -696,5 +696,15 @@ class User
         }
         return $mass;
     }
+    
+    public static function rmRequisite($id)
+    {
+        $sql = "DELETE FROM `requisites` WHERE `id` = :id";
+
+        $result = $GLOBALS['DBH']->prepare($sql);
+        $result->bindParam(':id', $id, PDO::PARAM_INT);
+        
+        return $result->execute();
+    }
 
 }

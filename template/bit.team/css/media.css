@@ -1,17 +1,24 @@
 @media screen and (max-width: 768px){
-.menu-phone{
-	display: block;
+	.list-stat li {
+    width: 90%;
+    float: none;
+    margin: 5px auto;
 }
-
-.block-info-content-1{
+	.balance-lk-main {
+    margin: 0 auto;
+    float: none;
+}
+	.menu-phone{
+		display: block;
+	}
+	.block-info-content-1{
 	width:100%;
-	float: none;
-}
 
-.in-lk-1{
+	float: none;
+	}
+	.in-lk-1{
 	width: 87%;
 }
-
 .btn-popol{
 	margin: 5px auto;
 	float: none;
@@ -40,6 +47,7 @@
 	width: 100%;
 	float: none;
 	padding-top: 25px;
+	text-align: center;
 }
 	.wrapper{
 	width: 98%;
@@ -78,9 +86,6 @@
 	.block-video {
 	width: 100%;
 	margin-bottom: 25px;
-	}
-	.block-video video{
-		max-width: 100%;
 	}
 	.block-info{
 	width: 100%;
@@ -148,19 +153,17 @@
 	padding-left: 0;
 	padding-top: 30px;
 	}
-	.qr-img {
-		margin-top: -112px;
+
+	.system-oplat-v-text{
+		width: 100%;
+		margin-left: 0;
+		margin-top: 15px;
 	}
 }
 @media screen and (max-width: 600px){
 	.table-1 td {
 	font: 11px AndaleBold;
-	padding-right: 3px;
 	}
-		.table-1 th{
-	padding-right: 3px;
-	}
-
 	.info-balance{
 		position: relative;
 		width: 100%;
@@ -177,6 +180,16 @@
 	}
 	.block-nav-lk li{
 	padding-right: 10px;
+	}
+	.system-oplat-v p{
+		text-align: center;
+		float: none;
+		margin-right: 0;
+		padding-top:0;
+		margin-bottom: 15px;
+	}
+	.system-oplat-v{
+		text-align: center;
 	}
 
 }
@@ -195,7 +208,6 @@
 	margin-bottom: 15px;
 	text-align: center;
 	}
-
 	.btn-sale-main, .btn-bue-main{
 	width: 50%;
 	height: 56px;
@@ -220,6 +232,59 @@
 	float: none;
 	margin-bottom: 25px;
 }
+	.itog-summ{
+		width: 100%;
+		text-align: center;
+	}
+	.itog-summ input{
+		width: 100%;
+		margin-bottom: 40px;
+	}
+	.btn-withdraw{
+		width: 100%;
+		height: 60px;
+		line-height: 0;
+		float: none;
+	}
+	.checket-plat{
+		width: 180px;
+		margin: 10px auto;
+	}
+	.block-system-cart-2{
+		width: 200px;
+
+	}
+	.block-system-cart-2 li{
+		margin-bottom: 4px;
+	}
+	.in-lk-2 {
+		width: 100%;
+		height: 37px;
+		padding-top: 7px;
+		background: #f1f2f4;
+		margin: 0 auto;
+	}
+	.in-lk-2 img{
+		margin-left: 0;
+	}
+	.in-lk-2 input{
+		width: 120px;
+	}
+	.btn-create {
+		width: 100%;
+		height: 78px;
+		font: 14px AndaleBold;
+	}
+	.newob-create {
+		float:none;
+		margin-bottom: 50px;
+		margin-top: 20px;
+	}
+
+	.btn-create i {
+		position: absolute;
+		left: 30px;
+	}
 }
 @media screen and (max-width: 320px){
 	.table-lk-3 th{

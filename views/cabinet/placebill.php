@@ -40,6 +40,7 @@
                     <?php foreach ($requistes as $req): ?>
                         <div class="container-lk-1">
                             <div class="in-lk-1">
+                                <a class="fa fa-times rm-cart" style="top: 0px;" aria-hidden="true" href="/cabinet/placebill?rm=<?= $req['id'] ?>"></a>
                                 <img src="../../template/bit.team/img/system_oplat/op<?= $req['system_id'] ?>.png" alt="">
                                 <span class="text-lk-add"><?= $req['card_num'] ?></span>
                                 <div class="clear"></div>
@@ -53,7 +54,7 @@
                         <input type="hidden" id="user_id" value="<?= User::getUserIdFromSession()?>">
                         <div class="container-lk-1" id="sys-1">
                         <div class="in-lk-1">
-                            <button class="btn-add-cart"></button>
+                            <button class="btn-add-cart" type="button"></button>
                             <img src="../../template/bit.team/img/system_oplat/op6.png" alt="">
                             <input type="text" placeholder="Введите реквизиты" id="6">
                             <div class="clear"></div>
@@ -61,7 +62,7 @@
                         </div>
                         <div class="container-lk-1" id="sys-2">
                         <div class="in-lk-1">
-                            <button class="btn-add-cart"></button>
+                            <button class="btn-add-cart" type="button"></button>
                             <img src="../../template/bit.team/img/system_oplat/op5.png" alt="">
                             <input type="text" placeholder="Введите реквизиты" id="5">
                             <div class="clear"></div>
@@ -69,7 +70,7 @@
                         </div>
                         <div class="container-lk-1" id="sys-3">
                         <div class="in-lk-1">
-                            <button class="btn-add-cart"></button>
+                            <button class="btn-add-cart" type="button"></button>
                             <img src="../../template/bit.team/img/system_oplat/op4.png" alt="">
                             <input type="text" placeholder="Введите реквизиты" id="4">
                             <div class="clear"></div>
@@ -77,7 +78,7 @@
                         </div>
                         <div class="container-lk-1" id="sys-4">
                         <div class="in-lk-1">
-                            <button class="btn-add-cart"></button>
+                            <button class="btn-add-cart" type="button"></button>
                             <img src="../../template/bit.team/img/system_oplat/op3.png" alt="">
                             <input type="text" placeholder="Введите реквизиты" id="3">
                             <div class="clear"></div>
@@ -85,7 +86,7 @@
                         </div>
                         <div class="container-lk-1" id="sys-5">
                         <div class="in-lk-1">
-                            <button class="btn-add-cart"></button>
+                            <button class="btn-add-cart" type="button"></button>
                             <img src="../../template/bit.team/img/system_oplat/op2.png" alt="">
                             <input type="text" placeholder="Введите реквизиты" id="2">
                             <div class="clear"></div>
@@ -93,7 +94,7 @@
                         </div>
                         <div class="container-lk-1" id="sys-6">
                         <div class="in-lk-1">
-                            <button class="btn-add-cart"></button>
+                            <button class="btn-add-cart" type="button"></button>
                             <img src="../../template/bit.team/img/system_oplat/op1.png" alt="">
                             <input type="text" placeholder="Введите реквизиты" id="1">
                             <div class="clear"></div>
@@ -104,7 +105,7 @@
                     </a>
                 </div>
 
-                <div class="block-system-cart block-system-cart-2">
+                <div class="block-system-cart">
                     <ul>
                         <li>
                             <div class="sysOp" id="btn-sys-1">
@@ -139,10 +140,9 @@
                     </ul>
                     <div class="clear"></div>
                 </div>
-                <input type="number" step="0.1" name="price" class="inp-newob" style="width: 45%;">
-                <span style="color: #666;font-style: italic;"><span class="input-group-addon">%</span>Размер прибыли, которую вы хотите получить сверх рыночной цены</span>
-                <input style="padding-right:5px" type="number" step="0.1" value="0" name="min_amount" class="inp-newob"><span style="color: #666;font-style: italic;">Минимальный лимит транзакции</span>
-                <input style="padding-right:5px" type="number" step="0.1" value="0" name="max_amount" class="inp-newob"><span style="color: #666;font-style: italic;">Максимальный лимит транзакции</span>
+                <input type="number" step="0.1" name="price" class="inp-newob-2" placeholder="Размер прибыли которую вы хотите получить в %">
+                <input style="padding-right:5px" type="number" step="0.1" name="min_amount" class="inp-newob" placeholder="Минимальный лимит транзакций">
+                <input style="padding-right:5px" type="number" step="0.1" name="max_amount" class="inp-newob" placeholder="Максимальный лемит транзакций">
                 <textarea class="are-new" name="comment" placeholder = "Комментарий к объявлению"><?php isset($comment) ? print $comment : ''; ?></textarea>
                 <input class="inp-newob" type="password" name="password" placeholder="Пароль">
             </div>
