@@ -41,9 +41,6 @@
 
             </div>
         </div>
-        <button class="btn-info-mess">
-            <p>2</p>
-        </button>
         <h4>Пользователь: <span class="color-b"><?= $user->username ?></span>
         <p class="online-lk"> Online</p>
     </div>

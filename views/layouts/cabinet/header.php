@@ -65,6 +65,11 @@ if (!isset($user)) {
                     <div class="top-block-2">
                         <div class="block-lk-and-reg">
                             <div class="user-lk-link" style="width: 280px;">
+                                <a href="#" class="top-yved-btn">
+                                    <span class="col-opov-top">
+                                        3
+                                    </span>
+                                </a>
                                 <div class="ava-user" style="width: 60px;">
                                     <a href="/cabinet"><img src="/template/bit.team/img/ava-user.png" alt=""></a>
                                 </div>

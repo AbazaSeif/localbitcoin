@@ -77,7 +77,12 @@ if(!User::isGuest() && !isset($coinbase))
                                 <a class="menu-phone"></a>
 <?php else: ?>
                                 <div class="user-lk-link" style="width: 280px;">
-                                    <div class="ava-user">
+                                <a href="#" class="top-yved-btn">
+                                    <span class="col-opov-top">
+                                        3
+                                    </span>
+                                </a>
+                                <div class="ava-user">
                                     <a href="/cabinet"><img src="/template/bit.team/img/ava-user.png" alt=""></a>
                                 </div>
                                 <div class="info-lk-top-user">

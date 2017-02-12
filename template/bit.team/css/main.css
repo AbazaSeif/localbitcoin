@@ -2615,3 +2615,29 @@ height: 58px;
     top: 10px;
     cursor: pointer;
 }
+
+.top-yved-btn {
+    display: block;
+    position: absolute;
+    background: url(../img/elements/btn-opov-2.png) no-repeat top center;
+    width: 38px;
+    height: 38px;
+    left: -58px;
+    top: 25px;
+}
+
+.col-opov-top {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: #fff;
+    border-radius: 50%;
+    border: 2px solid #009fe7;
+    color: #009fe7;
+    font: 11px AndaleBold;
+    line-height: 18px;
+    text-align: center;
+    padding: 0;
+    left: -10px;
+    top: -10px;
+}
