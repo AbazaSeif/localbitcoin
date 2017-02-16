@@ -9,12 +9,16 @@ $(document).ready(function() {
         $(".win-container").hide();
         $("#redact-lk-pass").hide();
         $("#redact-lk-mail").hide();
+        $("#redact-lk-phone").hide();
     });
     $("#btn-red-mail").click(function () {
         $("#redact-lk-mail").show();
     });
     $("#btn-red-pass").click(function () {
         $("#redact-lk-pass").show();
+    });
+    $("#btn-red-phone").click(function () {
+        $("#redact-lk-phone").show();
     });
     $('.inp-btn-popap').mouseenter(function() {
         $('.inp-btn-popap').addClass('animated tada');
@@ -114,14 +118,14 @@ $(document).ready(function() {
         else {
             $(".user-comment-error").css("display", "none");
         }
-    })
+    });
 
     $(".btn-serche").click(function() {
         if($(".inp-sum").val().length == 0) {
             alert("Введите сумму для поиска");
             return false;
         }
-    })
+    });
     
     // $('.btn-authorization').click(function() {
     //     if(document.getElementById('btn-double-auth').style.backgroundImage == 'url("http://localbitcoin/template/bit.team/img/elements/btn-faqt.png")'){
@@ -160,6 +164,7 @@ $(document).ready(function() {
                 });
             }
         }
-    }) 
+    });
+
 });
 

@@ -41,6 +41,11 @@
 
             </div>
         </div>
+
+        <form method="post" enctype='multipart/form-data'>
+            <input type="file" name="user_photo" accept="image/*" style="outline: none;">
+            <button type="submit" id="upload_new_photo">Изменить</button>
+        </form>
         <h4>Пользователь: <span class="color-b"><?= $user->username ?></span>
         <p class="online-lk"> Online</p>
     </div>
@@ -56,13 +61,14 @@
             </div>
             <div class="container-lk-1">
                 <a class="btn-redact-lk" id="btn-red-pass"></a>
-                <div class="in-lk-1" style="padding-left: 20px;">
+                <div class="in-lk-1">
                     <span class="text-lk-1">Пароль:</span>
-                    <span class="text-lk-2">***********</span>
+                    <span class="text-lk-2">**********</span>
                     <div class="clear"></div>
                 </div>
             </div>
             <div class="container-lk-1">
+                <a class="btn-redact-lk" id="btn-red-phone"></a>
                 <div class="in-lk-1">
                     <span class="text-lk-1">Номер телефона:</span>
                     <span class="text-lk-2"><?= '+'.$user->phone ?></span>

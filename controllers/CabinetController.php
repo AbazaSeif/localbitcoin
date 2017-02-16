@@ -23,6 +23,50 @@ class CabinetController
             User::rmRequisite($params['get']['rm']);
         }
         $chosen_type = isset($params['post']['chosen_type']) ? $params['post']['chosen_type'] : false;
+
+        $new_mail = isset($params['post']['new-mail']) ? $params['post']['new-mail'] : false;
+        $new_pass = isset($params['post']['new-pass']) ? $params['post']['new-pass'] : false;
+        $new_phone = isset($params['post']['new-phone']) ? $params['post']['new-phone'] : false;
+
+        if($new_mail) {
+            if(!User::updateEmail($new_mail, $_SESSION['id_user'])) {
+                $errors[] = "Не удалось изменить Email";
+            }
+        }
+
+        if($new_pass) {
+            if(!User::updatePassword($new_pass, $_SESSION['id_user'])) {
+                $errors[] = "Не удалось изменить пароль";
+            }
+        }
+
+        if($new_phone) {
+            if(!User::updatePhone($new_phone, $_SESSION['id_user'])) {
+                $errors[] = "Не удалось изменить телефон";
+            }
+        }
+
+        // Изменение аватара пользователя
+        if(isset($_FILES['user_photo'])&&($_FILES['user_photo']['type'] == "image/jpeg"||$_FILES['user_photo']['type'] == "image/png"))
+        {
+            if(file_exists("images/".$_SESSION['id_user'].".png")) {
+                unlink("images/".$_SESSION['id_user'].".png");
+            }
+
+            if(file_exists("images/".$_SESSION['id_user'].".jpg")) {
+                unlink("images/".$_SESSION['id_user'].".jpg");
+            }
+
+            if(file_exists("images/".$_SESSION['id_user'].".jpeg")) {
+                unlink("images/".$_SESSION['id_user'].".jpeg");
+            }
+
+            $ext = explode(".", $_FILES['user_photo']['name']);
+            $ext = $ext[count($ext)-1];
+            $uploadfile = "images/".$_SESSION['id_user'].".".$ext;
+            $success = move_uploaded_file($_FILES['user_photo']['tmp_name'], $uploadfile);
+        }                
+
         if($chosen_type !== false&&$chosen_type != "a")
         {
             $chosen_type_num = $chosen_type === false ? false : $params['post'][$chosen_type];
@@ -489,7 +533,8 @@ class CabinetController
                 {
                     if(isset($_FILES['f'])&&($_FILES['f']['type'] == "image/jpeg"||$_FILES['f']['type'] == "image/png"))
                     {
-                        $ext = explode(".", $_FILES['f']['name'])[1];
+                        $ext = explode(".", $_FILES['f']['name']);
+                        $ext = $ext[count($ext)-1];
                         $uploadfile = "images/t".$id.".".$ext;
                         move_uploaded_file($_FILES['f']['tmp_name'], $uploadfile);
                     }

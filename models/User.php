@@ -626,7 +626,7 @@ class User
 
     public static function getUserByUsername($username)
     {
-        $sql_id = 'SELECT id_user,username,email,phone,count_of_deals FROM users WHERE username=\''.$username.'\'';
+        $sql_id = "SELECT id_user,username,email,phone,count_of_deals,password FROM users WHERE username='$username'";
 
         $result = $GLOBALS['DBH']->prepare($sql_id);
         $result->execute();
@@ -707,4 +707,45 @@ class User
         return $result->execute();
     }
 
+    public static function updateEmail($new_mail, $user_id)
+    {
+        $sql = "UPDATE users SET email = '$new_mail' WHERE id_user = $user_id";
+        $result = $GLOBALS['DBH']->prepare($sql);
+        
+        return $result->execute();
+    }
+
+    public static function updatePassword($new_pass, $user_id)
+    {
+        $new_pass = password_hash($new_pass, PASSWORD_DEFAULT);
+        $sql = "UPDATE users SET password = '$new_pass' WHERE id_user = $user_id";
+        $result = $GLOBALS['DBH']->prepare($sql);
+        
+        return $result->execute();
+    }
+
+    public static function updatePhone($new_phone, $user_id)
+    {
+        $sql = "UPDATE users SET phone = '$new_phone' WHERE id_user = $user_id";
+        $result = $GLOBALS['DBH']->prepare($sql);
+        
+        return $result->execute();
+    }
+
+    public static function getUserPhoto()
+    {
+        if(file_exists("images/".$_SESSION['id_user'].".png")) {
+            return "images/".$_SESSION['id_user'].".png";
+        }
+
+        if(file_exists("images/".$_SESSION['id_user'].".jpg")) {
+            return "images/".$_SESSION['id_user'].".jpg";
+        }
+
+        if(file_exists("images/".$_SESSION['id_user'].".jpeg")) {
+            return "images/".$_SESSION['id_user'].".jpeg";
+        }
+
+        return "images/nophoto.png";
+    }
 }

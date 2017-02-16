@@ -335,9 +335,9 @@
         <div class="chat-bue-2">
             <h4>Сколько вы хотите купить?</h4>
             <div class="block-ost-zav">
-                <form>
-                    <input type="text" value="250.25" class="inp-sale-3">
-                    <input type="text" value="25.25" class="inp-sale-4">
+                <form method="post">
+                    <input type="text" name="buy_in_currency" value="250.25" class="inp-sale-3">
+                    <input type="text" name="buy_in_btc" value="25.25" class="inp-sale-4">
                     <textarea class="area-bue" placeholder="Сообщите трейдеру контактную или другую необходимую
 информацию здесь (не обязательно)"></textarea>
                     <button type="submit" class="send-mess-btn">Отправить запрос</button>

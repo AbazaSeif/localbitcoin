@@ -6,8 +6,8 @@ foreach ($items as $value) {
 <div class="content-main">
     <?php if (count($adses) != 0 || (count($adses) == 0 && $search_conditions != '')): ?>
         <div class="block-btn-bur">
-            <a href="?type=sell" class="btn-sale-main <?php if ($type == 'sell') echo ' active-bue-m'; ?>">Быстрая продажа</a>
-            <a href="?type=buy" class="btn-bue-main <?php if ($type == 'buy') echo ' active-bue-m'; ?>">Быстрая покупка</a>
+            <a href="?type=sell" class="btn-sale-main <?php if ($type == 'sell') echo ' active-bue-m'; ?>">Продать BitCoin</a>
+            <a href="?type=buy" class="btn-bue-main <?php if ($type == 'buy') echo ' active-bue-m'; ?>">Купить BitCoin</a>
             <div class="clear"></div>
         </div>
         <div class="form-main-bue">

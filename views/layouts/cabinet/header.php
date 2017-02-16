@@ -9,6 +9,7 @@ if (!isset($user)) {
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="shortcut icon" type="image/x-icon" href="../../../template/bit.team/img/icon/favicon.ico">
         <link rel="stylesheet" type="text/css" href="../../../template/bit.team/css/main.css"/>
         <link rel="stylesheet" type="text/css" href="../../../template/bit.team/css/fonts.css"/>
         <link rel="stylesheet" type="text/css" href="../../../template/bit.team/css/media.css"/>
@@ -23,7 +24,7 @@ if (!isset($user)) {
             <div class="close-left"></div>
             <div class="close-right"></div>
             <div class="form-radact-win">
-                <form>
+                <form method="post">
                     <input type="text" name="new-mail" class="inp-new-mail" placeholder="Введите новый e-mail">
                     <button type="submit" class="save-red-btn">Сохранить</button>
                 </form>
@@ -33,13 +34,22 @@ if (!isset($user)) {
             <div class="close-left"></div>
             <div class="close-right"></div>
             <div class="form-radact-win">
-                <form>
-                    <input type="password" name="new-mail" class="inp-new-mail" placeholder="Введите новый пароль">
+                <form method="post">
+                    <input type="password" name="new-pass" class="inp-new-mail" placeholder="Введите новый пароль">
                     <button type="submit" class="save-red-btn">Сохранить</button>
                 </form>
             </div>
         </div>
-
+        <div class="wind-lk-con" id="redact-lk-phone">
+            <div class="close-left"></div>
+            <div class="close-right"></div>
+            <div class="form-radact-win">
+                <form method="post">
+                    <input type="text" maxlength="20" pattern="[0-9]*" name="new-phone" class="inp-new-mail" placeholder="Введите новый телефон">
+                    <button type="submit" class="save-red-btn">Сохранить</button>
+                </form>
+            </div>
+        </div>
         <div class="header">
             <div class="bg-top-header">
                 <div class="wrapper">
@@ -71,7 +81,7 @@ if (!isset($user)) {
                                     </span>
                                 </a>
                                 <div class="ava-user" style="width: 60px;">
-                                    <a href="/cabinet"><img src="/template/bit.team/img/ava-user.png" alt=""></a>
+                                    <a href="/cabinet"><img width="53" height="53" src="<?= User::getUserPhoto() ?>" alt=""></a>
                                 </div>
                                 <div class="info-lk-top-user">
                                     <a href="/cabinet" class="top-red-btn-lk"></a>
@@ -131,7 +141,7 @@ if (!isset($user)) {
                                 <a href="/cabinet/refill" <?php if(isset($currloc)&&$currloc == "refill") { ?> id="currloc" <?php } ?> ><span class="line-menu"></span>Пополнить/Вывести</a>
                             </li>
                             <li>
-                                <a href="/cabinet/active" <?php if(isset($currloc)&&$currloc == "active") { ?> id="currloc" <?php } ?> ><span class="line-menu"></span>История сделок/объявлений</a>
+                                <a href="/cabinet/active" <?php if(isset($currloc)&&$currloc == "active") { ?> id="currloc" <?php } ?> ><span class="line-menu"></span>Мои сделки</a>
                             </li>
                             <li>
                                 <a href="/cabinet/adses" <?php if(isset($currloc)&&$currloc == "adses") { ?> id="currloc" <?php } ?> ><span class="line-menu"></span>Архив сделок</a>

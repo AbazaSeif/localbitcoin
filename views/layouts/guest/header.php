@@ -12,6 +12,7 @@ if(!User::isGuest() && !isset($coinbase))
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="shortcut icon" type="image/x-icon" href="../../../template/bit.team/img/icon/favicon.ico">
         <link rel="stylesheet" type="text/css" href="../../../template/bit.team/css/main.css"/>
         <link rel="stylesheet" type="text/css" href="../../../template/bit.team/css/fonts.css"/>
         <link rel="stylesheet" type="text/css" href="../../../template/bit.team/css/media.css"/>
@@ -83,7 +84,7 @@ if(!User::isGuest() && !isset($coinbase))
                                     </span>
                                 </a>
                                 <div class="ava-user">
-                                    <a href="/cabinet"><img src="/template/bit.team/img/ava-user.png" alt=""></a>
+                                    <a href="/cabinet"><img width="53" height="53" src="<?= User::getUserPhoto() ?>" alt=""></a>
                                 </div>
                                 <div class="info-lk-top-user">
                                     <a href="/cabinet" class="top-red-btn-lk"></a>
