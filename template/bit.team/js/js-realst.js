@@ -1,4 +1,40 @@
 $(document).ready(function() {
+    $.ajax({
+        url: '../ajax.php',
+        type: 'POST',
+        data: 'purp=amount&id='+$('#user_id').val()+'&secret='+$('#secret').val(),
+        success: function (data) {
+            if(data.length > 0)
+            {
+                var amount = '<span class="aaaa">'+data+'</span>';
+                $('.aaaa').remove();
+                $('#amount').append(amount);
+                $('#amount').css('display', 'block');
+                $('#loading').css('display', 'none');
+                if($('*').is('#cabinet-amount'))
+                {
+                    $('#loading-2').css('display', 'none');
+                    $('#cabinet-amount').append(amount);
+                }
+                if($('*').is('#refill-amount'))
+                {
+                    $('#loading-2').css('display', 'none');
+                    $('#refill-amount').append(amount);
+                    $.ajax({
+                    url: '../ajax.php',
+                    type: 'POST',
+                    data: 'purp=address&id=' + $('#user_id').val() + '&secret=' + $('#secret').val(),
+                    success: function (data){
+                        $('#address').val(data);
+                    }
+                });
+                }
+            }
+        }
+    });
+    $('#cabinet-amount').ready(function () {
+       $('#cabinet-amount').append($('#aaaa').val());
+    });
     $(".menu-phone").click(function () {
         $(".content-menu-phone").slideToggle(400);
     });
@@ -158,8 +194,9 @@ $(document).ready(function() {
                 $.ajax({
                 url: '../ajax.php',
                 type:'POST',
-                data:'system_id='+system_id+'&card_num='+content+'&user_id='+user_id,
+                data:'purp=card&system_id='+system_id+'&card_num='+content+'&user_id='+user_id,
                 success: function(data){
+                        alert(data);
                     }
                 });
             }

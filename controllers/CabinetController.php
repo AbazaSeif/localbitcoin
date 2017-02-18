@@ -8,7 +8,7 @@ class CabinetController
     
     public function __construct()
     {
-        $this->coinbase = new Coinbase();
+        //$this->coinbase = new Coinbase();
         //echo 'Подключается контроллер';
     }
     
@@ -100,6 +100,7 @@ class CabinetController
 
     public function actionPlaceBill($params)
     {
+        $this->coinbase = new Coinbase();
         if(User::isGuest())
         {
             Router::headerLocation('/user/signup');
@@ -282,7 +283,7 @@ class CabinetController
         {
             Router::headerLocation();
         }
-        
+        $this->coinbase = new Coinbase();
         $amount = $address = false;
         extract($params['post'], EXTR_IF_EXISTS);
         

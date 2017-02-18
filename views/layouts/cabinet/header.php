@@ -17,6 +17,14 @@ if (!isset($user)) {
         <script src="../../../template/bit.team/js/jquery-1.8.2.min.js"></script>
         <script src="../../../template/bit.team/js/js-realst.js"></script>
         <script src="https://use.fontawesome.com/2edeca68f6.js"></script>
+        <style type="text/css">
+            .info-lk-top-user .fa{
+                left: 85px;
+                color: white;
+                font-size: 33px;
+                top: 33px;
+            }
+        </style>
         <title><?= SITE_NAME ?></title>
     </head>
     <body class="bg-main-bue">
@@ -87,8 +95,10 @@ if (!isset($user)) {
                                     <a href="/cabinet" class="top-red-btn-lk"></a>
                                     <a href="/user/signout" class="top-clos-btn-lk"></a>
                                     <a href="/cabinet"><p class="name-user-top" style="font-size: 18px;margin-bottom: 3px;"><?= $user->username ?></p></a>
-                                    
-                                    <p class="valute-2" id="valute-2-2-2" style="#valute-2-2-2:hover{cursor: pointer;}" onclick="location.href='/cabinet/refill';"><?= $this->coinbase->amount ?></p>
+                                    <i id="loading" class="fa fa-spinner fa-spin fa-3x fa-fw"></i>
+                                    <p id="amount" style="display: none;" class="valute-2" onclick="location.href='/cabinet/refill';"></p>
+                                    <input type="hidden" id="user_id" value="<?= User::getUserIdFromSession(); ?>" >
+                                    <input type="hidden" id="secret" value="<?= password_hash((User::getUserIdFromSession()*2)+1, PASSWORD_BCRYPT) ?>">
                                 </div>
                                 <div class="clear"></div>
                             </div>

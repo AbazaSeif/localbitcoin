@@ -220,7 +220,8 @@
     </div>
     <div class="btn-link-lk">
         <p class="balance-lk-main">
-            Баланс BTC: <span class="org-color"><?php echo $this->coinbase->amount?></span>
+            Баланс BTC: <span class="org-color" id="cabinet-amount"></span>
+            <i style="position: relative;left: 0px;top:3px;font-size: 22px;" id="loading-2" class="fa fa-spinner fa-spin fa-3x fa-fw"></i>
         </p>
         <a href="/cabinet/refill" class="btn-popol"></a>
         <a href="/cabinet/withdraw" class="btn-viv"></a>

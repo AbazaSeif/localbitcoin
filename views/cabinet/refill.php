@@ -9,7 +9,8 @@
             </div>
             <div class="form-newob">
                 <p class="balance_add_btc">Ваш баланс: 
-                    <span style="color: black; font-weight:900;"><?= $this->coinbase->amount ?> </span>BTC
+                    <span style="color: black; font-weight:900;" id="refill-amount"></span>BTC
+                    <i style="position: relative;left: 0px;top:3px;font-size: 22px;" id="loading-2" class="fa fa-spinner fa-spin fa-3x fa-fw"></i>
                 </p>
                 <p class="info_add_btc">Адрес для пополнения</p>
                 <input type="text" class="inp-newob-3" placeholder = "Адрес" maxlength="40">
@@ -30,8 +31,8 @@
                 Принять Bitcoin
             </div>
             <div class="form-newob">
-                <p class="info_get_btc">Используйте Bitcoin-адрес для получения биткоинов</p>
-                <input type="text" style="text-align:center;" value="<?= $this->coinbase->address ?>" readonly class="inp-newob-2">
+                <p class="info_get_btc">Используйте Bitcoin-адрес для получения биткоинов</p> 
+                <input id="address" type="text" style="text-align:center;" value="Подождите..." readonly class="inp-newob-2">
                 <div style="display:flex;flex-direction:column;align-items:center;">
                 <p class="info_get_btc">Или QR-код</p>
                 <img style="margin:auto;" src="../../template/bit.team/img/elements/q-code.png">
