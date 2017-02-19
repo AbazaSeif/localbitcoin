@@ -186,8 +186,8 @@ $(document).ready(function() {
                 var src = "../../template/bit.team/img/system_oplat/op" + system_id + ".png"
                 var img = '<img src="' + src + '">';
                 $('#' + system_id).val("");
-                var one = $('#insert_here').append('<div class="container-lk-1" id="container"></div');
-                var two = $('#container').append('<div class="in-lk-1" id="lk"></div>');
+                $('#insert_here').append('<div class="container-lk-1" id="container"></div');
+                $('#container').append('<div class="in-lk-1" id="lk"></div>');
                 $('#lk').append(img);
                 $('#lk').append('<span class="text-lk-add">' + content + '</span>');
                 $('#lk').append('<div class="clear">');

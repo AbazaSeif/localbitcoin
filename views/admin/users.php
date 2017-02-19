@@ -12,6 +12,20 @@
   <link href="../../template/bit.team/assets/css/custom.css" rel="stylesheet" />
   <!-- GOOGLE FONTS-->
   <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+  <style>
+      .container-lk-1{
+          padding-bottom: 20px;
+      }
+      .text-lk-add{
+          margin-right: 10px;
+      }
+      .rm-cart{
+          color: #428bca;
+      }
+      .rm-cart:hover{
+          cursor: pointer;
+      }
+  </style>
 </head>
 <body>
   <div id="wrapper">
@@ -85,7 +99,7 @@
                         <th>Объявления</th>
                         <th>Сообщения</th>
                         <th>Отзывы</th>
-                        <th>Активирован</th>
+                        <th>Active</th>
                         <th>Blocked?</th>
                         <th>Admin?</th>
                         <th></th>
@@ -95,23 +109,28 @@
                     <tbody>
                       <?php foreach ($usersList as $user): ?>
                         <tr>
-                          <td><?php echo $user['id_user']; ?></td>
-                          <td><?php echo $user['username']; ?></td>
-                          <td><?php echo $user['email']; ?></td>
-                          <td><?php echo $user['count_of_deals']; ?></td>
-                          <td><a href="/admin/ads?user_id=<?php echo $user['id_user']; ?>" title="Найти все объявления юзера"><i class="fa fa-search"></i> Показать</a></td>
-                          <td><a href="/admin/messages?user_id=<?php echo $user['id_user']; ?>" title="Найти все сообщения юзера"><i class="fa fa-search"></i> Найти</a></td>
-                          <td><a href="/admin/recall?user_id=<?php echo $user['id_user']; ?>" title="Найти все отзы о пользователе"><i class="fa fa-search"></i> Показать</a></td>
-                          <td><?php echo User::getStrVerifiedOrBlocked($user['verified']); ?></td>
-                          <td><?php echo User::getStrVerifiedOrBlocked($user['blocked']); ?></td>
-                          <td><?php User::isAdmin($user['id_user'])? print 'Да' : print 'Нет';?></td>
-                          <td><button onclick="change_user(this)" class="bt-clear-delete" title="Редактировать" data-toggle="modal" data-target="#edit"><i class="fa fa-pencil-square-o"></i></button></td>
-                          <td><button onclick="document.getElementById('user_id').value = <?= $user['id_user']?> " class="bt-clear-delete" title="Удалить" data-toggle="modal" data-target="#delete"><i class="fa fa-times"></i></button></td>
+                            <td><?php echo $user['id_user']; ?></td>
+                            <td class="login"><?php echo $user['username']; ?></td>
+                            <td><?php echo $user['email']; ?></td>
+                            <td><?php echo $user['count_of_deals']; ?></td>
+                            <td><a href="/admin/ads?user_id=<?php echo $user['id_user']; ?>" title="Найти все объявления юзера"><i class="fa fa-search"></i> Показать</a></td>
+                            <td><a href="/admin/messages?user_id=<?php echo $user['id_user']; ?>" title="Найти все сообщения юзера"><i class="fa fa-search"></i> Найти</a></td>
+                            <td><a href="/admin/recall?user_id=<?php echo $user['id_user']; ?>" title="Найти все отзы о пользователе"><i class="fa fa-search"></i> Показать</a></td>
+                            <td><?php echo User::getStrVerifiedOrBlocked($user['verified']); ?></td>
+                            <td><?php echo User::getStrVerifiedOrBlocked($user['blocked']); ?></td>
+                            <td><?php User::isAdmin($user['id_user'])? print 'Да' : print 'Нет';?></td>
+                            <td><button onclick="change_user(this)" class="bt-clear-delete" title="Редактировать" data-toggle="modal" data-target="#edit"><i class="fa fa-pencil-square-o"></i></button></td>
+                            <td><button onclick="document.getElementById('user_id').value = <?= $user['id_user']?> " class="bt-clear-delete" title="Удалить" data-toggle="modal" data-target="#delete"><i class="fa fa-times"></i></button></td>
                         </tr>
                       <?php endforeach; ?>
                     </tbody>
                   </table>
-                  <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <input type="hidden" id="selectedlogin" value="">
+                    <div style="display: none;" id="commission">Коммиссия на вывод: <input id="commission-value" style="width: 40px;" type="number" value="5"></div>
+                    <div id="pay_systems" style="display: none;padding-bottom: 10px;">Платежные системы:</div>
+                    <div id="cards">
+                    </div>
+                    <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
                       <div class="modal-content">
                         <div class="modal-header">

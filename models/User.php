@@ -482,7 +482,6 @@ class User
         if($id_user)
         {
             $sql = 'SELECT username FROM users WHERE id_user = :id_user';
-
             $result = $GLOBALS['DBH']->prepare($sql);
             $result->bindParam(':id_user', $id_user, PDO::PARAM_INT);
             $result->setFetchMode(PDO::FETCH_ASSOC);
@@ -496,6 +495,19 @@ class User
         else
         {
             return '';
+        }
+    }
+    
+    public static function getUseridByUsername($username)
+    {
+        $sql = 'SELECT `id_user` FROM `users` WHERE `username` = :username';
+        $result = $GLOBALS['DBH']->prepare($sql);
+        $result->bindParam(':username', $username, PDO::PARAM_STR);
+        $result->setFetchMode(PDO::FETCH_ASSOC);
+        $result->execute();
+        $row = $result->fetch();
+        if (is_array($row)) {
+            return $row['id_user'];
         }
     }
 
@@ -747,5 +759,18 @@ class User
         }
 
         return "images/nophoto.png";
+    }
+    
+    public static function getCommission()
+    {
+        $sql = "SELECT `commission` FROM `users` WHERE `id_user` = :id_user ";
+        $result = $GLOBALS['DBH']->prepare($sql);
+        $result->bindParam(':id_user', $_SESSION['id_user'], PDO::PARAM_INT);
+        $result->execute();
+        $row = $result->fetch();
+        if (isset($row['commission'])) 
+        {
+            return $row['commission'];
+        }
     }
 }

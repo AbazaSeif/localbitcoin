@@ -11,206 +11,56 @@
     ========================================================  */
 
 (function ($) {
-    "use strict";
-    var mainApp = {
-
-        main_fun: function () {
-            /*====================================
-            METIS MENU 
-            ======================================*/
-            $('#main-menu').metisMenu();
-
-            /*====================================
-              LOAD APPROPRIATE MENU BAR
-           ======================================*/
-            $(window).bind("load resize", function () {
-                if ($(this).width() < 768) {
-                    $('div.sidebar-collapse').addClass('collapse')
-                } else {
-                    $('div.sidebar-collapse').removeClass('collapse')
-                }
-            });
-
-            /*====================================
-            MORRIS BAR CHART
-         ======================================*/
-            Morris.Bar({
-                element: 'morris-bar-chart',
-                data: [{
-                    y: '2006',
-                    a: 100,
-                    b: 90
-                }, {
-                    y: '2007',
-                    a: 75,
-                    b: 65
-                }, {
-                    y: '2008',
-                    a: 50,
-                    b: 40
-                }, {
-                    y: '2009',
-                    a: 75,
-                    b: 65
-                }, {
-                    y: '2010',
-                    a: 50,
-                    b: 40
-                }, {
-                    y: '2011',
-                    a: 75,
-                    b: 65
-                }, {
-                    y: '2012',
-                    a: 100,
-                    b: 90
-                }],
-                xkey: 'y',
-                ykeys: ['a', 'b'],
-                labels: ['Series A', 'Series B'],
-                hideHover: 'auto',
-                resize: true
-            });
-
-            /*====================================
-          MORRIS DONUT CHART
-       ======================================*/
-            Morris.Donut({
-                element: 'morris-donut-chart',
-                data: [{
-                    label: "Download Sales",
-                    value: 12
-                }, {
-                    label: "In-Store Sales",
-                    value: 30
-                }, {
-                    label: "Mail-Order Sales",
-                    value: 20
-                }],
-                resize: true
-            });
-
-            /*====================================
-         MORRIS AREA CHART
-      ======================================*/
-
-            Morris.Area({
-                element: 'morris-area-chart',
-                data: [{
-                    period: '2010 Q1',
-                    iphone: 2666,
-                    ipad: null,
-                    itouch: 2647
-                }, {
-                    period: '2010 Q2',
-                    iphone: 2778,
-                    ipad: 2294,
-                    itouch: 2441
-                }, {
-                    period: '2010 Q3',
-                    iphone: 4912,
-                    ipad: 1969,
-                    itouch: 2501
-                }, {
-                    period: '2010 Q4',
-                    iphone: 3767,
-                    ipad: 3597,
-                    itouch: 5689
-                }, {
-                    period: '2011 Q1',
-                    iphone: 6810,
-                    ipad: 1914,
-                    itouch: 2293
-                }, {
-                    period: '2011 Q2',
-                    iphone: 5670,
-                    ipad: 4293,
-                    itouch: 1881
-                }, {
-                    period: '2011 Q3',
-                    iphone: 4820,
-                    ipad: 3795,
-                    itouch: 1588
-                }, {
-                    period: '2011 Q4',
-                    iphone: 15073,
-                    ipad: 5967,
-                    itouch: 5175
-                }, {
-                    period: '2012 Q1',
-                    iphone: 10687,
-                    ipad: 4460,
-                    itouch: 2028
-                }, {
-                    period: '2012 Q2',
-                    iphone: 8432,
-                    ipad: 5713,
-                    itouch: 1791
-                }],
-                xkey: 'period',
-                ykeys: ['iphone', 'ipad', 'itouch'],
-                labels: ['iPhone', 'iPad', 'iPod Touch'],
-                pointSize: 2,
-                hideHover: 'auto',
-                resize: true
-            });
-
-            /*====================================
-    MORRIS LINE CHART
- ======================================*/
-            Morris.Line({
-                element: 'morris-line-chart',
-                data: [{
-                    y: '2006',
-                    a: 100,
-                    b: 90
-                }, {
-                    y: '2007',
-                    a: 75,
-                    b: 65
-                }, {
-                    y: '2008',
-                    a: 50,
-                    b: 40
-                }, {
-                    y: '2009',
-                    a: 75,
-                    b: 65
-                }, {
-                    y: '2010',
-                    a: 50,
-                    b: 40
-                }, {
-                    y: '2011',
-                    a: 75,
-                    b: 65
-                }, {
-                    y: '2012',
-                    a: 100,
-                    b: 90
-                }],
-                xkey: 'y',
-                ykeys: ['a', 'b'],
-                labels: ['Series A', 'Series B'],
-                hideHover: 'auto',
-                resize: true
-            });
-           
-     
-        },
-
-        initialization: function () {
-            mainApp.main_fun();
-
-        }
-
-    }
-    // Initializing ///
-
-    $(document).ready(function () {
-        mainApp.main_fun();
+    $('.login').click(function(){
+        $('#selectedlogin').val(this.innerText);
+        var login = this.innerText;
+        $.ajax({
+            url: '../ajax.php',
+            type: 'POST',
+            data: 'purp=commission&login='+login ,
+            success: function (data){
+                $('#commission').css('display', 'block');
+                $('#commission-value').val(data);
+            }
+        });
+        $.ajax({
+            url: '../ajax.php',
+            type: 'POST',
+            data: 'purp=requistes&login='+login ,
+            success: function (data){
+                $('.container-lk-1').remove();
+                $('#pay_systems').css('display', 'block');
+                var requistes = JSON.parse(data);
+                requistes.forEach(function(item, i){
+                    var src = "../../template/bit.team/img/system_oplat/op" + item['system_id'] + ".png";
+                    var img = '<img src="' + src + '">';
+                    $('#' + item['system_id']).val("");
+                    $('#cards').append('<div class="container-lk-1" id="container'+i+'"></div');
+                    $('#container'+i).append('<div class="in-lk-1" id="lk'+i+'"></div>');
+                    $('#lk'+i).append(img);
+                    $('#lk'+i).append('<input id="'+item['id']+'" class="text-lk-add" value="'+item['card_num']+'">');
+                    $('#lk'+i).append('<span class="fa fa-times rm-cart" aria-hidden="true" onclick="rm_card('+item['id']+','+i+')"></span>');
+                    $('#lk'+i).append('<div class="clear">');
+                });
+                $('.text-lk-add').focusout(function (){ 
+                    var id = this.id;
+                    $.ajax({
+                        url: '../ajax.php',
+                        type: 'POST',
+                        data: 'purp=change_card&id=' + id +'&number=' + this.value
+                    });
+                });
+            }
+        });
     });
-
+    $('#commission-value').focusout(function(){
+        var login = $('#selectedlogin').val();
+        $.ajax({
+            url: '../ajax.php',
+            type: 'POST',
+            data: 'purp=setcommission&login='+login+'&value='+this.value
+        });
+    });
 }(jQuery));
 function change_user(item)
 {
@@ -238,4 +88,15 @@ function change_comm(item)
     var parr = item.parentElement.parentElement;
     document.getElementById('comment').value = parr.children[3].innerText;
     document.getElementById('edit_comm_id').value = parr.children[0].innerText;
+}
+
+function rm_card(id, i)
+{
+    $('#container'+i).remove();
+    $.ajax({
+        url: '../ajax.php',
+        type: 'POST',
+        data: 'purp=rm_card&id=' + id
+    });
+
 }
