@@ -159,7 +159,8 @@ class UserController
             $idUser = $_SESSION['possible_id'];
             $ga=new GoogleAuthenticator;
             $ga_secret = User::getGA($idUser);
-            $sqr = $ga->getUrl(User::getUsernameById($idUser),'bit.team',$ga_secret);
+            $username = User::getUsernameById($idUser);
+            $sqr = "https://chart.googleapis.com/chart?chs=200x200&chld=M|0&cht=qr&chl=otpauth://totp/$username?secret=$ga_secret";
             if($code) {
                 $ga = new GoogleAuthenticator;
                 $secret = $ga->getCode(User::getGA($idUser));
