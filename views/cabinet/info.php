@@ -332,7 +332,7 @@
     </div>
     <div class="right-bue-blok">
 
-        <div class="chat-bue-2">
+<!--        <div class="chat-bue-2">
             <h4>Сколько вы хотите купить?</h4>
             <div class="block-ost-zav">
                 <form method="post">
@@ -344,22 +344,20 @@
                 </form>
                 <div class="clear"></div>
             </div>
-        </div>
-
-        <?php if(!$isAuthor && $ads['type'] == 1 && (Agreement::getToIdByAds($ads_id)) == 0): ?>
-            <div class="chat-bue-2">
+        </div>-->
+        <?php if(!$isAuthor && $ads['type'] == 2 && (Agreement::getToIdByAds($ads_id)) == 0): ?>
+            <div class="chat-bue-2" style="margin-bottom: 100px;">
                 <h4>На какую сумму Вы хотите продать BTC (в <?= Currency::getStringName($ads['currency_id']) ?>)?</h4>
                 <div class="block-ost-zav">
                     <form method="post">
-                        <input type="text" name="agreeSum" pattern="^[ 0-9]+$" value="<?= $agreeSum ?>" class="inp-sale-3">
-                        <textarea name="message" class="area-bue" placeholder="Сообщите трейдеру контактную или другую необходимую информацию здесь (не обязательно; будет отображено в вашем приватном чате здесь)"><?= $message ?></textarea>
+                        <input type="text" name="agreeSum" pattern="^[ 0-9]+$" value="0" class="inp-sale-3-<?= $ads['currency_id']?>">
                         <button type="submit" name="agree" value="1" class="send-mess-btn">Отправить запрос</button>
                     </form>
                     <div class="clear"></div>
                 </div>
             </div>
         <?php elseif(!$isAuthor && $ads['type'] == 1 && $confirm === false && (Agreement::getToIdByAds($ads_id)) == $loggined_user): ?>
-            <div class="chat-bue-2">
+        <div class="chat-bue-2" style="margin-bottom: 100px;">
                 <h4>Сколько BTC перевести автору?</h4>
                 <div class="block-ost-zav">
                     <form method="post">
@@ -377,7 +375,7 @@
 
         <div class="chat-bue">
             <h4>Online чат</h4>
-            <div class="content-mess">
+            <div class="content-mess" style="max-height:550px;height: auto;">
                 <?php if(!empty($messages) && is_array($messages)): ?>
                     <?php foreach($messages as $message): ?>
                         <div class="mess-1">
@@ -396,7 +394,7 @@
             <div class="form-send-mess">
                 <form method="post">
                     <textarea name="message" class="text-mess-inp" placeholder="Введите сообщение"></textarea>
-                    <button type="submit" name="submit" value="1" class="send-mess-btn">Отправить запрос</button>
+                    <button style="width: 200px;" type="submit" name="submit" value="1" class="send-mess-btn">Отправить сообщение</button>
                     <div class="clear"></div>
                 </form>
             </div>

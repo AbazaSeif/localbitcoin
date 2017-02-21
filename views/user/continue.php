@@ -10,7 +10,7 @@
                 <?php endforeach; ?>
             </ul>
         </div>
-    <?php endif; ?>
+    <?php endif;if(User::isEnableTFA($_SESSION['possible_id'])){ ?>
     <form method="post" action="/user/continue">
         <div class="form-popap">
             <input style="width: 303px" type="text" name="code" placeholder="Проверочный код" required class="popap-inp">
@@ -22,4 +22,20 @@
             <button type="submit" value="1" class="inp-btn-popap">Войти</button>
         </div>
     </form>
+    <?php } else{ ?>
+    <form method="post" action="/user/continue">
+        <div class="form-popap">
+            <div style="text-align: center;font-size: 18.5px;padding: 5px;padding-top: 15px;">Ключ: <span><?php echo $ga_secret; ?></span></div>
+            <div style="text-align: center;font-size: 19px;padding: 5px;">Или </div>
+            <div style="text-align: center;font-size: 14.5px;padding: 5px;"><img src="<?=$sqr?>"> </div>
+            <input style="width: 303px" type="text" name="code" placeholder="Проверочный код" required class="popap-inp">
+            
+            <div class="clear"></div>
+            <div style="display: flex;justify-content: center;" class="g-recaptcha" data-sitekey="6LfJDRMUAAAAAG88RE0h_A0sGuACtO0bkEdO1s-3"></div>
+        </div>
+        <div class="btn-popap" style="width: 303px">
+            <button type="submit" value="1" class="inp-btn-popap">Войти</button>
+        </div>
+    </form>
+    <?php } ?>
 </div>

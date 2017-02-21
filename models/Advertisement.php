@@ -26,11 +26,9 @@ class Advertisement
         else
         {
             $sql = 'SELECT * FROM advertisements ';
-            if ($onlyActive && $search_condotions !== '') {
-                $sql .= $search_condotions. ' AND status = 0 ';
-            }
-            else {
-                $sql .= 'WHERE status = 0 ';
+            $sql .= $search_condotions;
+            if ($onlyActive) {
+                $sql.= ' AND status = 0 ';
             }
             $sql .= 'ORDER BY id_advertisement DESC';
 

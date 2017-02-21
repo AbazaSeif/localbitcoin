@@ -37,16 +37,9 @@ class Messages
         if(!$result)
             return false;
 
-        $i = 0;
         while ($row = $result->fetch())
         {
-            $messages[$i]['id_message'] = $row['id_message'];
-            $messages[$i]['message'] = $row['message'];
-            $messages[$i]['to_user_id'] = $row['to_user_id'];
-            $messages[$i]['from_user_id'] = $row['from_user_id'];
-            $messages[$i]['created_on'] = $row['created_on'];
-            $messages[$i]['ads_id'] = $row['ads_id'];
-            $i++;
+            $messages[] = $row;
         }
         return $messages;
     }

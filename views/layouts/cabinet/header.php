@@ -97,8 +97,6 @@ if (!isset($user)) {
                                     <a href="/cabinet"><p class="name-user-top" style="font-size: 18px;margin-bottom: 3px;"><?= $user->username ?></p></a>
                                     <i id="loading" class="fa fa-spinner fa-spin fa-3x fa-fw"></i>
                                     <p id="amount" style="display: none;" class="valute-2" onclick="location.href='/cabinet/refill';"></p>
-                                    <input type="hidden" id="user_id" value="<?= User::getUserIdFromSession(); ?>" >
-                                    <input type="hidden" id="secret" value="<?= password_hash((User::getUserIdFromSession()*2)+1, PASSWORD_BCRYPT) ?>">
                                 </div>
                                 <div class="clear"></div>
                             </div>

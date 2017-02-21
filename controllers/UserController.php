@@ -67,7 +67,7 @@ class UserController
                 $user = new User($idUser);
                 if($user->verified != 0)
                 {
-                    if(User::isEnableTFA($idUser))
+                    if(User::isEnableTFA($idUser)||User::isEnableGA($idUser))
                     {
                         $_SESSION['possible_id'] = $idUser;
                         Router::headerLocation('/user/continue');
@@ -150,9 +150,28 @@ class UserController
     {
         $code = false;
         extract($params['post'], EXTR_IF_EXISTS);
-        if(!$code&&isset($_SESSION['possible_id']))
+        if(!$code&&isset($_SESSION['possible_id'])&&User::isEnableTFA($_SESSION['possible_id']))
         {
             EmailActivation::sendTFACode(User::getMailById($_SESSION['possible_id']) ,User::setTFACode());;
+        }
+        elseif(User::isEnableGA($_SESSION['possible_id']))
+        {
+            $idUser = $_SESSION['possible_id'];
+            $ga=new GoogleAuthenticator;
+            $ga_secret = User::getGA($idUser);
+            $sqr = $ga->getUrl(User::getUsernameById($idUser),'bit.team',$ga_secret);
+            if($code) {
+                $ga = new GoogleAuthenticator;
+                $secret = $ga->getCode(User::getGA($idUser));
+                if ($secret == str_replace(" ", "", $_POST['code'])) {
+                    $user = new User($idUser);
+                    User::auth($idUser);
+                    User::updateUserAdses($idUser);
+                    Router::headerLocation('/cabinet/placebill');
+                } else {
+                    $errors[] = 'Неправильный проверочный код';
+                }
+            }
         }
         else if($code)
         {

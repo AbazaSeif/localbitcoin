@@ -2,7 +2,7 @@ $(document).ready(function() {
     $.ajax({
         url: '../ajax.php',
         type: 'POST',
-        data: 'purp=amount&id='+$('#user_id').val()+'&secret='+$('#secret').val(),
+        data: 'purp=amount',
         success: function (data) {
             if(data.length > 0)
             {
@@ -23,7 +23,7 @@ $(document).ready(function() {
                     $.ajax({
                     url: '../ajax.php',
                     type: 'POST',
-                    data: 'purp=address&id=' + $('#user_id').val() + '&secret=' + $('#secret').val(),
+                    data: 'purp=address',
                     success: function (data){
                         $('#address').val(data);
                     }
@@ -146,8 +146,8 @@ $(document).ready(function() {
       }
     );
 
-    $(".send-mess-btn").click(function() {
-        if($(".area-bue").val().length == 0) {
+    $("input.send-mess-btn").click(function() {
+        if($(".area-bue").val().length === 0) {
             $(".user-comment-error").css("display", "block");
             return false;
         }
@@ -196,7 +196,6 @@ $(document).ready(function() {
                 type:'POST',
                 data:'purp=card&system_id='+system_id+'&card_num='+content+'&user_id='+user_id,
                 success: function(data){
-                        alert(data);
                     }
                 });
             }

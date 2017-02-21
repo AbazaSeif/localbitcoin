@@ -48,7 +48,7 @@
                 <?php foreach ($adses as $ads): ?>
                     <tr>
                         <td><span class="lrft-pol-td"> <?= User::getUsernameById($ads['user_id']) ?></span></td>
-                        <td><?= $ads['price'], Currency::getSymbol($ads['currency_id']) ?></td>
+                        <td><?= $ads['price']?>%</td>
                         <td><?= $ads['max_amount'] ?></td>
                         <td><?= date('d.m.Y', strtotime($ads['created_on'])) ?></td>
                         <td class="right-td"><span class="red-lk"><?= Advertisement::getInvertStringType($ads['type']) ?></span></td>

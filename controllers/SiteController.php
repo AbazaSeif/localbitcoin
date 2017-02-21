@@ -35,7 +35,7 @@ class SiteController
 
         $search_conditions = isset($params['post']['currency']) ? 'WHERE currency_id = \''. $params['post']['currency']. '\' AND min_amount <= '.str_replace(',', '.', $params['post']['sum']). ' AND max_amount >= '.str_replace(',', '.', $params['post']['sum']). ' AND payment_method = \''.$params['post']['payment'].'\'' : '';
         // echo $search_conditions;
-        $adses = Advertisement::getAdvertisementsList('Active', $search_conditions);
+        $adses = Advertisement::getAdvertisementsList(false, $search_conditions);
         $count_sell = 0;
         $count_buy = 0;
         foreach ($adses as $ads){

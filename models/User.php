@@ -773,4 +773,66 @@ class User
             return $row['commission'];
         }
     }
+    
+    public static function isEnableGA($id_user = false)
+    {
+        $sql = "SELECT `secretGA` FROM `users` WHERE `id_user` = :id_user ";
+        $result = $GLOBALS['DBH']->prepare($sql);
+        if(!$id_user)
+        {
+            $result->bindParam(':id_user', $_SESSION['id_user'], PDO::PARAM_INT);
+        }
+        else
+        {
+            $result->bindParam(':id_user', $id_user, PDO::PARAM_INT);
+        }
+        $result->execute();
+        $row = $result->fetch();
+        if (isset($row['secretGA'])&&strlen($row['secretGA']) > 0) 
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    
+    public static function enableGA()   
+    {
+        $ga = new GoogleAuthenticator;
+        $secret = $ga->generateSecret();
+        $sql = "UPDATE `users` SET `secretGA` = :secretGA WHERE `id_user` = :id_user ";
+        $result = $GLOBALS['DBH']->prepare($sql);
+        $result->bindParam(':id_user', $_SESSION['id_user'], PDO::PARAM_INT);
+        $result->bindParam(':secretGA', $secret, PDO::PARAM_STR);
+        $result->execute();
+    }
+    public static function disableGA()
+    {
+        $sql = "UPDATE `users` SET `secretGA` = '' WHERE `id_user` = :id_user ";
+        $result = $GLOBALS['DBH']->prepare($sql);
+        $result->bindParam(':id_user', $_SESSION['id_user'], PDO::PARAM_INT);
+        $result->execute();
+    }
+    
+    public static function getGA($id_user = false)
+    {
+        $sql = "SELECT `secretGA` FROM `users` WHERE `id_user` = :id_user ";
+        $result = $GLOBALS['DBH']->prepare($sql);
+        if(!$id_user)
+        {
+            $result->bindParam(':id_user', $_SESSION['id_user'], PDO::PARAM_INT);
+        }
+        else
+        {
+            $result->bindParam(':id_user', $id_user, PDO::PARAM_INT);
+        }
+        $result->execute();
+        $row = $result->fetch();
+        if (isset($row['secretGA'])&&strlen($row['secretGA']) > 0) 
+        {
+            return $row['secretGA'];
+        }
+    }
 }

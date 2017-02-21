@@ -1,5 +1,7 @@
 <?php
 $start = microtime(true);
+require_once './components/FixedByteNotation.php';
+require_once './components/GoogleAuthenticator.php';
 require 'vendor/autoload.php';
 
 define('_JEXEC', 1);

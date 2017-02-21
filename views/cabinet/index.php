@@ -86,7 +86,11 @@
             </div>
             <div class="container-lk-1">
                 <a href="/cabinet?tfa=1" class="<?php echo(User::isEnableTFA())?"btn-authorized":"btn-unauthorized" ?>" id="btn-double-auth"></a>
-                <div class="in-lk-1"><span class="text-lk-1" style="width:230px;">Двухфакторная авторизация</span></div>
+                <div class="in-lk-1"><span class="text-lk-1" style="width:300px;">Двухфакторная авторизация email</span></div>
+            </div>
+            <div class="container-lk-1">
+                <a href="/cabinet?GA=1" class="<?php echo(User::isEnableGA())?"btn-authorized":"btn-unauthorized" ?>" id="btn-double-auth"></a>
+                <div class="in-lk-1"><span class="text-lk-1" style="width:300px;">Двухфакторная авторизация <a href="https://support.google.com/accounts/answer/1066447?hl=ru" target="_blank">приложение</a></span></div>
             </div>
             <?php foreach ($requistes as $req): ?>
             <div class="container-lk-1">

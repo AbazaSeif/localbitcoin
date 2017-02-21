@@ -80,15 +80,30 @@ class CabinetController
             
 
         $from = isset($params['get']['from']) ? $params['get']['from'] : false;
+        //Включение двухфактооной аутентификации email
         $tfa = isset($params['get']['tfa']) ? $params['get']['tfa'] : false;
         if($tfa&&!User::isEnableTFA())
         {
             User::enableTFA();
+            User::disableGA();
         }
         else if($tfa)
         {
             User::disableTFA();
         }
+        //Включение двухфактооной аутентификации google
+        $GA = isset($params['get']['GA']) ? $params['get']['GA'] : false;
+        if($GA&&!User::isEnableGA())
+        {
+            User::enableGA();
+            User::disableTFA();
+        }
+        else if($GA)
+        {
+            User::disableGA();
+        }
+        
+        
         $adses = Advertisement::getAdsesByUserId(User::getUserIdFromSession());
         $all_comments = User::getUserCommentsById($_SESSION['id_user']);
         $comments_count = count($all_comments);
@@ -357,7 +372,6 @@ class CabinetController
 
             $author_ads = (int) $ads['user_id'];
             $loggined_user = (int) User::getUserIdFromSession();
-
             $isAuthor = $author_ads == $loggined_user ? true : false;
             if($isAuthor)
             {
@@ -460,10 +474,10 @@ class CabinetController
                                 //{
                                 //    $errors[] = 'Проблема с переводом денег';
                                 //}
-                             }
-                         }
+                                }
+                            }
                          
-                     }
+                        }
                         elseif(isset($params['post']['agree'])) //нажимаю на "я хочу перевести ему битки"
                         {
                             $coinbaseObj = new Coinbase();
